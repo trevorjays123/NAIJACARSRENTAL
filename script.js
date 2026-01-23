@@ -17,6 +17,7 @@ const carsData = [
         condition: "Foreign Used",
         color: "Silver",
         engine: "2.5L 4-Cylinder",
+        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=300&fit=crop&auto=format",
         description: "Clean Toyota Camry SE with low mileage. Full option with leather seats, reverse camera, and Bluetooth connectivity."
     },
     {
@@ -36,6 +37,7 @@ const carsData = [
         condition: "Foreign Used",
         color: "Black",
         engine: "2.0L Turbo",
+        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
         description: "Luxury Mercedes-Benz E300 with premium package. Panoramic sunroof, ambient lighting, and advanced safety features."
     },
     {
@@ -55,6 +57,7 @@ const carsData = [
         condition: "Foreign Used",
         color: "White",
         engine: "3.5L V6",
+        image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=300&fit=crop&auto=format",
         description: "Spacious Toyota Highlander XLE with third-row seating. Perfect for families. Well maintained with full service history."
     },
     {
@@ -74,6 +77,7 @@ const carsData = [
         condition: "Brand New",
         color: "Blue",
         engine: "1.5L Turbo",
+        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop&auto=format",
         description: "Brand new Honda Accord Sport for rent. Available with or without driver. Perfect for business trips and special occasions."
     },
     {
@@ -93,6 +97,7 @@ const carsData = [
         condition: "Foreign Used",
         color: "Grey",
         engine: "3.5L V6",
+        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
         description: "Premium Lexus RX 350 F-Sport with Mark Levinson sound system. Heads-up display and adaptive cruise control."
     },
     {
@@ -112,6 +117,7 @@ const carsData = [
         condition: "Foreign Used",
         color: "Black",
         engine: "3.0L Turbo",
+        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
         description: "Luxury BMW X5 xDrive40i available for rent. M-Sport package with premium interior. Driver available on request."
     },
     {
@@ -131,6 +137,7 @@ const carsData = [
         condition: "Foreign Used",
         color: "Red",
         engine: "2.0L 4-Cylinder",
+        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop&auto=format",
         description: "Stylish Hyundai Elantra with modern design. Apple CarPlay, Android Auto, and wireless charging."
     },
     {
@@ -150,12 +157,13 @@ const carsData = [
         condition: "Foreign Used",
         color: "White",
         engine: "4.5L V8 Diesel",
+        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
         description: "Powerful Toyota Land Cruiser VX with bulletproof option available. Full leather interior and premium sound system."
     },
     {
         id: 9,
-        name: "Kia Sportage 2022",
-        brand: "kia",
+        name: "Toyota Prado 2022",
+        brand: "toyota",
         type: "suv",
         category: "rent",
         price: 45000,
@@ -167,9 +175,10 @@ const carsData = [
         location: "Lagos",
         featured: false,
         condition: "Brand New",
-        color: "Silver",
-        engine: "2.0L 4-Cylinder",
-        description: "Compact SUV perfect for city driving and weekend getaways. Fuel efficient with modern safety features."
+        color: "Black",
+        engine: "2.7L 4-Cylinder",
+        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
+        description: "Powerful Toyota Prado SUV perfect for off-road adventures and city driving. Reliable with advanced safety features."
     },
     {
         id: 10,
@@ -188,6 +197,7 @@ const carsData = [
         condition: "Foreign Used",
         color: "Blue",
         engine: "2.3L EcoBoost",
+        image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=300&fit=crop&auto=format",
         description: "American muscle SUV with powerful EcoBoost engine. Third-row seating and advanced SYNC infotainment system."
     },
     {
@@ -207,6 +217,7 @@ const carsData = [
         condition: "Brand New",
         color: "Black",
         engine: "3.0L Inline-6 Turbo",
+        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
         description: "Ultimate luxury sedan for VIP transport. Chauffeur service available. Executive rear seating with massage function."
     },
     {
@@ -226,6 +237,7 @@ const carsData = [
         condition: "Foreign Used",
         color: "Grey",
         engine: "1.8L 4-Cylinder",
+        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=300&fit=crop&auto=format",
         description: "Reliable Toyota Corolla LE with excellent fuel economy. Toyota Safety Sense included. Perfect daily driver."
     }
 ];
@@ -312,11 +324,11 @@ function toggleMobileNav() {
 // ===== Render Cars =====
 function renderCars() {
     const carsToShow = filteredCars.slice(0, displayedCars);
-    
+
     carsGrid.innerHTML = carsToShow.map((car, index) => `
         <div class="car-card" style="animation-delay: ${index * 0.1}s" data-category="${car.category}" data-type="${car.type}">
             <div class="car-image">
-                <i class="fas fa-car"></i>
+                <img src="${car.image}" alt="${car.name}" loading="lazy" onerror="this.src='temp_image_1769120549642.webp'">
                 <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}">
                     ${car.category === 'sale' ? 'For Sale' : 'For Rent'}
                 </span>
@@ -460,7 +472,7 @@ function viewCarDetails(carId) {
     const modalContent = document.getElementById('carModalContent');
     modalContent.innerHTML = `
         <div class="car-modal-image">
-            <i class="fas fa-car"></i>
+            <img src="${car.image}" alt="${car.name}" loading="lazy" onerror="this.src='temp_image_1769120549642.webp'">
         </div>
         <div class="car-modal-details">
             <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}" style="display: inline-block; margin-bottom: 15px;">
@@ -480,7 +492,7 @@ function viewCarDetails(carId) {
             </div>
             <p style="color: #666; margin-bottom: 25px; line-height: 1.7;">${car.description}</p>
             <div class="car-modal-actions">
-                <a href="https://wa.me/2348012345678?text=Hi, I'm interested in the ${encodeURIComponent(car.name)} listed at ${encodeURIComponent(car.priceDisplay)}" 
+                <a href="https://wa.me/2348012345678?text=Hi, I'm interested in the ${encodeURIComponent(car.name)} listed at ${encodeURIComponent(car.priceDisplay)}"
                    class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
