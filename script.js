@@ -1,5 +1,17 @@
 console.log('NaijaAutos - Nigeria\'s Premier Car Sales & Rentals Platform');
 console.log('© 2026 NaijaAutos. All Rights Reserved.');
+
+// SVG Car Image Placeholders - Reliable, fast-loading SVG images
+const carSVGPlaceholder = (color, type) => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23${color};stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23${color}CC;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23bg)' width='400' height='300'/%3E%3Ctext x='50%25' y='45%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle'%3E${type}%3C/text%3E%3Ctext x='50%25' y='60%25' font-family='Arial' font-size='14' fill='white' text-anchor='middle' opacity='0.8'%3ENaijaAutos%3C/text%3E%3Ccircle cx='100' cy='220' r='30' fill='%23333'/%3E%3Ccircle cx='300' cy='220' r='30' fill='%23333'/%3E%3Ccircle cx='100' cy='220' r='15' fill='%23666'/%3E%3Ccircle cx='300' cy='220' r='15' fill='%23666'/%3E%3Crect x='80' y='170' width='240' height='50' rx='10' fill='%23ffffff40'/%3E%3C/svg%3E`;
+
+const carsData = [
+    {
+        id: 1,
+        name: "Toyota Camry SE 2022",
+        brand: "toyota",
+        type: "sedan",
+        category: "sale",
+        price: 18500000,
         priceDisplay: "₦18,500,000",
         year: 2022,
         mileage: "15,000 km",
@@ -10,7 +22,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "Silver",
         engine: "2.5L 4-Cylinder",
-        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('C0C0C0', 'Toyota Camry'),
         description: "Clean Toyota Camry SE with low mileage. Full option with leather seats, reverse camera, and Bluetooth connectivity."
     },
     {
@@ -30,7 +42,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "Black",
         engine: "2.0L Turbo",
-        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('1a1a1a', 'Mercedes-Benz'),
         description: "Luxury Mercedes-Benz E300 with premium package. Panoramic sunroof, ambient lighting, and advanced safety features."
     },
     {
@@ -50,7 +62,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "White",
         engine: "3.5L V6",
-        image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('F5F5F5', 'Toyota Highlander'),
         description: "Spacious Toyota Highlander XLE with third-row seating. Perfect for families. Well maintained with full service history."
     },
     {
@@ -70,7 +82,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Brand New",
         color: "Blue",
         engine: "1.5L Turbo",
-        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('2563EB', 'Honda Accord'),
         description: "Brand new Honda Accord Sport for rent. Available with or without driver. Perfect for business trips and special occasions."
     },
     {
@@ -90,7 +102,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "Grey",
         engine: "3.5L V6",
-        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('808080', 'Lexus RX'),
         description: "Premium Lexus RX 350 F-Sport with Mark Levinson sound system. Heads-up display and adaptive cruise control."
     },
     {
@@ -110,7 +122,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "Black",
         engine: "3.0L Turbo",
-        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('1a1a1a', 'BMW X5'),
         description: "Luxury BMW X5 xDrive40i available for rent. M-Sport package with premium interior. Driver available on request."
     },
     {
@@ -130,7 +142,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "Red",
         engine: "2.0L 4-Cylinder",
-        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('DC143C', 'Hyundai Elantra'),
         description: "Stylish Hyundai Elantra with modern design. Apple CarPlay, Android Auto, and wireless charging."
     },
     {
@@ -150,7 +162,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "White",
         engine: "4.5L V8 Diesel",
-        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('F5F5F5', 'Land Cruiser'),
         description: "Powerful Toyota Land Cruiser VX with bulletproof option available. Full leather interior and premium sound system."
     },
     {
@@ -170,7 +182,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Brand New",
         color: "Black",
         engine: "2.7L 4-Cylinder",
-        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('1a1a1a', 'Toyota Prado'),
         description: "Powerful Toyota Prado SUV perfect for off-road adventures and city driving. Reliable with advanced safety features."
     },
     {
@@ -190,7 +202,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "Blue",
         engine: "2.3L EcoBoost",
-        image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('2563EB', 'Ford Explorer'),
         description: "American muscle SUV with powerful EcoBoost engine. Third-row seating and advanced SYNC infotainment system."
     },
     {
@@ -210,7 +222,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Brand New",
         color: "Black",
         engine: "3.0L Inline-6 Turbo",
-        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('1a1a1a', 'Mercedes S-Class'),
         description: "Ultimate luxury sedan for VIP transport. Chauffeur service available. Executive rear seating with massage function."
     },
     {
@@ -230,7 +242,7 @@ console.log('© 2026 NaijaAutos. All Rights Reserved.');
         condition: "Foreign Used",
         color: "Grey",
         engine: "1.8L 4-Cylinder",
-        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=300&fit=crop&auto=format",
+        image: carSVGPlaceholder('808080', 'Toyota Corolla'),
         description: "Reliable Toyota Corolla LE with excellent fuel economy. Toyota Safety Sense included. Perfect daily driver."
     }
 ];
@@ -840,270 +852,6 @@ if ('serviceWorker' in navigator) {
         //     .catch(error => console.log('SW registration failed'));
     });
 }
-
-console.log('NaijaAutos - Nigeria\'s Premier Car Sales & Rentals Platform');
-console.log('© 2026 NaijaAutos. All Rights Reserved.');
-=======
-// ===== Sample Car Data =====
-const carsData = [
-    {
-        id: 1,
-        name: "Toyota Camry 2022",
-        brand: "toyota",
-        type: "sedan",
-        category: "sale",
-        price: 18500000,
-        priceDisplay: "₦18,500,000",
-        year: 2022,
-        mileage: "15,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: true,
-        condition: "Foreign Used",
-        color: "Silver",
-        engine: "2.5L 4-Cylinder",
-        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=300&fit=crop&auto=format",
-        description: "Clean Toyota Camry SE with low mileage. Full option with leather seats, reverse camera, and Bluetooth connectivity."
-    },
-    {
-        id: 2,
-        name: "Mercedes-Benz E300 2021",
-        brand: "mercedes",
-        type: "luxury",
-        category: "sale",
-        price: 45000000,
-        priceDisplay: "₦45,000,000",
-        year: 2021,
-        mileage: "22,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Abuja",
-        featured: true,
-        condition: "Foreign Used",
-        color: "Black",
-        engine: "2.0L Turbo",
-        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
-        description: "Luxury Mercedes-Benz E300 with premium package. Panoramic sunroof, ambient lighting, and advanced safety features."
-    },
-    {
-        id: 3,
-        name: "Toyota Highlander 2020",
-        brand: "toyota",
-        type: "suv",
-        category: "sale",
-        price: 28000000,
-        priceDisplay: "₦28,000,000",
-        year: 2020,
-        mileage: "35,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: false,
-        condition: "Foreign Used",
-        color: "White",
-        engine: "3.5L V6",
-        image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=300&fit=crop&auto=format",
-        description: "Spacious Toyota Highlander XLE with third-row seating. Perfect for families. Well maintained with full service history."
-    },
-    {
-        id: 4,
-        name: "Honda Accord 2023",
-        brand: "honda",
-        type: "sedan",
-        category: "rent",
-        price: 50000,
-        priceDisplay: "₦50,000/day",
-        year: 2023,
-        mileage: "8,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: true,
-        condition: "Brand New",
-        color: "Blue",
-        engine: "1.5L Turbo",
-        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop&auto=format",
-        description: "Brand new Honda Accord Sport for rent. Available with or without driver. Perfect for business trips and special occasions."
-    },
-    {
-        id: 5,
-        name: "Lexus RX 350 2021",
-        brand: "lexus",
-        type: "suv",
-        category: "sale",
-        price: 38000000,
-        priceDisplay: "₦38,000,000",
-        year: 2021,
-        mileage: "28,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Port Harcourt",
-        featured: false,
-        condition: "Foreign Used",
-        color: "Grey",
-        engine: "3.5L V6",
-        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
-        description: "Premium Lexus RX 350 F-Sport with Mark Levinson sound system. Heads-up display and adaptive cruise control."
-    },
-    {
-        id: 6,
-        name: "BMW X5 2022",
-        brand: "bmw",
-        type: "luxury",
-        category: "rent",
-        price: 120000,
-        priceDisplay: "₦120,000/day",
-        year: 2022,
-        mileage: "12,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Abuja",
-        featured: true,
-        condition: "Foreign Used",
-        color: "Black",
-        engine: "3.0L Turbo",
-        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
-        description: "Luxury BMW X5 xDrive40i available for rent. M-Sport package with premium interior. Driver available on request."
-    },
-    {
-        id: 7,
-        name: "Hyundai Elantra 2021",
-        brand: "hyundai",
-        type: "sedan",
-        category: "sale",
-        price: 12500000,
-        priceDisplay: "₦12,500,000",
-        year: 2021,
-        mileage: "20,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Ibadan",
-        featured: false,
-        condition: "Foreign Used",
-        color: "Red",
-        engine: "2.0L 4-Cylinder",
-        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop&auto=format",
-        description: "Stylish Hyundai Elantra with modern design. Apple CarPlay, Android Auto, and wireless charging."
-    },
-    {
-        id: 8,
-        name: "Toyota Land Cruiser 2020",
-        brand: "toyota",
-        type: "suv",
-        category: "sale",
-        price: 65000000,
-        priceDisplay: "₦65,000,000",
-        year: 2020,
-        mileage: "45,000 km",
-        transmission: "Automatic",
-        fuel: "Diesel",
-        location: "Lagos",
-        featured: true,
-        condition: "Foreign Used",
-        color: "White",
-        engine: "4.5L V8 Diesel",
-        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
-        description: "Powerful Toyota Land Cruiser VX with bulletproof option available. Full leather interior and premium sound system."
-    },
-    {
-        id: 9,
-        name: "Toyota Prado 2022",
-        brand: "toyota",
-        type: "suv",
-        category: "rent",
-        price: 45000,
-        priceDisplay: "₦45,000/day",
-        year: 2022,
-        mileage: "10,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: false,
-        condition: "Brand New",
-        color: "Black",
-        engine: "2.7L 4-Cylinder",
-        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&h=300&fit=crop&auto=format",
-        description: "Powerful Toyota Prado SUV perfect for off-road adventures and city driving. Reliable with advanced safety features."
-    },
-    {
-        id: 10,
-        name: "Ford Explorer 2021",
-        brand: "ford",
-        type: "suv",
-        category: "sale",
-        price: 32000000,
-        priceDisplay: "₦32,000,000",
-        year: 2021,
-        mileage: "30,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Enugu",
-        featured: false,
-        condition: "Foreign Used",
-        color: "Blue",
-        engine: "2.3L EcoBoost",
-        image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=300&fit=crop&auto=format",
-        description: "American muscle SUV with powerful EcoBoost engine. Third-row seating and advanced SYNC infotainment system."
-    },
-    {
-        id: 11,
-        name: "Mercedes-Benz S-Class 2023",
-        brand: "mercedes",
-        type: "luxury",
-        category: "rent",
-        price: 200000,
-        priceDisplay: "₦200,000/day",
-        year: 2023,
-        mileage: "5,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: true,
-        condition: "Brand New",
-        color: "Black",
-        engine: "3.0L Inline-6 Turbo",
-        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop&auto=format",
-        description: "Ultimate luxury sedan for VIP transport. Chauffeur service available. Executive rear seating with massage function."
-    },
-    {
-        id: 12,
-        name: "Toyota Corolla 2022",
-        brand: "toyota",
-        type: "sedan",
-        category: "sale",
-        price: 14000000,
-        priceDisplay: "₦14,000,000",
-        year: 2022,
-        mileage: "18,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Kano",
-        featured: false,
-        condition: "Foreign Used",
-        color: "Grey",
-        engine: "1.8L 4-Cylinder",
-        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=300&fit=crop&auto=format",
-        description: "Reliable Toyota Corolla LE with excellent fuel economy. Toyota Safety Sense included. Perfect daily driver."
-    }
-];
-
-// ===== DOM Elements =====
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-const carsGrid = document.getElementById('carsGrid');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const loadMoreBtn = document.getElementById('loadMoreBtn');
-const searchForm = document.getElementById('searchForm');
-const contactForm = document.getElementById('contactForm');
-const newsletterForm = document.getElementById('newsletterForm');
-const loginForm = document.getElementById('loginForm');
-const registerForm = document.getElementById('registerForm');
-
-// ===== State Variables =====
-let displayedCars = 6;
-let currentFilter = 'all';
-let filteredCars = [...carsData];
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
