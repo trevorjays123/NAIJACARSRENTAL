@@ -17,6 +17,16 @@
     --border-radius-sm: 8px;
 }
 
+/* ===== Page Load Animation ===== */
+body {
+    animation: fadeInPage 0.5s ease-in;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /* ===== Animations ===== */
 @keyframes fadeInUp {
     from {
@@ -819,10 +829,15 @@ img {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     animation: fadeInUp 0.6s ease forwards;
     opacity: 0;
+}
+
+.car-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .car-card:nth-child(1) { animation-delay: 0.1s; }
@@ -1048,12 +1063,18 @@ img {
     padding: 40px 30px;
     background: var(--text-white);
     border-radius: var(--border-radius);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid transparent;
     position: relative;
     overflow: hidden;
     animation: fadeInUp 0.6s ease forwards;
     opacity: 0;
+}
+
+.service-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 35px rgba(0, 135, 81, 0.2);
 }
 
 .service-card:nth-child(1) { animation-delay: 0.1s; }
@@ -1370,11 +1391,16 @@ img {
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
     animation: fadeInUp 0.6s ease forwards;
     opacity: 0;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
