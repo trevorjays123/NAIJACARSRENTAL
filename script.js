@@ -264,7 +264,53 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCars();
     initializeEventListeners();
     initializeScrollEffects();
+    initScrollAnimations();
 });
+
+// ===== Scroll-triggered Animations =====
+function initScrollAnimations() {
+    // Add animation classes to cards
+    const carCards = document.querySelectorAll('.car-card');
+    carCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    testimonialCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.15}s`;
+    });
+    
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.15}s`;
+    });
+    
+    const featureItems = document.querySelectorAll('.feature-item');
+    featureItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    // Intersection Observer for scroll animations
+    const animatedElements = document.querySelectorAll('.car-card, .service-card, .testimonial-card, .stat-item, .feature-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedElements.forEach(el => observer.observe(el));
+}
 
 // ===== Event Listeners =====
 function initializeEventListeners() {
