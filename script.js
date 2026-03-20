@@ -250,8 +250,9 @@ const carsData = [
 // ===== DOM Elements =====
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
-const carsGrid = document.getElementById('carsGrid');
-const filterBtns = document.querySelectorAll('.filter-btn');
+const fleetGrid = document.getElementById('fleetGrid') || document.getElementById('carsGrid');
+const carsGrid = fleetGrid;
+const filterBtns = document.querySelectorAll('.filter-btn, .fleet-tab');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
 const searchForm = document.getElementById('searchForm');
 const contactForm = document.getElementById('contactForm');
@@ -265,11 +266,14 @@ let currentFilter = 'all';
 let filteredCars = [...carsData];
 
 // ===== Initialize =====
+// Initialize lazy loading for images
 document.addEventListener('DOMContentLoaded', () => {
+    initLazyLoading();
     renderCars();
     initializeEventListeners();
     initializeScrollEffects();
     initScrollAnimations();
+    initFAQ();
 });
 
 // ===== Scroll-triggered Animations =====
@@ -372,21 +376,44 @@ function toggleMobileNav() {
     navLinks.classList.toggle('active');
 }
 
+// ===== FAQ Toggle =====
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+}
+
 // ===== Render Cars =====
 function renderCars() {
     const carsToShow = filteredCars.slice(0, displayedCars);
 
     carsGrid.innerHTML = carsToShow.map((car, index) => `
-        <div class="car-card" style="animation-delay: ${index * 0.1}s" data-category="${car.category}" data-type="${car.type}">
-            <div class="car-image">
-                <img src="${car.image}" alt="${car.name}" loading="lazy" onerror="this.src='temp_image_1769120549642.webp'">
-                <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}">
-                    ${car.category === 'sale' ? 'For Sale' : 'For Rent'}
+        <div class="fleet-card car-card" style="animation-delay: ${index * 0.1}s" data-category="${car.category}" data-type="${car.type}">
+            <div class="fleet-image car-image img-loading">
+                <img data-src="${car.image}" src="${car.image}" alt="${car.name}" class="lazy-load loaded" onerror="this.src='temp_image_1769120549642.webp'" onload="this.classList.add('loaded'); this.parentElement.classList.remove('img-loading'); this.parentElement.classList.add('img-loaded');">
+                <span class="fleet-category car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}">
+                    ${car.type.toUpperCase()}
                 </span>
                 ${car.featured ? '<span class="badge-featured">Featured</span>' : ''}
             </div>
-            <div class="car-details">
+            <div class="fleet-details car-details">
                 <h3 class="car-title">${car.name}</h3>
+                ${car.category === 'rent' ? `
+                <div class="fleet-pricing">
+                    <div class="price-item">
+                        <span class="price-label">Daily Rate</span>
+                        <span class="price-value">${car.dailyRateDisplay || car.priceDisplay}</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">Airport Rate</span>
+                        <span class="price-value">${car.airportRateDisplay || 'Contact Us'}</span>
+                    </div>
+                </div>
+                ` : ''}
                 <div class="car-specs">
                     <span><i class="fas fa-calendar"></i> ${car.year}</span>
                     <span><i class="fas fa-tachometer-alt"></i> ${car.mileage}</span>
@@ -399,7 +426,6 @@ function renderCars() {
                 <div class="car-footer">
                     <div class="car-price">
                         ${car.priceDisplay}
-                        ${car.category === 'rent' ? '' : ''}
                     </div>
                     <div class="car-actions">
                         <button onclick="addToFavorites(${car.id})" title="Add to Favorites">
@@ -523,7 +549,7 @@ function viewCarDetails(carId) {
     const modalContent = document.getElementById('carModalContent');
     modalContent.innerHTML = `
         <div class="car-modal-image">
-            <img src="${car.image}" alt="${car.name}" loading="lazy" onerror="this.src='temp_image_1769120549642.webp'">
+            <img data-src="${car.image}" src="${car.image}" alt="${car.name}" class="lazy-load loaded" onerror="this.src='temp_image_1769120549642.webp'" onload="this.classList.add('loaded'); this.parentElement.classList.remove('img-loading'); this.parentElement.classList.add('img-loaded');">
         </div>
         <div class="car-modal-details">
             <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}" style="display: inline-block; margin-bottom: 15px;">
@@ -764,26 +790,44 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ===== Lazy Loading Images (for future use with real images) =====
-function lazyLoadImages() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                observer.unobserve(img);
-            }
-        });
+function initLazyLoading() {
+    if (!imageObserver) {
+        imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add("loading");
+                    const realSrc = img.dataset.src;
+                    if (realSrc) {
+                        img.src = realSrc;
+                        img.removeAttribute("data-src");
+                    }
+                    img.onload = function() {
+                        img.classList.remove("loading");
+                        img.classList.add("loaded");
+                        if (img.parentElement) {
+                            img.parentElement.classList.remove("img-loading");
+                            img.parentElement.classList.add("img-loaded");
+                        }
+                    };
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: "50px 0px", threshold: 0.01 });
+    }
+    const images = document.querySelectorAll("img[data-src], img.lazy-load");
+    images.forEach(img => {
+        if (!img.classList.contains("loaded") && img.dataset.src) {
+            imageObserver.observe(img);
+        }
     });
-
-    images.forEach(img => imageObserver.observe(img));
 }
 
+
 // ===== Phone Number Formatting =====
+// Initialize lazy loading for images
 document.addEventListener('DOMContentLoaded', () => {
+    initLazyLoading();
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
     
     phoneInputs.forEach(input => {
@@ -854,7 +898,9 @@ if ('serviceWorker' in navigator) {
 }
 
 // ===== Initialize =====
+// Initialize lazy loading for images
 document.addEventListener('DOMContentLoaded', () => {
+    initLazyLoading();
     renderCars();
     initializeEventListeners();
     initializeScrollEffects();
@@ -921,8 +967,8 @@ function renderCars() {
 
     carsGrid.innerHTML = carsToShow.map((car, index) => `
         <div class="car-card" style="animation-delay: ${index * 0.1}s" data-category="${car.category}" data-type="${car.type}">
-            <div class="car-image">
-                <img src="${car.image}" alt="${car.name}" loading="lazy" onerror="this.src='temp_image_1769120549642.webp'">
+            <div class="car-image img-loading">
+                <img data-src="${car.image}" src="${car.image}" alt="${car.name}" class="lazy-load loaded" onerror="this.src='temp_image_1769120549642.webp'" onload="this.classList.add('loaded'); this.parentElement.classList.remove('img-loading'); this.parentElement.classList.add('img-loaded');">
                 <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}">
                     ${car.category === 'sale' ? 'For Sale' : 'For Rent'}
                 </span>
@@ -1066,7 +1112,7 @@ function viewCarDetails(carId) {
     const modalContent = document.getElementById('carModalContent');
     modalContent.innerHTML = `
         <div class="car-modal-image">
-            <img src="${car.image}" alt="${car.name}" loading="lazy" onerror="this.src='temp_image_1769120549642.webp'">
+            <img data-src="${car.image}" src="${car.image}" alt="${car.name}" class="lazy-load loaded" onerror="this.src='temp_image_1769120549642.webp'" onload="this.classList.add('loaded'); this.parentElement.classList.remove('img-loading'); this.parentElement.classList.add('img-loaded');">
         </div>
         <div class="car-modal-details">
             <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}" style="display: inline-block; margin-bottom: 15px;">
@@ -1307,26 +1353,44 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ===== Lazy Loading Images (for future use with real images) =====
-function lazyLoadImages() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                observer.unobserve(img);
-            }
-        });
+function initLazyLoading() {
+    if (!imageObserver) {
+        imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add("loading");
+                    const realSrc = img.dataset.src;
+                    if (realSrc) {
+                        img.src = realSrc;
+                        img.removeAttribute("data-src");
+                    }
+                    img.onload = function() {
+                        img.classList.remove("loading");
+                        img.classList.add("loaded");
+                        if (img.parentElement) {
+                            img.parentElement.classList.remove("img-loading");
+                            img.parentElement.classList.add("img-loaded");
+                        }
+                    };
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: "50px 0px", threshold: 0.01 });
+    }
+    const images = document.querySelectorAll("img[data-src], img.lazy-load");
+    images.forEach(img => {
+        if (!img.classList.contains("loaded") && img.dataset.src) {
+            imageObserver.observe(img);
+        }
     });
-
-    images.forEach(img => imageObserver.observe(img));
 }
 
+
 // ===== Phone Number Formatting =====
+// Initialize lazy loading for images
 document.addEventListener('DOMContentLoaded', () => {
+    initLazyLoading();
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
     
     phoneInputs.forEach(input => {
@@ -1398,3 +1462,5 @@ if ('serviceWorker' in navigator) {
 
 console.log('NaijaAutos - Nigeria\'s Premier Car Sales & Rentals Platform');
 console.log('© 2026 NaijaAutos. All Rights Reserved.');
+
+
