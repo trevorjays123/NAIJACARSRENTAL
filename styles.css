@@ -924,6 +924,12 @@ ul {
     margin-bottom: 1.5rem;
 }
 
+.form-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .form-group label {
     color: var(--text-dark);
     font-weight: 500;
@@ -954,6 +960,10 @@ ul {
 .form-group textarea {
     resize: vertical;
     min-height: 120px;
+}
+
+.form-col.full-width {
+    grid-column: span 2;
 }
 
 .form-note {
@@ -1383,6 +1393,10 @@ textarea:focus:not(:focus-visible) {
          background-position: center 30%;
      }
 
+     .hero {
+         background-position: center 30%;
+     }
+
     .booking-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1438,6 +1452,11 @@ textarea:focus:not(:focus-visible) {
 
      .hero h1 {
          font-size: 2rem;
+     }
+
+     .hero {
+         background-position: center 25%;
+         min-height: 70vh;
      }
 
      .hero {
