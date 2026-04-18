@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTimeDropdown();
     initVehicleDropdown();
     setMinDate();
+    initScrollAnimations();
 });
 
 // ===========================
@@ -20,31 +21,47 @@ document.addEventListener('DOMContentLoaded', function() {
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    const mainNav = document.getElementById('mainNav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mainNav = document.querySelector('.main-nav');
 
     if (!hamburger || !mobileMenu) return;
 
+    function openMenu() {
+        mobileMenu.classList.add('active');
+        mobileOverlay.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
     hamburger.addEventListener('click', function() {
-        mobileMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-        mainNav.classList.toggle('active');
+        if (mobileMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
+
+    // Close on overlay click
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMenu);
+    }
 
     // Close when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            mainNav.classList.remove('active');
-        });
+        link.addEventListener('click', closeMenu);
     });
 
-    // Close when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
-            mobileMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            mainNav.classList.remove('active');
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            closeMenu();
         }
     });
 }
@@ -80,42 +97,32 @@ function initSearchBar() {
             searchBar.classList.remove('active');
         }
     });
-
-    // Search form submission
-    const searchForm = searchBar.querySelector('form') || searchBar;
-    const searchInput = searchBar.querySelector('input');
-    const searchBtn = searchBar.querySelector('button');
-
-    if (searchBtn && searchInput) {
-        searchBtn.addEventListener('click', function() {
-            performSearch(searchInput.value);
-        });
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch(this.value);
-            }
-        });
-    }
 }
 
-function performSearch(query) {
-    if (query.trim()) {
-        // You can implement actual search functionality here
-        console.log('Searching for:', query);
-        // For now, just scroll to vehicles or show message
+function performSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const query = searchInput ? searchInput.value.trim() : '';
+    
+    if (query) {
+        // Scroll to vehicles section
         const vehiclesSection = document.getElementById('vehicles');
         if (vehiclesSection) {
             vehiclesSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // Fallback: show notification
+            showNotification('info', 'Search functionality coming soon!');
         }
     }
 }
 
 // ===========================
-// DROPDOWN MENUS (Mobile Support)
+// DROPDOWN MENUS
 // ===========================
 function initDropdowns() {
     const dropdowns = document.querySelectorAll('.dropdown');
 
+    // Desktop: hover behavior (CSS handles it)
+    // Mobile: click behavior
     if (window.innerWidth <= 768) {
         dropdowns.forEach(dropdown => {
             const toggle = dropdown.querySelector('.dropdown-toggle');
@@ -131,44 +138,31 @@ function initDropdowns() {
                             const otherMenu = other.querySelector('.dropdown-menu');
                             if (otherMenu) {
                                 otherMenu.style.display = 'none';
+                                other.classList.remove('active');
                             }
                         }
                     });
 
                     // Toggle current
+                    dropdown.classList.toggle('active');
                     if (menu.style.display === 'block') {
                         menu.style.display = 'none';
                     } else {
                         menu.style.display = 'block';
-                        menu.style.position = 'static';
-                        menu.style.opacity = '1';
-                        menu.style.visibility = 'visible';
-                        menu.style.transform = 'translateY(0)';
-                        menu.style.boxShadow = 'none';
-                        menu.style.border = 'none';
-                        menu.style.borderRadius = '0';
-                        menu.style.padding = '0';
                     }
                 });
             }
         });
     }
 
-    // Close dropdowns on outside click
+    // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.dropdown')) {
             dropdowns.forEach(dropdown => {
                 const menu = dropdown.querySelector('.dropdown-menu');
                 if (menu && window.innerWidth <= 768) {
                     menu.style.display = '';
-                    menu.style.position = '';
-                    menu.style.opacity = '';
-                    menu.style.visibility = '';
-                    menu.style.transform = '';
-                    menu.style.boxShadow = '';
-                    menu.style.border = '';
-                    menu.style.borderRadius = '';
-                    menu.style.padding = '';
+                    dropdown.classList.remove('active');
                 }
             });
         }
@@ -182,7 +176,7 @@ function initTimeDropdown() {
     const timeSelect = document.getElementById('pickupTime');
     if (!timeSelect) return;
 
-    // Clear existing options except the placeholder
+    // Clear existing options except placeholder
     timeSelect.innerHTML = '<option value="">Select time</option>';
 
     for (let hour = 0; hour < 24; hour++) {
@@ -279,7 +273,10 @@ function initFormValidation() {
         });
 
         if (isValid) {
+            // Show success message
             showNotification('success', 'Your booking request has been submitted successfully! Our team will contact you shortly.');
+            
+            // Reset form
             form.reset();
         } else {
             showNotification('error', 'Please fill in all required fields correctly.');
@@ -316,7 +313,7 @@ function validateField(field) {
                 const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
                 if (!phoneRegex.test(value)) {
                     isValid = false;
-                    errorMessage = 'Please enter a valid phone number';
+                    errorMessage = 'Please enter a valid phone number (min 10 digits)';
                 }
                 break;
 
@@ -324,7 +321,7 @@ function validateField(field) {
                 const num = parseInt(value);
                 if (field.name === 'age' && (num < 18 || num > 100)) {
                     isValid = false;
-                    errorMessage = 'You must be between 18 and 100 years';
+                    errorMessage = 'You must be between 18 and 100 years old';
                 }
                 if (field.name === 'quantity' && num < 1) {
                     isValid = false;
@@ -502,7 +499,7 @@ function initSmoothScroll() {
 // ===========================
 // SCROLL ANIMATIONS
 // ===========================
-function initScrollAnimation() {
+function initScrollAnimations() {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -520,24 +517,9 @@ function initScrollAnimation() {
 
     const animatedElements = document.querySelectorAll('.service-card, .vehicle-card, .option-card, .description-text, .stat-box');
     animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-
-    const animateStyle = document.createElement('style');
-    animateStyle.textContent = `
-        .animate-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(animateStyle);
 }
-
-// Initialize scroll animation
-initScrollAnimation();
 
 // ===========================
 // UTILITY FUNCTIONS
@@ -577,6 +559,8 @@ window.addEventListener('scroll', throttle(function() {
     }
 }, 100));
 
-// Console branding
-console.log('%c🚗 WHYTE AUTOS - Luxury Car Rentals', 'color: #d4af37; font-size: 20px; font-weight: bold;');
-console.log('%cPremium chauffeur services across Nigeria', 'color: #ffffff; font-size: 14px;');
+// Console branding (only in development)
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    console.log('%c🚗 WHYTE AUTOS - Luxury Car Rentals', 'color: #d4af37; font-size: 20px; font-weight: bold;');
+    console.log('%cPremium chauffeur services across Nigeria', 'color: #ffffff; font-size: 14px;');
+}

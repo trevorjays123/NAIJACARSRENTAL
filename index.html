@@ -5,80 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WHYTE AUTOS - Luxury Car Rentals with Chauffeur</title>
     <meta name="description" content="Premium luxury car rentals with professional chauffeur in Abuja, Lagos, Kano, Port Harcourt & all major cities in Nigeria.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="keywords" content="luxury car rental, chauffeur service, airport transfer, WHYTE AUTOS, car hire Nigeria, Abuja car rental, Lagos car service">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="WHYTE AUTOS - Luxury Car Rentals with Chauffeur">
+    <meta property="og:description" content="Premium chauffeur-driven car rental services across Nigeria. Airport transfers, corporate events, weddings in Abuja, Lagos, Kano, Port Harcourt.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1503376763036-066120622c74?w=1200&h=630&fit=crop">
+    <meta property="og:url" content="https://whyteautos.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_NG">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WHYTE AUTOS - Luxury Car Rentals with Chauffeur">
+    <meta name="twitter:description" content="Premium chauffeur-driven car rental services across Nigeria.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1503376763036-066120622c74?w=1200&h=630&fit=crop">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Preconnect to External Domains for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome with SRI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-1E8kqn6cL+3j+Vxud2Z6F25N0Nl7pzzgXh8+zgXjd1VYKN8eThh4y1U3I5O3fU3" crossorigin="anonymous">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRental",
+      "name": "WHYTE AUTOS",
+      "description": "Premium luxury car rentals with professional chauffeur services in Abuja, Lagos, Kano, Port Harcourt and all major cities in Nigeria.",
+      "url": "https://whyteautos.com",
+      "telephone": "+2348053682130",
+      "email": "info@whyteautos.com",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "No 16 Banjul Street, Wuse II",
+          "addressLocality": "Abuja",
+          "addressCountry": "NG"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "No 34 Ikorodu Road, Yaba",
+          "addressLocality": "Lagos",
+          "addressCountry": "NG"
+        }
+      ],
+      "areaServed": [
+        "Abuja",
+        "Lagos",
+        "Kano",
+        "Port Harcourt",
+        "All major cities in Nigeria"
+      ],
+      "serviceType": [
+        "Airport Transfer",
+        "Private Car Hire",
+        "Chauffeur Service",
+        "Wedding Transportation",
+        "Corporate Events"
+      ],
+      "priceRange": "₦60,000 - ₦1,500,000+",
+      "image": "https://images.unsplash.com/photo-1503376763036-066120622c74?w=1200&h=630&fit=crop",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://facebook.com/whyteautos",
+        "https://twitter.com/whyteautos",
+        "https://instagram.com/whyteautos",
+        "https://linkedin.com/company/whyteautos"
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header / Navigation Bar -->
     <header class="header">
         <div class="container">
-            <div class="nav-wrapper">
+            <nav class="nav-wrapper">
+                <!-- Logo -->
                 <div class="logo">
                     <a href="#">WHYTE AUTOS</a>
                 </div>
 
-                <nav class="main-nav" id="mainNav">
-                    <ul class="nav-links">
-                        <li><a href="#home" class="active">HOME</a></li>
-                        <li class="dropdown">
-                            <a href="#services" class="dropdown-toggle">SERVICES <i class="fas fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Airport Transfer</a></li>
-                                <li><a href="#">Private Car Hire</a></li>
-                                <li><a href="#">Wedding Services</a></li>
-                                <li><a href="#">Corporate Events</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#download" class="dropdown-toggle">DOWNLOAD THE APP <i class="fas fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Google Play Store</a></li>
-                                <li><a href="#">iOS App Store</a></li>
-                                <li><a href="#">APK Download</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#contact">CONTACT</a></li>
-                        <li><a href="#invest">INVEST</a></li>
-                    </ul>
-                </nav>
+                <!-- Desktop Navigation -->
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="#services" class="dropdown-toggle" aria-expanded="false">SERVICES <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" role="menuitem">Airport Transfer</a></li>
+                            <li><a href="#" role="menuitem">Private Car Hire</a></li>
+                            <li><a href="#" role="menuitem">Wedding Services</a></li>
+                            <li><a href="#" role="menuitem">Corporate Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#download" class="dropdown-toggle" aria-expanded="false">DOWNLOAD THE APP <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" role="menuitem">Google Play Store</a></li>
+                            <li><a href="#" role="menuitem">iOS App Store</a></li>
+                            <li><a href="#" role="menuitem">APK Download</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="#invest">INVEST</a></li>
+                </ul>
 
+                <!-- Header Actions -->
                 <div class="nav-actions">
                     <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="chat-icon" aria-label="Chat with us"><i class="fas fa-comment"></i></a>
+                        <a href="#" aria-label="Follow us on Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Subscribe on YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Connect on LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/2348053682130" class="chat-icon" aria-label="Chat with us on WhatsApp" title="WhatsApp Chat"><i class="fas fa-comment"></i></a>
                     </div>
                     <div class="header-actions">
                         <a href="#" class="search-toggle" title="Search" aria-label="Open search bar"><i class="fas fa-search"></i></a>
-                        <div class="lang-select">
+                        <div class="lang-select" role="button" tabindex="0" aria-label="Select language">
                             <span>ENG <i class="fas fa-chevron-down"></i></span>
                         </div>
-                        <div class="country-select">
+                        <div class="country-select" role="button" tabindex="0" aria-label="Select country">
                             <span>NG <i class="fas fa-chevron-down"></i></span>
                         </div>
                     </div>
-                    <div class="hamburger" id="hamburger">
+                    <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                 </div>
-            </div>
+            </nav>
         </div>
 
         <!-- Search Bar -->
-        <div class="search-bar" id="searchBar">
+        <div class="search-bar" id="searchBar" aria-hidden="true">
             <div class="container">
-                <input type="text" placeholder="Search vehicles, services...">
-                <button type="button" title="Submit search" aria-label="Search"><i class="fas fa-search"></i></button>
+                <label for="searchInput" class="visually-hidden">Search</label>
+                <input type="text" id="searchInput" placeholder="Search vehicles, services..." aria-label="Search">
+                <button type="button" title="Submit search" aria-label="Search" onclick="performSearch()"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
         <a href="#home">HOME</a>
         <a href="#services">SERVICES</a>
         <a href="#download">DOWNLOAD THE APP</a>
@@ -98,7 +190,7 @@
     </section>
 
     <!-- What We Do Section -->
-    <section class="section what-we-do">
+    <section class="section what-we-do" id="services">
         <div class="container">
             <h2 class="section-title">WHAT WE DO</h2>
             <p class="section-desc">
@@ -106,10 +198,10 @@
             </p>
             <div class="what-we-do-images">
                 <div class="what-we-do-img">
-                    <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?w=600&h=400&fit=crop" alt="Car interior view">
+                    <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?w=600&h=400&fit=crop" alt="Luxury car interior with professional driver" loading="lazy" width="600" height="400">
                 </div>
                 <div class="what-we-do-img">
-                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop" alt="Luxury car on road">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop" alt="Premium sedan on city road" loading="lazy" width="600" height="400">
                 </div>
             </div>
         </div>
@@ -120,8 +212,8 @@
         <div class="container">
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=300&fit=crop" alt="Airport Transfer">
+                    <div class="service-icon">
+                        <i class="fas fa-plane-departure"></i>
                     </div>
                     <div class="service-content">
                         <h3>Airport Transportation</h3>
@@ -129,8 +221,8 @@
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=300&fit=crop" alt="Flexible Rentals">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
                     </div>
                     <div class="service-content">
                         <h3>Flexible Rentals</h3>
@@ -149,12 +241,12 @@
                 <h3 class="subtitle">Comfort. Prompt. Professional</h3>
                 <p>Included in all transportation services are one (1) uniformed driver, complimentary water, WIFI, charging and complimentary snacks. Driver will be present at the pickup location fifteen (15) minutes before scheduled pickup time.</p>
                 <ul class="amenities-list">
-                    <li><i class="fas fa-user-tie"></i> Professional uniformed chauffeur</li>
-                    <li><i class="fas fa-tint"></i> Complimentary bottled water</li>
-                    <li><i class="fas fa-wifi"></i> Free high-speed WiFi</li>
-                    <li><i class="fas fa-charging-station"></i> Phone charging ports</li>
-                    <li><i class="fas fa-utensils"></i> Refreshments & snacks</li>
-                    <li><i class="fas fa-clock"></i> 15 minutes early arrival guaranteed</li>
+                    <li><i class="fas fa-user-tie"></i> <span>Professional uniformed chauffeur</span></li>
+                    <li><i class="fas fa-tint"></i> <span>Complimentary bottled water</span></li>
+                    <li><i class="fas fa-wifi"></i> <span>Free high-speed WiFi</span></li>
+                    <li><i class="fas fa-charging-station"></i> <span>Phone charging ports</span></li>
+                    <li><i class="fas fa-utensils"></i> <span>Refreshments & snacks</span></li>
+                    <li><i class="fas fa-clock"></i> <span>15 minutes early arrival guaranteed</span></li>
                 </ul>
             </div>
         </div>
@@ -172,28 +264,28 @@
             </div>
             <div class="vehicles-grid vehicles-grid-4">
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&h=400&fit=crop" alt="Mercedes S-Class">
+                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&h=400&fit=crop" alt="Mercedes S-Class luxury sedan" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Mercedes S-Class Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1553413076-013dd387bd0b?w=600&h=400&fit=crop" alt="Mercedes V-Class">
+                    <img src="https://images.unsplash.com/photo-1553413076-013dd387bd0b?w=600&h=400&fit=crop" alt="Mercedes V-Class luxury van" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Mercedes V-Class Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1611419010196-a360856fc42f?w=600&h=400&fit=crop" alt="Mercedes Sprinter">
+                    <img src="https://images.unsplash.com/photo-1611419010196-a360856fc42f?w=600&h=400&fit=crop" alt="Mercedes Sprinter van" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Mercedes Sprinter Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop" alt="Mercedes G-Class">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop" alt="Mercedes G-Class SUV" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Mercedes G-Class Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
@@ -209,56 +301,56 @@
             <h2 class="section-title">BUSINESS CLASS</h2>
             <div class="vehicles-grid vehicles-grid-8">
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=600&h=400&fit=crop" alt="Mercedes E-Class">
+                    <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=600&h=400&fit=crop" alt="Mercedes E-Class" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Mercedes E-Class Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&h=400&fit=crop" alt="Lexus LX Series">
+                    <img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&h=400&fit=crop" alt="Lexus LX Series" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Lexus LX Series Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&h=400&fit=crop" alt="Toyota Land Cruiser">
+                    <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&h=400&fit=crop" alt="Toyota Land Cruiser" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Toyota Land Cruiser Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&h=400&fit=crop" alt="Toyota Prado">
+                    <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&h=400&fit=crop" alt="Toyota Prado" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Toyota Prado Series Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop" alt="Range Rover Velar">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop" alt="Range Rover Velar" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Range Rover Velar Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1570177439772-6924bc764c31?w=600&h=400&fit=crop" alt="Range Rover Sport">
+                    <img src="https://images.unsplash.com/photo-1570177439772-6924bc764c31?w=600&h=400&fit=crop" alt="Range Rover Sport" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Range Rover Sports Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop" alt="Range Rover Autobiography">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop" alt="Range Rover Autobiography" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Range Rover Autobiography Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
                     </div>
                 </div>
                 <div class="vehicle-card">
-                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop" alt="Cadillac Escalade">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop" alt="Cadillac Escalade" loading="lazy" width="600" height="400">
                     <div class="vehicle-info">
                         <h4>Cadillac Escalade V-Series Hire</h4>
                         <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
@@ -311,130 +403,140 @@
 
                 <!-- Right Column - Form -->
                 <div class="form-column">
-                    <form id="bookingForm" class="booking-form" novalidate>
-                        <div class="form-section-title">Personal Information</div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Your Name*</label>
-                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                    <form id="bookingForm" class="booking-form" novalidate action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <h4>Personal Information</h4>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="name">Your Name*</label>
+                                    <input type="text" id="name" name="name" autocomplete="name" required placeholder="John Doe">
+                                </div>
+                                <div class="form-col">
+                                    <label for="email">Your Email*</label>
+                                    <input type="email" id="email" name="email" autocomplete="email" required placeholder="john@example.com">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Your Email*</label>
-                                <input type="email" id="email" name="email" required placeholder="john@example.com">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="age">Age*</label>
-                                <input type="number" id="age" name="age" min="18" max="100" required placeholder="25">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number*</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="+234 800 000 0000">
-                            </div>
-                        </div>
-
-                        <div class="form-section-title">Itinerary Information</div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="pickupDate">Pickup Date*</label>
-                                <input type="date" id="pickupDate" name="pickupDate" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="pickupTime">Pickup Time*</label>
-                                <select id="pickupTime" name="pickupTime" required>
-                                    <option value="">Select time</option>
-                                    <option value="00:00">12:00 AM</option>
-                                    <option value="01:00">1:00 AM</option>
-                                    <option value="02:00">2:00 AM</option>
-                                    <option value="03:00">3:00 AM</option>
-                                    <option value="04:00">4:00 AM</option>
-                                    <option value="05:00">5:00 AM</option>
-                                    <option value="06:00">6:00 AM</option>
-                                    <option value="07:00">7:00 AM</option>
-                                    <option value="08:00">8:00 AM</option>
-                                    <option value="09:00">9:00 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                    <option value="11:00">11:00 AM</option>
-                                    <option value="12:00">12:00 PM</option>
-                                    <option value="13:00">1:00 PM</option>
-                                    <option value="14:00">2:00 PM</option>
-                                    <option value="15:00">3:00 PM</option>
-                                    <option value="16:00">4:00 PM</option>
-                                    <option value="17:00">5:00 PM</option>
-                                    <option value="18:00">6:00 PM</option>
-                                    <option value="19:00">7:00 PM</option>
-                                    <option value="20:00">8:00 PM</option>
-                                    <option value="21:00">9:00 PM</option>
-                                    <option value="22:00">10:00 PM</option>
-                                    <option value="23:00">11:00 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="serviceType">Service Type*</label>
-                                <select id="serviceType" name="serviceType" required>
-                                    <option value="">Select service</option>
-                                    <option value="airport">Airport Transfer</option>
-                                    <option value="private">Private Car Hire</option>
-                                    <option value="event">Event Transportation</option>
-                                    <option value="corporate">Corporate Services</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="city">City*</label>
-                                <select id="city" name="city" required>
-                                    <option value="">Select city</option>
-                                    <option value="abuja">Abuja</option>
-                                    <option value="lagos">Lagos</option>
-                                    <option value="kano">Kano</option>
-                                    <option value="port-harcourt">Port Harcourt</option>
-                                    <option value="other">Other</option>
-                                </select>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="age">Age*</label>
+                                    <input type="number" id="age" name="age" autocomplete="bday-year" min="18" max="100" required placeholder="25">
+                                </div>
+                                <div class="form-col">
+                                    <label for="phone">Phone Number*</label>
+                                    <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="+234 800 000 0000">
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-section-title">Vehicle Information</div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="vehicleType">Vehicle Type*</label>
-                                <select id="vehicleType" name="vehicleType" required>
-                                    <option value="">Select vehicle</option>
-                                    <option value="mercedes-s-class">Mercedes S-Class</option>
-                                    <option value="mercedes-v-class">Mercedes V-Class</option>
-                                    <option value="mercedes-sprinter">Mercedes Sprinter</option>
-                                    <option value="mercedes-g-class">Mercedes G-Class</option>
-                                    <option value="mercedes-e-class">Mercedes E-Class</option>
-                                    <option value="lexus-lx">Lexus LX Series</option>
-                                    <option value="toyota-landcruiser">Toyota Land Cruiser</option>
-                                    <option value="toyota-prado">Toyota Prado Series</option>
-                                    <option value="range-rover-velar">Range Rover Velar</option>
-                                    <option value="range-rover-sport">Range Rover Sport</option>
-                                    <option value="range-rover-auto">Range Rover Autobiography</option>
-                                    <option value="cadillac-escalade">Cadillac Escalade V-Series</option>
-                                </select>
+                        <div class="form-group">
+                            <h4>Itinerary Information</h4>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="pickupDate">Pickup Date*</label>
+                                    <input type="date" id="pickupDate" name="pickupDate" autocomplete="off" required>
+                                </div>
+                                <div class="form-col">
+                                    <label for="pickupTime">Pickup Time*</label>
+                                    <select id="pickupTime" name="pickupTime" autocomplete="off" required>
+                                        <option value="">Select time</option>
+                                        <option value="00:00">12:00 AM</option>
+                                        <option value="01:00">1:00 AM</option>
+                                        <option value="02:00">2:00 AM</option>
+                                        <option value="03:00">3:00 AM</option>
+                                        <option value="04:00">4:00 AM</option>
+                                        <option value="05:00">5:00 AM</option>
+                                        <option value="06:00">6:00 AM</option>
+                                        <option value="07:00">7:00 AM</option>
+                                        <option value="08:00">8:00 AM</option>
+                                        <option value="09:00">9:00 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="13:00">1:00 PM</option>
+                                        <option value="14:00">2:00 PM</option>
+                                        <option value="15:00">3:00 PM</option>
+                                        <option value="16:00">4:00 PM</option>
+                                        <option value="17:00">5:00 PM</option>
+                                        <option value="18:00">6:00 PM</option>
+                                        <option value="19:00">7:00 PM</option>
+                                        <option value="20:00">8:00 PM</option>
+                                        <option value="21:00">9:00 PM</option>
+                                        <option value="22:00">10:00 PM</option>
+                                        <option value="23:00">11:00 PM</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="quantity">Vehicle Quantity*</label>
-                                <select id="quantity" name="quantity" required>
-                                    <option value="">Select quantity</option>
-                                    <option value="1">1 Vehicle</option>
-                                    <option value="2">2 Vehicles</option>
-                                    <option value="3">3 Vehicles</option>
-                                    <option value="4">4 Vehicles</option>
-                                    <option value="5">5+ Vehicles</option>
-                                </select>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="serviceType">Service Type*</label>
+                                    <select id="serviceType" name="serviceType" autocomplete="off" required>
+                                        <option value="">Select service</option>
+                                        <option value="airport">Airport Transfer</option>
+                                        <option value="private">Private Car Hire</option>
+                                        <option value="event">Event Transportation</option>
+                                        <option value="corporate">Corporate Services</option>
+                                    </select>
+                                </div>
+                                <div class="form-col">
+                                    <label for="city">City*</label>
+                                    <select id="city" name="city" autocomplete="off" required>
+                                        <option value="">Select city</option>
+                                        <option value="abuja">Abuja</option>
+                                        <option value="lagos">Lagos</option>
+                                        <option value="kano">Kano</option>
+                                        <option value="port-harcourt">Port Harcourt</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group full-width">
-                            <label for="notes">Extra Notes (Optional)</label>
-                            <textarea id="notes" name="notes" rows="4" placeholder="Any special requests or additional information..."></textarea>
+                        <div class="form-group">
+                            <h4>Vehicle Information</h4>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="vehicleType">Vehicle Type*</label>
+                                    <select id="vehicleType" name="vehicleType" autocomplete="off" required>
+                                        <option value="">Select vehicle</option>
+                                        <option value="mercedes-s-class">Mercedes S-Class</option>
+                                        <option value="mercedes-v-class">Mercedes V-Class</option>
+                                        <option value="mercedes-sprinter">Mercedes Sprinter</option>
+                                        <option value="mercedes-g-class">Mercedes G-Class</option>
+                                        <option value="mercedes-e-class">Mercedes E-Class</option>
+                                        <option value="lexus-lx">Lexus LX Series</option>
+                                        <option value="toyota-landcruiser">Toyota Land Cruiser</option>
+                                        <option value="toyota-prado">Toyota Prado Series</option>
+                                        <option value="range-rover-velar">Range Rover Velar</option>
+                                        <option value="range-rover-sport">Range Rover Sport</option>
+                                        <option value="range-rover-auto">Range Rover Autobiography</option>
+                                        <option value="cadillac-escalade">Cadillac Escalade V-Series</option>
+                                    </select>
+                                </div>
+                                <div class="form-col">
+                                    <label for="quantity">Vehicle Quantity*</label>
+                                    <select id="quantity" name="quantity" autocomplete="off" required>
+                                        <option value="">Select quantity</option>
+                                        <option value="1">1 Vehicle</option>
+                                        <option value="2">2 Vehicles</option>
+                                        <option value="3">3 Vehicles</option>
+                                        <option value="4">4 Vehicles</option>
+                                        <option value="5">5+ Vehicles</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-col full-width">
+                                    <label for="notes">Extra Notes (Optional)</label>
+                                    <textarea id="notes" name="notes" rows="4" placeholder="Any special requests or additional information..."></textarea>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-note">
-                            <p><i class="fas fa-info-circle"></i> Chauffeur will wait 15 minutes free of charge.</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>Chauffeur will wait 15 minutes free of charge.</strong></p>
                             <p class="required-note">All fields marked * are required. Kindly avoid duplicate entries once the form is submitted.</p>
                         </div>
 
@@ -480,6 +582,7 @@
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-grid">
+                <!-- Company Links -->
                 <div class="footer-column">
                     <h4>COMPANY</h4>
                     <ul>
@@ -493,6 +596,8 @@
                         <li><a href="#contact">CONTACT</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact Info -->
                 <div class="footer-column">
                     <h4>CONTACT</h4>
                     <ul>
@@ -502,6 +607,8 @@
                         <li>No 34 Ikorodu Road, Yaba Lagos</li>
                     </ul>
                 </div>
+
+                <!-- Download Apps -->
                 <div class="footer-column">
                     <h4>DOWNLOAD</h4>
                     <div class="app-badges">
@@ -522,6 +629,8 @@
                     </div>
                     <p class="app-note">WHYTE AUTOS App is now available on Android and iOS Platforms</p>
                 </div>
+
+                <!-- Visitor Stats -->
                 <div class="footer-column stats-column">
                     <h4>VISITORS</h4>
                     <div class="stats-grid">
@@ -545,9 +654,10 @@
                 </div>
             </div>
 
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2024-2029 WHYTE AUTOS. All rights reserved</p>
+                    <p>&copy; 2021-2026 WHYTE AUTOS. All rights reserved</p>
                 </div>
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a>
@@ -555,17 +665,17 @@
                     <a href="#">Terms</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#" title="Follow us on Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="Follow us on Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="Connect with us on LinkedIn" aria-label="Connect with us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Chat -->
-    <a href="https://wa.me/2348053682130" class="floating-chat" target="_blank" rel="noopener noreferrer">
+    <!-- Floating WhatsApp Chat Button -->
+    <a href="https://wa.me/2348053682130" class="floating-chat" target="_blank" rel="noopener noreferrer" aria-label="Chat with WHYTE AUTOS on WhatsApp">
         <i class="fab fa-whatsapp"></i>
         <span>Chat with us</span>
     </a>
