@@ -3,3400 +3,573 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NaijaAutos - Premium Car Sales & Rentals in Nigeria</title>
-    <meta name="description" content="Premium car sales and rentals across Lagos, Abuja, Port Harcourt. Luxury vehicles, self-drive, chauffeur service, and corporate fleet management.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>WHYTE AUTOS - Luxury Car Rentals with Chauffeur</title>
+    <meta name="description" content="Premium luxury car rentals with professional chauffeur in Abuja, Lagos, Kano, Port Harcourt & all major cities in Nigeria.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        /* Mobile-specific styles */
-        @media (max-width: 992px) {
-            .header-cta {
-                display: none !important;
-            }
-            
-            .nav-links.active a:hover,
-            .nav-links.active a.active {
-                color: var(--primary-color);
-                background: rgba(0, 135, 81, 0.05);
-            }
-        }
-        
-        /* Service Button Styles */
-        .service-btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: var(--accent-color);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        
-        .service-btn:hover {
-            background: #e55a2b;
-            color: white;
-        }
-        
-        .service-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-        
-        .service-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Special Offer Banner */
-        .special-offer {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #ff8c5a 100%);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            color: white;
-            margin: 3rem auto;
-            max-width: 800px;
-        }
-        
-        .special-offer h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .special-offer p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.95;
-        }
-        
-        .special-offer .btn-whatsapp {
-            background: #25D366;
-            display: inline-block;
-            padding: 12px 24px;
-        }
-        
-        .special-offer .btn-whatsapp:hover {
-            background: #128C7E;
-        }
-        
-        /* Locations Section */
-        .locations-section {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .location-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            position: relative;
-        }
-        
-        .location-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .location-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), #ff8c5a);
-        }
-        
-        .location-card.lagos::before { background: linear-gradient(90deg, #FF6B35, #FF8C5A); }
-        .location-card.abuja::before { background: linear-gradient(90deg, #1E88E5, #64B5F6); }
-        .location-card.ph::before { background: linear-gradient(90deg, #43A047, #81C784); }
-        .location-card.ilorin::before { background: linear-gradient(90deg, #8E24AA, #BA68C8); }
-        
-        .location-card .location-header {
-            padding: 2rem 1.5rem 1rem;
-            text-align: center;
-        }
-        
-        .location-card .location-header i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .location-card.lagos .location-header i { color: #FF6B35; }
-        .location-card.abuja .location-header i { color: #1E88E5; }
-        .location-card.ph .location-header i { color: #43A047; }
-        .location-card.ilorin .location-header i { color: #8E24AA; }
-        
-        .location-card .location-header h3 {
-            font-size: 1.75rem;
-            font-weight: bold;
-            margin: 0;
-            color: var(--text-dark);
-        }
-        
-        .location-areas, .location-specialties, .location-contact {
-            padding: 0 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .location-areas strong, .location-specialties strong {
-            display: block;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-        
-        .location-areas span {
-            color: #666;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
-        
-        .location-specialties ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .location-specialties li {
-            padding: 0.25rem 0;
-            color: #555;
-            font-size: 0.85rem;
-        }
-        
-        .location-contact p {
-            margin: 0.5rem 0;
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-        
-        .location-contact i {
-            width: 20px;
-            color: var(--accent-color);
-        }
-        
-        .location-btn {
-            display: block;
-            text-align: center;
-            padding: 1rem;
-            background: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-            margin-top: 1rem;
-        }
-        
-        .location-btn:hover {
-            background: #e55a2b;
-            color: white;
-        }
-        
-        /* Nationwide Banner */
-        .nationwide-banner {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            color: white;
-            margin: 3rem auto;
-            max-width: 800px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .nationwide-banner i {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-        }
-        
-        .nationwide-banner p {
-            font-size: 1.1rem;
-            margin: 0;
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .nationwide-banner .btn {
-            background: var(--secondary-color);
-            color: var(--text-dark);
-        }
-        
-        .nationwide-banner .btn:hover {
-            background: #e0a800;
-        }
-        
-        /* Why Choose Us Section */
-        .why-choose-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem auto;
-            max-width: 1200px;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        
-        .feature-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-        }
-        
-        .feature-desc {
-            color: #666;
-            line-height: 1.5;
-            font-size: 0.9rem;
-        }
-        
-        /* Certifications */
-        .certifications {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin: 3rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 16px;
-            max-width: 1000px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .cert-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-        
-        .cert-badge i {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-        }
-        
-        /* Statistics Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-            margin: 3rem auto;
-            max-width: 1000px;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            line-height: 1;
-        }
-        
-        .stat-label {
-            color: #666;
-            margin-top: 0.5rem;
-            font-size: 1rem;
-        }
-        
-        /* Payment Methods */
-        .payment-methods {
-            text-align: center;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 16px;
-            margin-top: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .payment-methods h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-        
-        .payment-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin: 1rem 0;
-        }
-        
-        .payment-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .payment-item i {
-            font-size: 2rem;
-            color: var(--accent-color);
-        }
-        
-        .payment-item span {
-            color: #333;
-            font-size: 0.9rem;
-        }
-        
-        .secure-note {
-            color: #28a745;
-            font-weight: 500;
-            margin-top: 1rem;
-        }
-        
-        /* FAQ Section */
-        .faq-section {
-            padding: 80px 20px;
-            background: #ffffff;
-        }
-        
-        .faq-search {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            position: relative;
-        }
-        
-        .faq-search input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e9ecef;
-            border-radius: 50px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .faq-search input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-        
-        .faq-search i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #adb5bd;
-        }
-        
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 3rem 0;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .faq-item {
-            background: #f8f9fa;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
-        }
-        
-        .faq-item:hover {
-            border-color: var(--accent-color);
-        }
-        
-        .faq-question {
-            padding: 1.25rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            background: white;
-            transition: background 0.3s;
-        }
-        
-        .faq-question h3 {
-            margin: 0;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #333;
-            flex: 1;
-            padding-right: 1rem;
-            line-height: 1.4;
-        }
-        
-        .faq-question i {
-            transition: transform 0.3s;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-        }
-        
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background: #f8f9fa;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            transition: max-height 0.5s ease-in;
-        }
-        
-        .faq-answer p {
-            padding: 1.5rem;
-            margin: 0;
-            line-height: 1.6;
-            color: #555;
-            border-top: 1px solid #e9ecef;
-        }
-        
-        .faq-answer ul, .faq-answer li {
-            margin: 0.5rem 0;
-            padding-left: 1rem;
-            color: #555;
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .faq-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .faq-question h3 {
-                font-size: 0.9rem;
-            }
-            
-            .faq-answer p {
-                font-size: 0.85rem;
-                padding: 1rem;
-            }
-        }
-        
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-        }
-        
-        /* Rating Summary */
-        .rating-summary {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin: 2rem auto;
-            max-width: 800px;
-            padding: 2rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
-        .average-rating {
-            text-align: center;
-        }
-        
-        .rating-number {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            line-height: 1;
-        }
-        
-        .rating-stars {
-            color: #ffc107;
-            font-size: 1.25rem;
-            margin: 0.5rem 0;
-        }
-        
-        .rating-count {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .rating-platforms {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        
-        .platform {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-            color: #333;
-        }
-        
-        .platform i {
-            font-size: 1.25rem;
-        }
-        
-        .platform .fab.fa-google { color: #4285f4; }
-        .platform .fab.fa-facebook { color: #1877f2; }
-        
-        /* Testimonials Carousel */
-        .testimonials-carousel {
-            position: relative;
-            max-width: 1200px;
-            margin: 3rem auto;
-        }
-        
-        .carousel-container {
-            overflow: hidden;
-            margin: 0 3rem;
-        }
-        
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-            gap: 2rem;
-        }
-        
-        .testimonial-card {
-            flex: 0 0 calc(33.333% - 1.33rem);
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            font-size: 4rem;
-            color: var(--accent-color);
-            opacity: 0.2;
-            font-family: serif;
-            line-height: 1;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .testimonial-rating {
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-rating i {
-            color: #ffc107;
-            margin-right: 2px;
-        }
-        
-        .testimonial-quote {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555;
-            margin: 1rem 0 1.5rem;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: auto;
-        }
-        
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            margin: 0;
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--text-dark);
-        }
-        
-        .author-info p {
-            margin: 0;
-            font-size: 0.85rem;
-            color: #666;
-        }
-        
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .carousel-btn:hover {
-            background: var(--accent-color);
-            color: white;
-        }
-        
-        .prev-btn { left: 0; }
-        .next-btn { right: 0; }
-        
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-        
-        .carousel-dots .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .carousel-dots .dot.active {
-            background: var(--accent-color);
-            width: 30px;
-            border-radius: 5px;
-        }
-        
-        /* Trusted By Section */
-        .trusted-by {
-            text-align: center;
-            margin-top: 4rem;
-            padding: 2rem;
-        }
-        
-        .trusted-by > p {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .company-logos {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .logo-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: white;
-            border-radius: 8px;
-            color: #999;
-        }
-        
-        .logo-placeholder i {
-            font-size: 2rem;
-        }
-        
-        .logo-placeholder span {
-            font-size: 0.8rem;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .contact-info-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .contact-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .contact-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        
-        .contact-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-        
-        .contact-details {
-            margin: 1rem 0;
-        }
-        
-        .contact-details p {
-            margin: 0.25rem 0;
-            color: #666;
-        }
-        
-        .contact-details a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .contact-details a:hover {
-            color: var(--accent-color);
-        }
-        
-        .card-note {
-            font-size: 0.85rem;
-            color: #888;
-            margin-top: 0.5rem;
-        }
-        
-        .whatsapp-card {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            color: white;
-        }
-        
-        .whatsapp-card .contact-icon {
-            color: white;
-        }
-        
-        .whatsapp-card h3 {
-            color: white;
-        }
-        
-        .whatsapp-card .contact-details p,
-        .whatsapp-card .contact-details a {
-            color: white;
-        }
-        
-        .whatsapp-card .card-note {
-            color: rgba(255,255,255,0.8);
-        }
-        
-        .whatsapp-btn {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-top: 0.5rem;
-            transition: background 0.3s;
-            font-weight: 500;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #128C7E;
-        }
-        
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-            margin: 3rem 0;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .contact-form-wrapper {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
-        .contact-form-wrapper h3 {
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            font-size: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
-        }
-        
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        
-        .submit-btn:hover {
-            background: #e55a2b;
-            transform: translateY(-2px);
-        }
-        
-        .submit-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .form-status {
-            margin-top: 1rem;
-            text-align: center;
-            padding: 0.75rem;
-            border-radius: 8px;
-            display: none;
-        }
-        
-        .form-status.success {
-            background: #d4edda;
-            color: #155724;
-            display: block;
-        }
-        
-        .form-status.error {
-            background: #f8d7da;
-            color: #721c24;
-            display: block;
-        }
-        
-        .form-status a {
-            color: #25D366;
-            font-weight: bold;
-        }
-        
-        /* Map Container */
-        .map-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .map-container {
-            flex: 1;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-height: 350px;
-        }
-        
-        /* Quick Response Section */
-        .quick-response {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            background: white;
-            border-radius: 16px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .quick-response h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-        
-        .response-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .response-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--accent-color);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .response-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,107,53,0.3);
-        }
-        
-        .response-btn.whatsapp {
-            background: #25D366;
-        }
-        
-        .response-btn.whatsapp:hover {
-            background: #128C7E;
-            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
-        }
-        
-        .quick-response .response-time {
-            margin-top: 1rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-            z-index: 1000;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background: #128C7E;
-        }
-        
-        .whatsapp-tooltip {
-            position: absolute;
-            right: 70px;
-            background: #333;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-        
-        .whatsapp-float:hover .whatsapp-tooltip {
-            opacity: 1;
-            visibility: visible;
-            right: 80px;
-        }
-        
-        /* Blog Section */
-        .blog-section {
-            padding: 80px 20px;
-            background: #ffffff;
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .blog-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        }
-        
-        .blog-image {
-            position: relative;
-            height: 220px;
-            overflow: hidden;
-        }
-        
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .blog-card:hover .blog-image img {
-            transform: scale(1.05);
-        }
-        
-        .blog-category {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        
-        .blog-content {
-            padding: 1.5rem;
-        }
-        
-        .blog-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.8rem;
-            color: #666;
-        }
-        
-        .blog-meta i {
-            margin-right: 0.25rem;
-        }
-        
-        .blog-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-            color: var(--text-dark);
-        }
-        
-        .blog-excerpt {
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-        
-        .blog-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .tag {
-            background: #f0f0f0;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            color: #666;
-        }
-        
-        .read-more {
-            display: inline-block;
-            color: var(--accent-color);
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .read-more:hover {
-            transform: translateX(5px);
-            color: #e55a2b;
-        }
-        
-        .view-all-btn {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            background: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .view-all-btn:hover {
-            background: #e55a2b;
-            transform: translateY(-2px);
-        }
-        
-        /* Category Filters */
-        .blog-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .filter-btn {
-            padding: 0.5rem 1.5rem;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--accent-color);
-            color: white;
-        }
-        
-        /* Newsletter Signup */
-        .newsletter-signup {
-            text-align: center;
-            margin-top: 4rem;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 16px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .newsletter-signup h4 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-        
-        .newsletter-signup p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .newsletter-form-inline {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .newsletter-form-inline input {
-            flex: 1;
-            min-width: 250px;
-            padding: 0.75rem 1rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-        
-        .newsletter-form-inline button {
-            padding: 0.75rem 2rem;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .newsletter-form-inline button:hover {
-            background: #e55a2b;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .testimonial-card {
-                flex: 0 0 calc(50% - 1rem);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .carousel-container {
-                margin: 0 1rem;
-            }
-            
-            .testimonial-card {
-                flex: 0 0 100%;
-            }
-            
-            .carousel-btn {
-                width: 30px;
-                height: 30px;
-            }
-            
-            .rating-summary {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-        }
-        
-        /* Contact Section Responsive */
-        @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .contact-section {
-                padding: 60px 15px;
-            }
-            
-            .contact-info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form-wrapper {
-                padding: 1.5rem;
-            }
-            
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            .whatsapp-tooltip {
-                display: none;
-            }
-            
-            .quick-response {
-                padding: 1.5rem;
-                margin: 2rem 1rem;
-            }
-        }
-        
-        /* Blog Section Responsive */
-        @media (max-width: 1024px) {
-            .blog-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .blog-section {
-                padding: 60px 15px;
-            }
-            
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .blog-filters {
-                gap: 0.5rem;
-            }
-            
-            .filter-btn {
-                padding: 0.4rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .newsletter-signup {
-                margin: 3rem 1rem 0;
-                padding: 1.5rem;
-            }
-            
-            .newsletter-form-inline {
-                flex-direction: column;
-            }
-            
-            .newsletter-form-inline input {
-                min-width: 100%;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-car-side"></i>
-                <span>Naija<span class="highlight">Autos</span></span>
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="#">WHYTE AUTOS</a>
+                </div>
+
+                <nav class="main-nav" id="mainNav">
+                    <ul class="nav-links">
+                        <li><a href="#home" class="active">HOME</a></li>
+                        <li class="dropdown">
+                            <a href="#services" class="dropdown-toggle">SERVICES <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Airport Transfer</a></li>
+                                <li><a href="#">Private Car Hire</a></li>
+                                <li><a href="#">Wedding Services</a></li>
+                                <li><a href="#">Corporate Events</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#download" class="dropdown-toggle">DOWNLOAD THE APP <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Google Play Store</a></li>
+                                <li><a href="#">iOS App Store</a></li>
+                                <li><a href="#">APK Download</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#contact">CONTACT</a></li>
+                        <li><a href="#invest">INVEST</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="chat-icon" aria-label="Chat with us"><i class="fas fa-comment"></i></a>
+                    </div>
+                    <div class="header-actions">
+                        <a href="#" class="search-toggle" title="Search" aria-label="Open search bar"><i class="fas fa-search"></i></a>
+                        <div class="lang-select">
+                            <span>ENG <i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="country-select">
+                            <span>NG <i class="fas fa-chevron-down"></i></span>
+                        </div>
+                    </div>
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#fleet">Our Fleet</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#locations">Locations</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="header-cta">
-                <a href="tel:+2348012345678" class="btn-call">
-                    <i class="fas fa-phone-alt"></i> Call: +234 801 234 5678
-                </a>
-                <a href="https://wa.me/2348012345678" class="btn-whatsapp" target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <div class="container">
+                <input type="text" placeholder="Search vehicles, services...">
+                <button type="button" title="Submit search" aria-label="Search"><i class="fas fa-search"></i></button>
             </div>
-            <div class="nav-buttons">
-                <button class="btn btn-outline" onclick="openModal('loginModal')">Login</button>
-                <button class="btn btn-primary" onclick="openModal('registerModal')">Register</button>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
+        </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">HOME</a>
+        <a href="#services">SERVICES</a>
+        <a href="#download">DOWNLOAD THE APP</a>
+        <a href="#contact">CONTACT</a>
+        <a href="#invest">INVEST</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-            <div class="driver-badge" data-aos="fade-up" data-aos-delay="50">
-                <i class="fas fa-user-tie"></i> Professional Chauffeur Service Available
+        <div class="container">
+            <div class="hero-content">
+                <h1>Luxury Car Rentals with Chauffeur</h1>
+                <p>Airport Transfer, Private Car Hire Services in Abuja, Lagos, Kano, PH & All major cities in Nigeria</p>
+                <a href="#booking" class="btn btn-gold">Book Now</a>
             </div>
-            <h1>Find Your Perfect Ride in Nigeria</h1>
-            <p>Premium car sales and rentals across Lagos, Abuja, Port Harcourt, and all major cities in Nigeria. Quality vehicles at competitive prices.</p>
-            
-            <!-- Trust Badges -->
-            <div class="trust-badges">
-                <div class="badge-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="badge-number">13+</div>
-                    <div class="badge-label">Years Experience</div>
-                </div>
-                <div class="badge-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="badge-number">450K+</div>
-                    <div class="badge-label">Happy Clients</div>
-                </div>
-                <div class="badge-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="badge-number">350+</div>
-                    <div class="badge-label">Luxury Vehicles</div>
-                </div>
-                <div class="badge-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="badge-number">24/7</div>
-                    <div class="badge-label">Support Available</div>
-                </div>
-            </div>
-            
-            <div class="hero-buttons">
-                <button class="btn btn-primary btn-large" onclick="scrollToSection('fleet')">
-                    <i class="fas fa-car"></i> View Our Fleet
-                </button>
-                <button class="btn btn-outline btn-large" onclick="scrollToSection('contact')">
-                    <i class="fas fa-comment-dots"></i> Get a Quote
-                </button>
-            </div>
-        </div>
-        
-        <!-- Quick Search Form -->
-        <div class="search-card" data-aos="fade-up" data-aos-delay="500">
-            <form id="heroSearchForm" class="search-form">
-                <div class="search-field">
-                    <label for="heroLocation">Location</label>
-                    <select id="heroLocation" aria-label="Location">
-                        <option value="">Select Location</option>
-                        <option value="lagos">Lagos</option>
-                        <option value="abuja">Abuja</option>
-                        <option value="port-harcourt">Port Harcourt</option>
-                        <option value="ilorin">Ilorin</option>
-                    </select>
-                </div>
-                <div class="search-field">
-                    <label for="pickupDate">Pick-up Date</label>
-                    <input type="date" id="pickupDate" aria-label="Pick-up Date">
-                </div>
-                <div class="search-field">
-                    <label for="returnDate">Return Date</label>
-                    <input type="date" id="returnDate" aria-label="Return Date">
-                </div>
-                <button type="submit" class="btn btn-primary btn-search">
-                    <i class="fas fa-search"></i> Search
-                </button>
-            </form>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats" data-aos="fade-up" data-aos-duration="800">
-        <div class="stat-item" data-aos="zoom-in" data-aos-delay="0">
-            <i class="fas fa-car"></i>
-            <h3>500+</h3>
-            <p>Cars Available</p>
-        </div>
-        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-            <i class="fas fa-users"></i>
-            <h3>10,000+</h3>
-            <p>Happy Customers</p>
-        </div>
-        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>15+</h3>
-            <p>Locations</p>
-        </div>
-        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-            <i class="fas fa-award"></i>
-            <h3>8+</h3>
-            <p>Years Experience</p>
+    <!-- What We Do Section -->
+    <section class="section what-we-do">
+        <div class="container">
+            <h2 class="section-title">WHAT WE DO</h2>
+            <p class="section-desc">
+                WHYTE AUTOS offers premium chauffeur-driven car rental services across Nigeria. We provide reliable, comfortable, and professional transportation solutions for airport transfers, corporate events, weddings, and special occasions. Our fleet of luxury vehicles and experienced drivers ensure you travel in style and arrive safely at your destination.
+            </p>
+            <div class="what-we-do-images">
+                <div class="what-we-do-img">
+                    <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?w=600&h=400&fit=crop" alt="Car interior view">
+                </div>
+                <div class="what-we-do-img">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop" alt="Luxury car on road">
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Fleet Section -->
-    <section class="fleet-section" id="fleet" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-header" data-aos="fade-down">
-            <h2>Our <span class="highlight">Fleet</span></h2>
-            <p>Choose from our premium selection of well-maintained vehicles</p>
-        </div>
-        
-        <div class="fleet-tabs">
-            <button class="fleet-tab active" data-category="all" onclick="filterVehicles('all', this)">All Vehicles</button>
-            <button class="fleet-tab" data-category="suv" onclick="filterVehicles('suv', this)">SUVs</button>
-            <button class="fleet-tab" data-category="sedan" onclick="filterVehicles('sedan', this)">Sedans</button>
-            <button class="fleet-tab" data-category="bus" onclick="filterVehicles('bus', this)">Buses & Trucks</button>
-            <button class="fleet-tab" data-category="luxury" onclick="filterVehicles('luxury', this)">Luxury</button>
-        </div>
-
-        <div class="fleet-grid">
-            <!-- SUVs -->
-            <div class="vehicle-card" data-category="suv" data-aos="fade-up" data-aos-delay="0">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400" alt="Toyota Prado" loading="lazy">
-                    <span class="vehicle-badge">Popular</span>
+    <!-- Services Cards Section -->
+    <section class="section services-cards">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=300&fit=crop" alt="Airport Transfer">
+                    </div>
+                    <div class="service-content">
+                        <h3>Airport Transportation</h3>
+                        <p>Reliable airport transfer services with professional chauffeurs. We ensure timely pickups and drop-offs, tracking your flight for seamless transfers to and from all Nigerian airports.</p>
+                    </div>
                 </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Toyota Prado</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦160,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦100,000</div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=300&fit=crop" alt="Flexible Rentals">
                     </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-user"></i> 7 seats</span>
-                        <span><i class="fas fa-snowflake"></i> AC</span>
-                        <span><i class="fas fa-map-marker-alt"></i> GPS</span>
+                    <div class="service-content">
+                        <h3>Flexible Rentals</h3>
+                        <p>From corporate events to weddings and city tours, our flexible rental options cater to all occasions. Hire our luxury vehicles by the hour, day, or for extended periods.</p>
                     </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
                 </div>
             </div>
-
-            <div class="vehicle-card" data-category="suv" data-aos="fade-up" data-aos-delay="100">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=400" alt="Lexus GX 460" loading="lazy">
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Lexus GX 460</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦200,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦120,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-star"></i> Luxury</span>
-                        <span><i class="fas fa-user"></i> 7 seats</span>
-                        <span><i class="fas fa-music"></i> Premium Sound</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <div class="vehicle-card" data-category="suv" data-aos="fade-up" data-aos-delay="200">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400" alt="Toyota Land Cruiser" loading="lazy">
-                    <span class="vehicle-badge">VIP</span>
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Toyota Land Cruiser</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦400,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦550,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-crown"></i> VIP Spec</span>
-                        <span><i class="fas fa-truck-pickup"></i> Off-road</span>
-                        <span><i class="fas fa-user"></i> 8 seats</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <div class="vehicle-card" data-category="luxury" data-aos="fade-up" data-aos-delay="300">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400" alt="Lexus LX 570" loading="lazy">
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Lexus LX 570</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦250,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦150,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-gem"></i> Ultimate Luxury</span>
-                        <span><i class="fas fa-sun"></i> Sunroof</span>
-                        <span><i class="fas fa-tv"></i> Rear Entertainment</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <!-- Sedans -->
-            <div class="vehicle-card" data-category="sedan" data-aos="fade-up" data-aos-delay="0">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400" alt="Toyota Camry 2014" loading="lazy">
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Toyota Camry 2014</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦120,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦70,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-gas-pump"></i> Fuel Efficient</span>
-                        <span><i class="fas fa-snowflake"></i> AC</span>
-                        <span><i class="fas fa-bluetooth"></i> Bluetooth</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <div class="vehicle-card" data-category="sedan" data-aos="fade-up" data-aos-delay="100">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400" alt="Toyota Camry 2010" loading="lazy">
-                    <span class="vehicle-badge">Economy</span>
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Toyota Camry 2010</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦80,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦60,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-naira-sign"></i> Economy</span>
-                        <span><i class="fas fa-snowflake"></i> AC</span>
-                        <span><i class="fas fa-check-circle"></i> Good Condition</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <div class="vehicle-card" data-category="luxury" data-aos="fade-up" data-aos-delay="200">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400" alt="Mercedes-Benz S-Class" loading="lazy">
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Mercedes-Benz S-Class</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦300,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦200,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-briefcase"></i> Executive</span>
-                        <span><i class="fas fa-couch"></i> Leather Seats</span>
-                        <span><i class="fas fa-user-tie"></i> Chauffeur</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <!-- Buses & Trucks -->
-            <div class="vehicle-card" data-category="bus" data-aos="fade-up" data-aos-delay="0">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400" alt="Toyota Hiace Bus" loading="lazy">
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Toyota Hiace Bus</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦150,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦100,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-users"></i> 14 seats</span>
-                        <span><i class="fas fa-snowflake"></i> AC</span>
-                        <span><i class="fas fa-suitcase"></i> Luggage</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <div class="vehicle-card" data-category="bus" data-aos="fade-up" data-aos-delay="100">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1605218427360-41d646c368a7?w=400" alt="Toyota Coaster Bus" loading="lazy">
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Toyota Coaster Bus</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦200,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦150,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-users"></i> 30 seats</span>
-                        <span><i class="fas fa-snowflake"></i> AC</span>
-                        <span><i class="fas fa-music"></i> Entertainment</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <div class="vehicle-card" data-category="bus" data-aos="fade-up" data-aos-delay="200">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400" alt="Toyota Hilux" loading="lazy">
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Toyota Hilux</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦150,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦90,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-truck-pickup"></i> Open Bed</span>
-                        <span><i class="fas fa-user"></i> 5 seats</span>
-                        <span><i class="fas fa-mountain"></i> Off-road</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <!-- Luxury -->
-            <div class="vehicle-card" data-category="luxury" data-aos="fade-up" data-aos-delay="300">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400" alt="Range Rover Sport" loading="lazy">
-                    <span class="vehicle-badge">Premium</span>
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">Range Rover Sport</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦350,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦250,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-gem"></i> Premium SUV</span>
-                        <span><i class="fas fa-square"></i> Panoramic Roof</span>
-                        <span><i class="fas fa-user"></i> 5 seats</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-
-            <div class="vehicle-card" data-category="luxury" data-aos="fade-up" data-aos-delay="400">
-                <div class="vehicle-image">
-                    <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=400" alt="BMW 7 Series" loading="lazy">
-                </div>
-                <div class="vehicle-info">
-                    <h3 class="vehicle-name">BMW 7 Series</h3>
-                    <div class="vehicle-price">
-                        <div>
-                            <span class="daily-price">₦280,000</span>/day
-                        </div>
-                        <div class="airport-price">Airport: ₦180,000</div>
-                    </div>
-                    <div class="vehicle-features">
-                        <span><i class="fas fa-briefcase"></i> Executive</span>
-                        <span><i class="fas fa-chair"></i> Massage Seats</span>
-                        <span><i class="fas fa-wifi"></i> WiFi</span>
-                    </div>
-                    <button class="btn-book" onclick="openModal('carModal')">Book Now</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="load-more">
-            <button class="btn btn-primary" onclick="scrollToSection('fleet')">View All Fleet</button>
-        </div>
-        <p class="fleet-note">*Prices are for Lagos and Abuja. For other cities, inter-state travel, or self-drive options, please contact us for customized rates.</p>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section" id="services" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-header" data-aos="fade-down">
-            <h2>Our <span class="highlight">Services</span></h2>
-            <p>Comprehensive automotive solutions tailored for Nigeria</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="service-icon">
-                    <i class="fas fa-car"></i>
-                </div>
-                <h3 class="service-title">Car Rentals</h3>
-                <p class="service-description">Daily, weekly, and monthly car rentals with or without driver. Perfect for business trips, events, and personal use.</p>
-                <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20car%20rentals" class="service-btn" target="_blank" rel="noopener">Rent Now</a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-icon">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <h3 class="service-title">Moving Truck / U-Haul</h3>
-                <p class="service-description">Reliable trucks for moving homes, offices, or goods across Nigeria. Various sizes available with professional drivers.</p>
-                <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20moving%20truck%20services" class="service-btn" target="_blank" rel="noopener">Get Quote</a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-icon">
-                    <i class="fas fa-file-alt"></i>
-                </div>
-                <h3 class="service-title">Vehicle Document Renewal</h3>
-                <p class="service-description">License renewal, vehicle registration, insurance processing, and all paperwork handled professionally. Save time and stress.</p>
-                <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20document%20renewal" class="service-btn" target="_blank" rel="noopener">Get Help</a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-icon">
-                    <i class="fas fa-road"></i>
-                </div>
-                <h3 class="service-title">Inter-State Travel</h3>
-                <p class="service-description">Comfortable travel between states with professional drivers. Safe, reliable, and punctual service for business or leisure.</p>
-                <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20inter-state%20travel" class="service-btn" target="_blank" rel="noopener">Book Trip</a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="service-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 class="service-title">Security Services</h3>
-                <p class="service-description">VIP protection, event security, executive protection, and secure transportation for high-profile clients.</p>
-                <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20security%20services" class="service-btn" target="_blank" rel="noopener">Inquire</a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3 class="service-title">Corporate Fleet Management</h3>
-                <p class="service-description">Fleet leasing, driver management, maintenance scheduling, and comprehensive fleet solutions for businesses.</p>
-                <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20corporate%20fleet%20management" class="service-btn" target="_blank" rel="noopener">Learn More</a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-icon">
-                    <i class="fas fa-car-side"></i>
-                </div>
-                <h3 class="service-title">Car Sales</h3>
-                <p class="service-description">Brand new and foreign used (Tokunbo) vehicles at competitive prices. All cars come with proper documentation and warranty.</p>
-                <a href="#fleet" class="service-btn">Browse Cars</a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-icon">
-                    <i class="fas fa-ship"></i>
-                </div>
-                <h3 class="service-title">Car Import</h3>
-                <p class="service-description">Import your dream car from USA, Canada, UK, and Dubai. Full clearing and delivery to your doorstep.</p>
-                <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20importing%20a%20car" class="service-btn" target="_blank" rel="noopener">Learn More</a>
-            </div>
-        </div>
-        
-        <!-- Special Offer Banner -->
-        <div class="special-offer" data-aos="zoom-in">
-            <h3>🎉 Need Multiple Services?</h3>
-            <p>Get discounts when you combine our services - document renewal, car rental, and moving truck.</p>
-            <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20multiple%20services%20and%20want%20to%20get%20a%20combined%20quote" class="btn btn-whatsapp" target="_blank" rel="noopener">
-                <i class="fab fa-whatsapp"></i> Get Combined Quote
-            </a>
         </div>
     </section>
 
-    <!-- Locations Section -->
-    <section class="locations-section" id="locations" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-header" data-aos="zoom-in">
-            <h2>📍 Our <span class="highlight">Locations</span></h2>
-            <p>Premium car rental services across Nigeria's major cities</p>
+    <!-- Ride in Style Section -->
+    <section class="section ride-in-style">
+        <div class="container">
+            <div class="ride-content">
+                <h2>RIDE IN STYLE</h2>
+                <h3 class="subtitle">Comfort. Prompt. Professional</h3>
+                <p>Included in all transportation services are one (1) uniformed driver, complimentary water, WIFI, charging and complimentary snacks. Driver will be present at the pickup location fifteen (15) minutes before scheduled pickup time.</p>
+                <ul class="amenities-list">
+                    <li><i class="fas fa-user-tie"></i> Professional uniformed chauffeur</li>
+                    <li><i class="fas fa-tint"></i> Complimentary bottled water</li>
+                    <li><i class="fas fa-wifi"></i> Free high-speed WiFi</li>
+                    <li><i class="fas fa-charging-station"></i> Phone charging ports</li>
+                    <li><i class="fas fa-utensils"></i> Refreshments & snacks</li>
+                    <li><i class="fas fa-clock"></i> 15 minutes early arrival guaranteed</li>
+                </ul>
+            </div>
         </div>
-        
-        <div class="locations-grid">
-            <!-- Lagos -->
-            <div class="location-card lagos" data-aos="fade-up" data-aos-delay="0">
-                <div class="location-header">
-                    <i class="fas fa-city"></i>
-                    <h3>Lagos</h3>
+    </section>
+
+    <!-- VIP FIRST CLASS Section -->
+    <section class="section vip-first-class">
+        <div class="container">
+            <h2 class="section-title">VIP FIRST CLASS</h2>
+            <div class="vip-container">
+                <span class="vip-badge">VIP FIRST CLASS</span>
+                <span class="vip-badge">VIP FIRST CLASS</span>
+                <span class="vip-badge">VIP FIRST CLASS</span>
+                <span class="vip-badge">VIP FIRST CLASS</span>
+            </div>
+            <div class="vehicles-grid vehicles-grid-4">
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&h=400&fit=crop" alt="Mercedes S-Class">
+                    <div class="vehicle-info">
+                        <h4>Mercedes S-Class Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
                 </div>
-                <div class="location-areas">
-                    <strong>Key Areas:</strong>
-                    <span>Victoria Island, Lekki, Ikeja, Ikoyi, Surulere, Apapa</span>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1553413076-013dd387bd0b?w=600&h=400&fit=crop" alt="Mercedes V-Class">
+                    <div class="vehicle-info">
+                        <h4>Mercedes V-Class Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
                 </div>
-                <div class="location-specialties">
-                    <strong>Specialties:</strong>
-                    <ul>
-                        <li>✓ Corporate fleet management</li>
-                        <li>✓ Island-Mainland commute services</li>
-                        <li>✓ Wedding car packages</li>
-                        <li>✓ Airport transfers (MM International)</li>
-                        <li>✓ Event transportation</li>
-                        <li>✓ Executive VIP services</li>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1611419010196-a360856fc42f?w=600&h=400&fit=crop" alt="Mercedes Sprinter">
+                    <div class="vehicle-info">
+                        <h4>Mercedes Sprinter Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop" alt="Mercedes G-Class">
+                    <div class="vehicle-info">
+                        <h4>Mercedes G-Class Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUSINESS CLASS Section -->
+    <section class="section business-class">
+        <div class="container">
+            <h2 class="section-title">BUSINESS CLASS</h2>
+            <div class="vehicles-grid vehicles-grid-8">
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=600&h=400&fit=crop" alt="Mercedes E-Class">
+                    <div class="vehicle-info">
+                        <h4>Mercedes E-Class Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&h=400&fit=crop" alt="Lexus LX Series">
+                    <div class="vehicle-info">
+                        <h4>Lexus LX Series Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&h=400&fit=crop" alt="Toyota Land Cruiser">
+                    <div class="vehicle-info">
+                        <h4>Toyota Land Cruiser Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&h=400&fit=crop" alt="Toyota Prado">
+                    <div class="vehicle-info">
+                        <h4>Toyota Prado Series Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop" alt="Range Rover Velar">
+                    <div class="vehicle-info">
+                        <h4>Range Rover Velar Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1570177439772-6924bc764c31?w=600&h=400&fit=crop" alt="Range Rover Sport">
+                    <div class="vehicle-info">
+                        <h4>Range Rover Sports Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop" alt="Range Rover Autobiography">
+                    <div class="vehicle-info">
+                        <h4>Range Rover Autobiography Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop" alt="Cadillac Escalade">
+                    <div class="vehicle-info">
+                        <h4>Cadillac Escalade V-Series Hire</h4>
+                        <a href="#booking" class="btn btn-gold btn-sm">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Options Section -->
+    <section class="section more-options">
+        <div class="container">
+            <p class="more-options-text">Looking for more options? Check out our Ultra-Luxury or Budget Friendly Categories</p>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-content">
+                        <h3>Ultra-Luxury Category</h3>
+                        <p>Starting at ₦1,500,000</p>
+                        <a href="#" class="btn btn-outline">Explore <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <div class="option-content">
+                        <h3>Budget Friendly Category</h3>
+                        <p>Starting at ₦60,000</p>
+                        <a href="#" class="btn btn-outline">Explore <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="section booking-section" id="booking">
+        <div class="container">
+            <h2 class="section-title text-center">RESERVE YOUR VEHICLE TODAY, ENJOY AWESOME AMENITIES!</h2>
+
+            <div class="booking-grid">
+                <!-- Left Column - Amenities -->
+                <div class="amenities-column">
+                    <h3>Enjoy Premium Amenities on Every Ride:</h3>
+                    <ul class="amenities-icons">
+                        <li><i class="fas fa-wifi"></i><span>Free High-Speed WiFi</span></li>
+                        <li><i class="fas fa-charging-station"></i><span>Phone Charger</span></li>
+                        <li><i class="fas fa-umbrella"></i><span>Umbrella</span></li>
+                        <li><i class="fas fa-tint"></i><span>Complimentary Water</span></li>
+                        <li><i class="fas fa-cookie"></i><span>Snacks</span></li>
                     </ul>
                 </div>
-                <div class="location-contact">
-                    <p><i class="fas fa-phone"></i> Airport Transfer: From ₦50,000</p>
-                    <p><i class="fas fa-calendar"></i> Daily Rentals: From ₦80,000</p>
-                </div>
-                <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20renting%20a%20car%20in%20Lagos" class="location-btn" target="_blank" rel="noopener">Book in Lagos →</a>
-            </div>
-            
-            <!-- Abuja -->
-            <div class="location-card abuja" data-aos="fade-up" data-aos-delay="100">
-                <div class="location-header">
-                    <i class="fas fa-landmark"></i>
-                    <h3>Abuja</h3>
-                </div>
-                <div class="location-areas">
-                    <strong>Key Areas:</strong>
-                    <span>Maitama, Wuse, Garki, Asokoro, Jabi, Central Area</span>
-                </div>
-                <div class="location-specialties">
-                    <strong>Specialties:</strong>
-                    <ul>
-                        <li>✓ Diplomatic vehicle services</li>
-                        <li>✓ Government official transportation</li>
-                        <li>✓ Conference & event fleet</li>
-                        <li>✓ VIP protection vehicles</li>
-                        <li>✓ Embassy services</li>
-                        <li>✓ Executive chauffeur service</li>
-                    </ul>
-                </div>
-                <div class="location-contact">
-                    <p><i class="fas fa-phone"></i> Airport Transfer: From ₦45,000</p>
-                    <p><i class="fas fa-calendar"></i> VIP Service: From ₦150,000/day</p>
-                </div>
-                <a href="https://wa.me/2349012345678?text=I'm%20interested%20in%20renting%20a%20car%20in%20Abuja" class="location-btn" target="_blank" rel="noopener">Book in Abuja →</a>
-            </div>
-            
-            <!-- Port Harcourt -->
-            <div class="location-card ph" data-aos="fade-up" data-aos-delay="200">
-                <div class="location-header">
-                    <i class="fas fa-oil-can"></i>
-                    <h3>Port Harcourt</h3>
-                </div>
-                <div class="location-areas">
-                    <strong>Key Areas:</strong>
-                    <span>GRA, Trans Amadi, Eliozu, City Center, Rumuokoro</span>
-                </div>
-                <div class="location-specialties">
-                    <strong>Specialties:</strong>
-                    <ul>
-                        <li>✓ Corporate transport for oil & gas</li>
-                        <li>✓ Airport transfers (Port Harcourt Int'l)</li>
-                        <li>✓ Event transportation</li>
-                        <li>✓ VIP services</li>
-                        <li>✓ Site visit vehicles</li>
-                        <li>✓ Industrial fleet solutions</li>
-                    </ul>
-                </div>
-                <div class="location-contact">
-                    <p><i class="fas fa-phone"></i> Airport Transfer: From ₦40,000</p>
-                    <p><i class="fas fa-calendar"></i> Hilux Rental: From ₦150,000/day</p>
-                </div>
-                <a href="https://wa.me/2348012345679?text=I'm%20interested%20in%20renting%20a%20car%20in%20Port%20Harcourt" class="location-btn" target="_blank" rel="noopener">Book in Port Harcourt →</a>
-            </div>
-            
-            <!-- Ilorin -->
-            <div class="location-card ilorin" data-aos="fade-up" data-aos-delay="300">
-                <div class="location-header">
-                    <i class="fas fa-university"></i>
-                    <h3>Ilorin</h3>
-                </div>
-                <div class="location-areas">
-                    <strong>Key Areas:</strong>
-                    <span>GRA, Fate, Tanke, Unity Road, Sango</span>
-                </div>
-                <div class="location-specialties">
-                    <strong>Specialties:</strong>
-                    <ul>
-                        <li>✓ Corporate transport</li>
-                        <li>✓ Site visit vehicles</li>
-                        <li>✓ Executive transportation</li>
-                        <li>✓ Long-term corporate lease</li>
-                        <li>✓ University shuttle services</li>
-                        <li>✓ Inter-state connections</li>
-                    </ul>
-                </div>
-                <div class="location-contact">
-                    <p><i class="fas fa-phone"></i> Daily Rentals: From ₦65,000</p>
-                    <p><i class="fas fa-calendar"></i> Monthly Lease: Custom quotes</p>
-                </div>
-                <a href="https://wa.me/2348012345680?text=I'm%20interested%20in%20renting%20a%20car%20in%20Ilorin" class="location-btn" target="_blank" rel="noopener">Book in Ilorin →</a>
-            </div>
-        </div>
-        
-        <!-- Nationwide Delivery Banner -->
-        <div class="nationwide-banner" data-aos="fade-up">
-            <i class="fas fa-truck"></i>
-            <p>Serving all 36 states in Nigeria with nationwide delivery available</p>
-            <a href="https://wa.me/2348012345678?text=I'm%20interested%20in%20nationwide%20delivery" class="btn btn-primary" target="_blank" rel="noopener">Contact Us</a>
-        </div>
-    </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-section" id="why-choose" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-header" data-aos="zoom-in">
-            <h2>⭐ Why Choose <span class="highlight">NaijaAutos?</span></h2>
-            <p>Nigeria's Most Trusted Car Rental Service</p>
-        </div>
-        
-        <!-- Trust Points Grid -->
-        <div class="features-grid">
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3 class="feature-title">Instant Booking & Confirmation</h3>
-                <p class="feature-desc">Book any vehicle in minutes with immediate confirmation</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <h3 class="feature-title">Nationwide Delivery</h3>
-                <p class="feature-desc">We deliver your chosen vehicle to any location in Nigeria</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 class="feature-title">Comprehensive Insurance</h3>
-                <p class="feature-desc">All rentals come with full insurance coverage for peace of mind</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3 class="feature-title">24/7 Roadside Support</h3>
-                <p class="feature-desc">Round-the-clock assistance anywhere in Nigeria</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="feature-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <h3 class="feature-title">Flexible Rental Periods</h3>
-                <p class="feature-desc">Daily, weekly, monthly, and long-term options available</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                </div>
-                <h3 class="feature-title">Transparent Pricing</h3>
-                <p class="feature-desc">What you see is what you pay. No hidden fees or surprises</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon">
-                    <i class="fas fa-wrench"></i>
-                </div>
-                <h3 class="feature-title">Regularly Serviced Vehicles</h3>
-                <p class="feature-desc">All vehicles undergo rigorous maintenance checks</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-icon">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h3 class="feature-title">Experienced Chauffeurs</h3>
-                <p class="feature-desc">Professional, licensed, and courteous drivers available</p>
-            </div>
-        </div>
-        
-        <!-- Certifications -->
-        <div class="certifications" data-aos="zoom-in">
-            <div class="cert-badge">
-                <i class="fas fa-certificate"></i>
-                <span>ISO 9001:2015 Certified</span>
-            </div>
-            <div class="cert-badge">
-                <i class="fas fa-trophy"></i>
-                <span>NARTO Member</span>
-            </div>
-            <div class="cert-badge">
-                <i class="fas fa-passport"></i>
-                <span>Tourism License Holder</span>
-            </div>
-            <div class="cert-badge">
-                <i class="fas fa-shield-alt"></i>
-                <span>Fully Insured</span>
-            </div>
-        </div>
-        
-        <!-- Statistics Counters -->
-        <div class="stats-grid" data-aos="fade-up">
-            <div class="stat-item">
-                <div class="stat-number" data-target="13">0</div>
-                <div class="stat-label">Years of Excellence</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="450000">0</div>
-                <div class="stat-label">Happy Clients</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="350">0</div>
-                <div class="stat-label">Luxury Vehicles</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="900000">0</div>
-                <div class="stat-label">Trips Completed</div>
-            </div>
-        </div>
-        
-        <!-- Payment Methods -->
-        <div class="payment-methods" data-aos="fade-up">
-            <h4>💳 Secure Payments</h4>
-            <div class="payment-icons">
-                <div class="payment-item">
-                    <i class="fas fa-university"></i>
-                    <span>Bank Transfer</span>
-                </div>
-                <div class="payment-item">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <span>Cash Payment</span>
-                </div>
-                <div class="payment-item">
-                    <i class="fas fa-credit-card"></i>
-                    <span>Installment Plans</span>
-                </div>
-                <div class="payment-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>Mobile Money</span>
-                </div>
-            </div>
-            <p class="secure-note">✓ All transactions are secure and encrypted</p>
-        </div>
-    </section>
+                <!-- Right Column - Form -->
+                <div class="form-column">
+                    <form id="bookingForm" class="booking-form" novalidate>
+                        <div class="form-section-title">Personal Information</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name*</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email*</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="age">Age*</label>
+                                <input type="number" id="age" name="age" min="18" max="100" required placeholder="25">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number*</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+234 800 000 0000">
+                            </div>
+                        </div>
 
-    <!-- About Section -->
-    <section class="about-section" id="about" data-aos="fade-up" data-aos-duration="800">
-        <div class="about-image">
-            <div class="image-placeholder">
-                <i class="fas fa-building"></i>
-                <span>Our Showroom</span>
-            </div>
-        </div>
-        <div class="about-content">
-            <div class="section-header left-align">
-                <h2>About <span class="highlight">NaijaAutos</span></h2>
-            </div>
-            <p>NaijaAutos is Nigeria's leading automotive marketplace, connecting car buyers and renters with trusted dealers and private sellers since 2016. We've built our reputation on transparency, quality, and exceptional customer service.</p>
-            <p>With showrooms in Lagos, Abuja, and Port Harcourt, we offer a wide selection of brand new, foreign used (Tokunbo), and Nigerian used vehicles. Our team of automotive experts is dedicated to helping you find the perfect car that fits your budget and lifestyle.</p>
-            <div class="about-highlights">
-                <div class="highlight-item">
-                    <i class="fas fa-certificate"></i>
-                    <span>Licensed & Registered</span>
-                </div>
-                <div class="highlight-item">
-                    <i class="fas fa-star"></i>
-                    <span>Top Rated Service</span>
-                </div>
-                <div class="highlight-item">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <span>Flexible Payment</span>
-                </div>
-            </div>
-            <button class="btn btn-primary" onclick="scrollToSection('contact')">
-                <i class="fas fa-phone"></i> Contact Us
-            </button>
-        </div>
-    </section>
+                        <div class="form-section-title">Itinerary Information</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickupDate">Pickup Date*</label>
+                                <input type="date" id="pickupDate" name="pickupDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pickupTime">Pickup Time*</label>
+                                <select id="pickupTime" name="pickupTime" required>
+                                    <option value="">Select time</option>
+                                    <option value="00:00">12:00 AM</option>
+                                    <option value="01:00">1:00 AM</option>
+                                    <option value="02:00">2:00 AM</option>
+                                    <option value="03:00">3:00 AM</option>
+                                    <option value="04:00">4:00 AM</option>
+                                    <option value="05:00">5:00 AM</option>
+                                    <option value="06:00">6:00 AM</option>
+                                    <option value="07:00">7:00 AM</option>
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                    <option value="22:00">10:00 PM</option>
+                                    <option value="23:00">11:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="serviceType">Service Type*</label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="">Select service</option>
+                                    <option value="airport">Airport Transfer</option>
+                                    <option value="private">Private Car Hire</option>
+                                    <option value="event">Event Transportation</option>
+                                    <option value="corporate">Corporate Services</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City*</label>
+                                <select id="city" name="city" required>
+                                    <option value="">Select city</option>
+                                    <option value="abuja">Abuja</option>
+                                    <option value="lagos">Lagos</option>
+                                    <option value="kano">Kano</option>
+                                    <option value="port-harcourt">Port Harcourt</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="testimonials" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-header" data-aos="zoom-in">
-            <h2>💬 What Our <span class="highlight">Customers</span> Say</h2>
-            <p>Real experiences from satisfied clients across Nigeria</p>
-        </div>
-        
-        <!-- Rating Summary -->
-        <div class="rating-summary" data-aos="fade-up">
-            <div class="average-rating">
-                <div class="rating-number">4.9</div>
-                <div class="rating-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+                        <div class="form-section-title">Vehicle Information</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vehicleType">Vehicle Type*</label>
+                                <select id="vehicleType" name="vehicleType" required>
+                                    <option value="">Select vehicle</option>
+                                    <option value="mercedes-s-class">Mercedes S-Class</option>
+                                    <option value="mercedes-v-class">Mercedes V-Class</option>
+                                    <option value="mercedes-sprinter">Mercedes Sprinter</option>
+                                    <option value="mercedes-g-class">Mercedes G-Class</option>
+                                    <option value="mercedes-e-class">Mercedes E-Class</option>
+                                    <option value="lexus-lx">Lexus LX Series</option>
+                                    <option value="toyota-landcruiser">Toyota Land Cruiser</option>
+                                    <option value="toyota-prado">Toyota Prado Series</option>
+                                    <option value="range-rover-velar">Range Rover Velar</option>
+                                    <option value="range-rover-sport">Range Rover Sport</option>
+                                    <option value="range-rover-auto">Range Rover Autobiography</option>
+                                    <option value="cadillac-escalade">Cadillac Escalade V-Series</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Vehicle Quantity*</label>
+                                <select id="quantity" name="quantity" required>
+                                    <option value="">Select quantity</option>
+                                    <option value="1">1 Vehicle</option>
+                                    <option value="2">2 Vehicles</option>
+                                    <option value="3">3 Vehicles</option>
+                                    <option value="4">4 Vehicles</option>
+                                    <option value="5">5+ Vehicles</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="notes">Extra Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Any special requests or additional information..."></textarea>
+                        </div>
+
+                        <div class="form-note">
+                            <p><i class="fas fa-info-circle"></i> Chauffeur will wait 15 minutes free of charge.</p>
+                            <p class="required-note">All fields marked * are required. Kindly avoid duplicate entries once the form is submitted.</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold btn-block">SUBMIT REQUEST</button>
+                    </form>
                 </div>
-                <div class="rating-count">Based on 500+ reviews</div>
-            </div>
-            <div class="rating-platforms">
-                <div class="platform">
-                    <i class="fab fa-google"></i>
-                    <span>Google Reviews: 4.8 ★</span>
-                </div>
-                <div class="platform">
-                    <i class="fab fa-facebook"></i>
-                    <span>Facebook: 4.9 ★</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Testimonials Carousel -->
-        <div class="testimonials-carousel" data-aos="fade-up">
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"I bought my Toyota Camry from NaijaAutos and the experience was seamless. The car was exactly as described and the documentation was handled professionally. Highly recommended!"</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Chukwuemeka Okonkwo" onerror="this.style.display='none'">
-                            <div class="author-info">
-                                <h4>Chukwuemeka Okonkwo</h4>
-                                <p>Business Executive, Lagos</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"The car rental service is top-notch! I rented a car for my wedding and everything was perfect. The driver was professional and the car was in excellent condition."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Aisha Mohammed" onerror="this.style.display='none'">
-                            <div class="author-info">
-                                <h4>Aisha Mohammed</h4>
-                                <p>Event Planner, Abuja</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="testimonial-quote">"NaijaAutos helped me import my dream Mercedes from the USA. The process was transparent and they kept me updated at every stage. Great service!"</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Oluwaseun Adeyemi" onerror="this.style.display='none'">
-                            <div class="author-info">
-                                <h4>Oluwaseun Adeyemi</h4>
-                                <p>Oil & Gas Professional, Port Harcourt</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 4 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"Exceptional service for our company events. The fleet of luxury vehicles impressed our international clients. The chauffeurs were professional and punctual."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Tunde Adebayo" onerror="this.style.display='none'">
-                            <div class="author-info">
-                                <h4>Tunde Adebayo</h4>
-                                <p>Corporate Manager, Lagos</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 5 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"The best car service in Abuja! Used them during fashion week and they exceeded expectations. Drivers are courteous and always on time."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Chioma Eze" onerror="this.style.display='none'">
-                            <div class="author-info">
-                                <h4>Chioma Eze</h4>
-                                <p>Fashion Designer, Abuja</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 6 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"My go-to car service in Nigeria. The luxury vehicles are well-maintained and the service is world-class. Highly recommended for VIP transport."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/6.jpg" alt="Ebuka Okafor" onerror="this.style.display='none'">
-                            <div class="author-info">
-                                <h4>Ebuka Okafor</h4>
-                                <p>Media Personality, Lagos</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 7 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"Reliable and professional service. Perfect for business travel and site visits. The SUVs are comfortable and the drivers know the best routes."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/7.jpg" alt="Segun Adeleke" onerror="this.style.display='none'">
-                            <div class="author-info">
-                                <h4>Segun Adeleke</h4>
-                                <p>Oil & Gas Executive, Port Harcourt</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 8 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"Outstanding airport transfer service. Our hotel guests are always impressed with the punctuality and professionalism. A trusted partner for our VIP clients."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/8.jpg" alt="Gift Olamide" onerror="this.style.display='none'">
-                            <div class="author-info">
-                                <h4>Gift Olamide</h4>
-                                <p>Hotel Manager, Lagos</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <button type="button" class="carousel-btn prev-btn" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
-            <button type="button" class="carousel-btn next-btn" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
-            
-            <div class="carousel-dots"></div>
-        </div>
-        
-        <!-- Trusted By Section -->
-        <div class="trusted-by" data-aos="fade-up">
-            <p>Trusted by leading companies in Nigeria</p>
-            <div class="company-logos">
-                <div class="logo-placeholder"><i class="fas fa-building"></i><span>Company 1</span></div>
-                <div class="logo-placeholder"><i class="fas fa-building"></i><span>Company 2</span></div>
-                <div class="logo-placeholder"><i class="fas fa-building"></i><span>Company 3</span></div>
-                <div class="logo-placeholder"><i class="fas fa-building"></i><span>Company 4</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-header" data-aos="fade-down">
-            <h2>Get In <span class="highlight">Touch</span></h2>
-            <p>Have questions? We're here to help 24/7</p>
-        </div>
-        
-        <!-- Contact Info Cards -->
-        <div class="contact-info-grid" data-aos="fade-up">
-            <!-- Phone Card -->
-            <div class="contact-card">
-                <div class="contact-icon">
+    <!-- Quote Section -->
+    <section class="section quote-section">
+        <div class="container">
+            <div class="quote-content">
+                <p>Thank you for your interest in WHYTE AUTOS VIP Car Services, Please fill in the quote form to get an instant quote, If you are not sure of the vehicle you are interested in please have a look at our selection of vehicles available.</p>
+                <div class="quote-phone">
                     <i class="fas fa-phone-alt"></i>
-                </div>
-                <h3>Call Us 24/7</h3>
-                <div class="contact-details">
-                    <p><a href="tel:+2348012345678">+234 801 234 5678</a></p>
-                    <p><a href="tel:+2348098765432">+234 809 876 5432</a></p>
-                </div>
-                <p class="card-note">Available for urgent requests</p>
-            </div>
-            
-            <!-- WhatsApp Card -->
-            <div class="contact-card whatsapp-card">
-                <div class="contact-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <h3>Chat on WhatsApp</h3>
-                <div class="contact-details">
-                    <p><a href="tel:+2348012345678">+234 801 234 5678</a></p>
-                </div>
-                <a href="https://wa.me/2348012345678?text=Hello%21%20I%27m%20interested%20in%20your%20car%20rental%20services" class="whatsapp-btn" target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i> Message on WhatsApp
-                </a>
-                <p class="card-note">Response within minutes</p>
-            </div>
-            
-            <!-- Email Card -->
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h3>Email Us</h3>
-                <div class="contact-details">
-                    <p><a href="mailto:info@naijaautos.com.ng">info@naijaautos.com.ng</a></p>
-                    <p><a href="mailto:sales@naijaautos.com.ng">sales@naijaautos.com.ng</a></p>
-                </div>
-                <p class="card-note">Get a response within 24 hours</p>
-            </div>
-            
-            <!-- Office Location Card -->
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <h3>Head Office</h3>
-                <div class="contact-details">
-                    <p>15 Admiralty Way, Lekki Phase 1</p>
-                    <p>Lagos, Nigeria</p>
-                </div>
-                <p class="card-note">Mon-Sat: 8AM-6PM | Sun: 10AM-4PM</p>
-            </div>
-        </div>
-        
-        <!-- Contact Grid with Form and Map -->
-        <div class="contact-grid">
-            <!-- Contact Form -->
-            <div class="contact-form-wrapper" data-aos="fade-up">
-                <h3>Send Us a Message</h3>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <select id="service" name="service" title="Select a service" required>
-                            <option value="">Select Service</option>
-                            <option value="car-rental">Car Rental</option>
-                            <option value="car-sales">Car Sales</option>
-                            <option value="car-import">Car Import</option>
-                            <option value="document-renewal">Document Renewal</option>
-                            <option value="moving-truck">Moving Truck</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                    <div id="form-status" class="form-status"></div>
-                </form>
-            </div>
-            
-            <!-- Map -->
-            <div class="map-wrapper" data-aos="fade-up">
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.123456789!2d3.456789!3d6.456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjcnMjIuNiJOIDPCsDI3JzQ1LjYiRQ!5e0!3m2!1sen!2sng!4v1234567890"
-                        title="Naija Cars Rental Location Map"
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Quick Response Section -->
-        <div class="quick-response" data-aos="fade-up">
-            <h4>Need a quick response?</h4>
-            <div class="response-buttons">
-                <a href="tel:+2348012345678" class="response-btn">
-                    <i class="fas fa-phone-alt"></i> Call Now
-                </a>
-                <a href="https://wa.me/2348012345678" class="response-btn whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            </div>
-            <p class="response-time">Average response time: &lt; 5 minutes</p>
-        </div>
-    </section>
-    
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/2348012345678?text=Hello%21%20I%27m%20interested%20in%20your%20car%20rental%20services" 
-       class="whatsapp-float" 
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Chat with us!</span>
-    </a>
-
-    <!-- Blog Section -->
-    <section class="blog-section" id="blog" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-header" data-aos="fade-down">
-            <h2>Car Hire <span class="highlight">Guide & Resources</span></h2>
-            <p>Expert guides and insights about car rental services in Nigeria</p>
-        </div>
-        
-        <!-- Category Filters -->
-        <div class="blog-filters" data-aos="fade-up">
-            <button class="filter-btn active" onclick="filterBlogs('all', this)">All</button>
-            <button class="filter-btn" onclick="filterBlogs('guide', this)">Guides</button>
-            <button class="filter-btn" onclick="filterBlogs('tips', this)">Tips</button>
-            <button class="filter-btn" onclick="filterBlogs('news', this)">News</button>
-        </div>
-        
-        <!-- Blog Grid -->
-        <div class="blog-grid">
-            <!-- Article 1: Complete Guide -->
-            <article class="blog-card" data-category="guide" data-aos="fade-up" data-aos-delay="0">
-                <div class="blog-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect fill='%23667eea' width='400' height='250'/%3E%3Ctext fill='white' font-family='Arial' font-size='20' x='50%25' y='50%25' text-anchor='middle'%3ECar Hire Guide%3C/text%3E%3C/svg%3E" alt="Car Hire Guide Nigeria" loading="lazy">
-                    <span class="blog-category">Guide</span>
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> March 15, 2024</span>
-                        <span class="blog-read-time"><i class="far fa-clock"></i> 8 min read</span>
-                    </div>
-                    <h3 class="blog-title">Complete Guide to Car Hire in Nigeria: Prices, Services & Tips (2024)</h3>
-                    <p class="blog-excerpt">Everything you need to know about renting a car in Nigeria. From pricing structures to documentation requirements, this comprehensive guide covers it all.</p>
-                    <div class="blog-tags">
-                        <span class="tag">Car Rental</span>
-                        <span class="tag">Guide</span>
-                        <span class="tag">Prices</span>
-                    </div>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-            
-            <!-- Article 2: Top 10 Tips -->
-            <article class="blog-card" data-category="tips" data-aos="fade-up" data-aos-delay="100">
-                <div class="blog-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect fill='%23f093fb' width='400' height='250'/%3E%3Ctext fill='white' font-family='Arial' font-size='20' x='50%25' y='50%25' text-anchor='middle'%3ELagos Traffic Tips%3C/text%3E%3C/svg%3E" alt="Lagos Traffic Tips" loading="lazy">
-                    <span class="blog-category">Tips</span>
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> March 10, 2024</span>
-                        <span class="blog-read-time"><i class="far fa-clock"></i> 5 min read</span>
-                    </div>
-                    <h3 class="blog-title">Top 10 Tips for Renting a Car in Lagos and Abuja</h3>
-                    <p class="blog-excerpt">Navigate Nigeria's busiest cities with confidence. Learn the insider tips for hassle-free car rental experiences in Lagos and Abuja.</p>
-                    <div class="blog-tags">
-                        <span class="tag">Lagos</span>
-                        <span class="tag">Abuja</span>
-                        <span class="tag">Tips</span>
-                    </div>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-            
-            <!-- Article 3: Wedding Car Guide -->
-            <article class="blog-card" data-category="tips" data-aos="fade-up" data-aos-delay="200">
-                <div class="blog-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect fill='%234facfe' width='400' height='250'/%3E%3Ctext fill='white' font-family='Arial' font-size='20' x='50%25' y='50%25' text-anchor='middle'%3EWedding Cars%3C/text%3E%3C/svg%3E" alt="Wedding Car Guide" loading="lazy">
-                    <span class="blog-category">Tips</span>
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> March 5, 2024</span>
-                        <span class="blog-read-time"><i class="far fa-clock"></i> 6 min read</span>
-                    </div>
-                    <h3 class="blog-title">How to Choose the Perfect Wedding Car: A Complete Guide</h3>
-                    <p class="blog-excerpt">Make your special day unforgettable with the perfect wedding car. From luxury sedans to elegant SUVs, here's how to choose.</p>
-                    <div class="blog-tags">
-                        <span class="tag">Wedding</span>
-                        <span class="tag">Luxury</span>
-                        <span class="tag">Events</span>
-                    </div>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-            
-            <!-- Article 4: Corporate Fleet Management -->
-            <article class="blog-card" data-category="guide" data-aos="fade-up" data-aos-delay="300">
-                <div class="blog-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect fill='%23fa709a' width='400' height='250'/%3E%3Ctext fill='white' font-family='Arial' font-size='20' x='50%25' y='50%25' text-anchor='middle'%3EFleet Management%3C/text%3E%3C/svg%3E" alt="Corporate Fleet Management" loading="lazy">
-                    <span class="blog-category">Guide</span>
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> February 28, 2024</span>
-                        <span class="blog-read-time"><i class="far fa-clock"></i> 7 min read</span>
-                    </div>
-                    <h3 class="blog-title">Corporate Fleet Management: Leasing vs. Buying Guide</h3>
-                    <p class="blog-excerpt">Should your business lease or buy vehicles? Compare costs, benefits, and make the right decision for your company.</p>
-                    <div class="blog-tags">
-                        <span class="tag">Corporate</span>
-                        <span class="tag">Business</span>
-                        <span class="tag">Fleet</span>
-                    </div>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-        </div>
-        
-        <!-- View All Button -->
-        <div class="view-all-container" data-aos="fade-up">
-            <a href="#" class="view-all-btn">View All Articles</a>
-        </div>
-        
-        <!-- Newsletter Signup -->
-        <div class="newsletter-signup" data-aos="fade-up">
-            <h4>Subscribe to Our Newsletter</h4>
-            <p>Get the latest car rental tips, exclusive offers, and industry news</p>
-            <form class="newsletter-form-inline">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-header" data-aos="zoom-in">
-            <h2>❓ Frequently Asked <span class="highlight">Questions</span></h2>
-            <p>Everything you need to know about car rentals in Nigeria</p>
-        </div>
-        
-        <!-- FAQ Search Bar -->
-        <div class="faq-search" data-aos="fade-up">
-            <i class="fas fa-search"></i>
-            <input type="text" id="faq-search-input" placeholder="Search FAQs... (e.g., Lagos, pricing, booking)">
-        </div>
-        
-        <div class="faq-grid">
-            <!-- Pricing & Payments -->
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
-                <div class="faq-question">
-                    <h3>How much does it cost to rent a car in Lagos per day?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Car rental rates in Lagos vary by vehicle type:</p>
-                    <ul>
-                        <li>• Economy cars (Toyota Camry): ₦80,000 - ₦120,000/day</li>
-                        <li>• Executive sedans (Lexus): ₦160,000 - ₦200,000/day</li>
-                        <li>• Luxury SUVs (Land Cruiser): ₦250,000 - ₦400,000/day</li>
-                        <li>• Buses (Toyota Hiace): ₦150,000 - ₦200,000/day</li>
-                    </ul>
-                    <p>All rates include comprehensive insurance, maintenance, and 100km daily mileage limit.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
-                <div class="faq-question">
-                    <h3>What payment methods do you accept?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>We accept multiple payment methods for your convenience:</p>
-                    <ul>
-                        <li>• Bank Transfer (all Nigerian banks)</li>
-                        <li>• Cash Payment at our offices</li>
-                        <li>• Installment plans for long-term rentals</li>
-                        <li>• Mobile Money (Paystack, Flutterwave)</li>
-                        <li>• Corporate accounts for businesses</li>
-                    </ul>
-                    <p>All payments are secure and we provide official receipts for all transactions.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="faq-question">
-                    <h3>Do you offer monthly or long-term rental discounts?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! Monthly rentals receive significant discounts:</p>
-                    <ul>
-                        <li>• Economy cars: From ₦1.5M/month (save up to 30%)</li>
-                        <li>• Executive cars: From ₦2.5M/month (save up to 25%)</li>
-                        <li>• Luxury SUVs: From ₦4M/month (save up to 20%)</li>
-                    </ul>
-                    <p>Long-term leases (3+ months) include additional benefits like free maintenance, dedicated driver, and flexible payment terms.</p>
-                </div>
-            </div>
-            
-            <!-- Booking & Requirements -->
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
-                <div class="faq-question">
-                    <h3>What documents do I need to rent a car?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Requirements for car rental in Nigeria:</p>
-                    <ul>
-                        <li>• Valid driver's license (Nigerian or International)</li>
-                        <li>• Government-issued ID (International passport, Voter's card, or National ID)</li>
-                        <li>• Proof of residence (utility bill or bank statement)</li>
-                        <li>• Security deposit (varies by vehicle type)</li>
-                        <li>• For corporate rentals: Company ID and introduction letter</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
-                <div class="faq-question">
-                    <h3>Do I need a Nigerian driver's license to rent a car?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>For self-drive rentals, you need a valid driver's license:</p>
-                    <ul>
-                        <li>• Nigerian driver's license (mandatory for Nigerian residents)</li>
-                        <li>• International Driver's Permit (for foreign visitors)</li>
-                        <li>• Foreign driver's license (with valid visa)</li>
-                    </ul>
-                    <p>For rentals with a driver (chauffeur service), you don't need a license as our professional drivers handle all driving.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="faq-question">
-                    <h3>Can I rent a car without a driver (self-drive)?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, self-drive rentals are available! Requirements:</p>
-                    <ul>
-                        <li>• Minimum 2 years driving experience</li>
-                        <li>• Valid driver's license</li>
-                        <li>• Security deposit (₦200,000 - ₦500,000 depending on vehicle)</li>
-                        <li>• Age requirement: 25 years and above</li>
-                    </ul>
-                    <p>Self-drive rentals include comprehensive insurance and 24/7 roadside assistance.</p>
-                </div>
-            </div>
-            
-            <!-- Services & Locations -->
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
-                <div class="faq-question">
-                    <h3>Do you provide airport transfer services?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, we offer premium airport transfer services:</p>
-                    <ul>
-                        <li>• Lagos (MMIA): From ₦50,000 for economy, ₦80,000 for executive</li>
-                        <li>• Abuja (NAIA): From ₦45,000 for economy, ₦70,000 for executive</li>
-                        <li>• Port Harcourt (PHIA): From ₦40,000 for economy</li>
-                    </ul>
-                    <p>Service includes: Flight tracking, 60 minutes free waiting time, meet & greet, and luggage assistance.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
-                <div class="faq-question">
-                    <h3>Do you offer car rental services in other cities?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely! We provide services across Nigeria including:</p>
-                    <ul>
-                        <li>• Port Harcourt (GRA, Trans Amadi)</li>
-                        <li>• Ilorin (GRA, Fate, Tanke)</li>
-                        <li>• Benin City</li>
-                        <li>• Warri, Asaba, Ibadan</li>
-                    </ul>
-                    <p>For locations not listed, we offer nationwide delivery with our inter-state transport service.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="faq-question">
-                    <h3>What wedding car services do you offer?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Our wedding car packages include:</p>
-                    <ul>
-                        <li>• Luxury vehicles: Rolls Royce, Mercedes S-Class, Lexus SUVs</li>
-                        <li>• Professional chauffeurs in formal attire</li>
-                        <li>• Elegant car decoration (flowers, ribbons)</li>
-                        <li>• Red carpet service</li>
-                        <li>• Coordinated convoy management</li>
-                    </ul>
-                    <p>Packages start from ₦180,000 for 6 hours. Book at least 2 weeks in advance for best availability.</p>
-                </div>
-            </div>
-            
-            <!-- Policies & Support -->
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
-                <div class="faq-question">
-                    <h3>What is your cancellation policy?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Our cancellation policy is designed to be fair:</p>
-                    <ul>
-                        <li>• Free cancellation up to 48 hours before pickup</li>
-                        <li>• 50% refund for cancellations 24-48 hours before pickup</li>
-                        <li>• No refund for cancellations within 24 hours</li>
-                        <li>• No-show: 100% charge</li>
-                        <li>• Early returns: No refund for unused days</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
-                <div class="faq-question">
-                    <h3>What happens if I have an accident or breakdown?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>We provide comprehensive support:</p>
-                    <ul>
-                        <li>• 24/7 roadside assistance across Nigeria</li>
-                        <li>• Replacement vehicle within 4 hours (subject to availability)</li>
-                        <li>• Comprehensive insurance coverage for all vehicles</li>
-                        <li>• Dedicated accident support team</li>
-                    </ul>
-                    <p>In case of accident: Call our emergency line immediately. Do not leave the vehicle unattended.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="faq-question">
-                    <h3>Can I rent a car for inter-state travel?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, inter-state travel is one of our specialties:</p>
-                    <ul>
-                        <li>• Lagos to Abuja: Professional drivers, rest stops included</li>
-                        <li>• Lagos to Port Harcourt: Experienced drivers familiar with routes</li>
-                        <li>• Port Harcourt to Abuja: Comfortable SUVs and sedans available</li>
-                        <li>• Custom routes across Nigeria</li>
-                    </ul>
-                    <p>Inter-state rates include: Driver, fuel, insurance, and overnight accommodation for driver on multi-day trips.</p>
+                    <a href="tel:+2348053682130">+234 805 368 2130</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter-section" data-aos="fade-up" data-aos-duration="800">
-        <div class="newsletter-content">
-            <h2>Subscribe to Our <span class="highlight">Newsletter</span></h2>
-            <p>Get the latest car deals, new arrivals, and exclusive offers delivered to your inbox</p>
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit" class="btn btn-primary">Subscribe</button>
-            </form>
+    <!-- Description Sections -->
+    <section class="section description-sections">
+        <div class="container">
+            <div class="description-grid">
+                <div class="description-text">
+                    <h3>Premium Luxury Transportation</h3>
+                    <p>At WHYTE AUTOS, we redefine luxury travel with our premium chauffeur services. Our fleet comprises state-of-the-art vehicles equipped with the latest amenities, ensuring your comfort and convenience throughout your journey.</p>
+                    <p>Whether you're arriving at the airport, attending a corporate event, or celebrating your wedding day, our professional chauffeurs provide punctual, safe, and sophisticated transportation services.</p>
+                </div>
+                <div class="description-text">
+                    <h3>Why Choose WHYTE AUTOS?</h3>
+                    <p>We stand out from regular car rental services by offering a complete luxury experience. From the moment you book until you reach your destination, we handle every detail with precision and care.</p>
+                    <p>Our commitment to excellence has made us the preferred choice for executives, celebrities, and discerning travelers across Nigeria.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <i class="fas fa-car-side"></i>
-                    <span>Naija<span class="highlight">Autos</span></span>
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#download">DOWNLOAD THE APP</a></li>
+                        <li><a href="#">CAR RENTALS</a></li>
+                        <li><a href="#">PLANT HIRE</a></li>
+                        <li><a href="#">LOGISTICS</a></li>
+                        <li><a href="#">DRIVE WITH US</a></li>
+                        <li><a href="#invest">INVEST</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
                 </div>
-                <p>Nigeria's trusted automotive marketplace for car sales and rentals. Quality vehicles, transparent deals, and exceptional service since 2016.</p>
-                <div class="footer-contact-info">
-                    <p><i class="fas fa-phone-alt"></i> +234 801 234 5678</p>
-                    <p><i class="fas fa-envelope"></i> info@naijaautos.com.ng</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 15 Admiralty Way, Lekki Phase 1, Lagos</p>
+                <div class="footer-column">
+                    <h4>CONTACT</h4>
+                    <ul>
+                        <li><a href="mailto:info@whyteautos.com">info@whyteautos.com</a></li>
+                        <li><a href="tel:+2348053682130">+234 805 368 2130</a></li>
+                        <li>No 16 Banjul Street, Wuse II, Abuja</li>
+                        <li>No 34 Ikorodu Road, Yaba Lagos</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>DOWNLOAD</h4>
+                    <div class="app-badges">
+                        <a href="#" class="app-badge">
+                            <i class="fab fa-google-play"></i>
+                            <div>
+                                <span>GET IT ON</span>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="app-badge">
+                            <i class="fab fa-apple"></i>
+                            <div>
+                                <span>Download on the</span>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="app-note">WHYTE AUTOS App is now available on Android and iOS Platforms</p>
+                </div>
+                <div class="footer-column stats-column">
+                    <h4>VISITORS</h4>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-number">125K+</span>
+                            <span class="stat-label">Downloads</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Vehicles</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024-2029 WHYTE AUTOS. All rights reserved</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Refund Policy</a>
+                    <a href="#">Terms</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://wa.me/2348012345678" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Follow us on Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Follow us on Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Connect with us on LinkedIn" aria-label="Connect with us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Subscribe to get the latest deals and updates</p>
-                <form class="newsletter-form" onsubmit="return false;">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#cars">Browse Cars</a></li>
-                    <li><a href="#services">Our Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Car Categories</h4>
-                <ul>
-                    <li><a href="#">SUVs</a></li>
-                    <li><a href="#">Sedans</a></li>
-                    <li><a href="#">Luxury Cars</a></li>
-                    <li><a href="#">Trucks & Pickups</a></li>
-                    <li><a href="#">Buses & Vans</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Our Locations</h4>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Lagos - Lekki</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Lagos - Ikeja</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Abuja - Wuse</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Port Harcourt</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Ibadan</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 NaijaAutos. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </footer>
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
-            <h2>Welcome Back!</h2>
-            <p>Login to your NaijaAutos account</p>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginEmail">Email Address</label>
-                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
-                </div>
-                <div class="form-options">
-                    <label class="checkbox-label">
-                        <input type="checkbox"> Remember me
-                    </label>
-                    <a href="#" class="forgot-link">Forgot Password?</a>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">Login</button>
-            </form>
-            <div class="modal-footer">
-                <p>Don't have an account? <a href="#" onclick="switchModal('loginModal', 'registerModal')">Register</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Register Modal -->
-    <div class="modal" id="registerModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('registerModal')">&times;</span>
-            <h2>Create Account</h2>
-            <p>Join NaijaAutos today</p>
-            <form id="registerForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="regFirstName">First Name</label>
-                        <input type="text" id="regFirstName" placeholder="First name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="regLastName">Last Name</label>
-                        <input type="text" id="regLastName" placeholder="Last name" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="regEmail">Email Address</label>
-                    <input type="email" id="regEmail" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="regPhone">Phone Number</label>
-                    <input type="tel" id="regPhone" placeholder="+234 XXX XXX XXXX" required>
-                </div>
-                <div class="form-group">
-                    <label for="regPassword">Password</label>
-                    <input type="password" id="regPassword" placeholder="Create a password" required>
-                </div>
-                <div class="form-options">
-                    <label class="checkbox-label">
-                        <input type="checkbox" required> I agree to the <a href="#">Terms & Conditions</a>
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">Create Account</button>
-            </form>
-            <div class="modal-footer">
-                <p>Already have an account? <a href="#" onclick="switchModal('registerModal', 'loginModal')">Login</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Car Details Modal -->
-    <div class="modal" id="carModal">
-        <div class="modal-content modal-large">
-            <span class="close-modal" onclick="closeModal('carModal')">&times;</span>
-            <div class="car-modal-content" id="carModalContent">
-                <!-- Car details will be dynamically inserted here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/2348012345678" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
+    <!-- Floating WhatsApp Chat -->
+    <a href="https://wa.me/2348053682130" class="floating-chat" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
     </a>
 
     <script src="script.js"></script>
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS animations
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100,
-            easing: 'ease-out-cubic',
-        });
-    </script>
-    <script>
-        // Sticky header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (header) {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            }
-        });
-        
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
-            }
-            
-            // Close menu when clicking a link
-            const mobileLinks = document.querySelectorAll('.nav-links a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                });
-            });
-        });
-        
-        // Filter vehicles by category
-        function filterVehicles(category, btn) {
-            const cards = document.querySelectorAll('.vehicle-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Update active button state
-            document.querySelectorAll('.fleet-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            btn.classList.add('active');
-        }
-        
-        // Animated counter function
-        function animateCounter(element, target) {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target.toLocaleString();
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current).toLocaleString();
-                }
-            }, 30);
-        }
-        
-        // Intersection Observer to trigger counters when visible
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.stat-number');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.dataset.target);
-                        animateCounter(counter, target);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        });
-        
-        const statsSection = document.querySelector('.stats-grid');
-        if (statsSection) statsObserver.observe(statsSection);
-        
-        // Accordion functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                
-                // Close all other items (optional - only one open at a time)
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem && item.classList.contains('active')) {
-                        item.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current item
-                faqItem.classList.toggle('active');
-            });
-        });
-        
-        // Search/filter functionality
-        function filterFAQs(searchTerm) {
-            const faqItems = document.querySelectorAll('.faq-item');
-            const term = searchTerm.toLowerCase();
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
-                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-                
-                if (question.includes(term) || answer.includes(term)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-        
-        // Add search input listener
-        const searchInput = document.getElementById('faq-search-input');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                filterFAQs(e.target.value);
-            });
-        }
-        
-        // Testimonials Carousel
-        class TestimonialCarousel {
-            constructor(container) {
-                this.container = container;
-                this.track = container.querySelector('.carousel-track');
-                this.prevBtn = container.querySelector('.prev-btn');
-                this.nextBtn = container.querySelector('.next-btn');
-                this.dotsContainer = container.querySelector('.carousel-dots');
-                this.cards = [];
-                this.currentIndex = 0;
-                this.cardsPerView = this.getCardsPerView();
-                this.totalSlides = 0;
-                
-                this.init();
-            }
-            
-            getCardsPerView() {
-                if (window.innerWidth < 768) return 1;
-                if (window.innerWidth < 1024) return 2;
-                return 3;
-            }
-            
-            init() {
-                this.cards = Array.from(this.track.children);
-                this.totalSlides = this.cards.length;
-                this.createDots();
-                this.updateCarousel();
-                
-                this.prevBtn.addEventListener('click', () => this.prev());
-                this.nextBtn.addEventListener('click', () => this.next());
-                window.addEventListener('resize', () => this.handleResize());
-            }
-            
-            createDots() {
-                const totalDots = Math.ceil(this.totalSlides / this.cardsPerView);
-                for (let i = 0; i < totalDots; i++) {
-                    const dot = document.createElement('div');
-                    dot.classList.add('dot');
-                    dot.addEventListener('click', () => this.goToSlide(i));
-                    this.dotsContainer.appendChild(dot);
-                }
-            }
-            
-            updateCarousel() {
-                const cardWidth = this.cards[0].offsetWidth;
-                const gap = 32;
-                const slideWidth = cardWidth + gap;
-                const translateX = -this.currentIndex * slideWidth;
-                
-                this.track.style.transform = `translateX(${translateX}px)`;
-                
-                // Update dots
-                const dots = this.dotsContainer.children;
-                const activeDotIndex = Math.floor(this.currentIndex / this.cardsPerView);
-                Array.from(dots).forEach((dot, i) => {
-                    dot.classList.toggle('active', i === activeDotIndex);
-                });
-                
-                // Update button visibility
-                this.prevBtn.style.opacity = this.currentIndex === 0 ? '0.5' : '1';
-                this.nextBtn.style.opacity = this.currentIndex + this.cardsPerView >= this.totalSlides ? '0.5' : '1';
-            }
-            
-            next() {
-                if (this.currentIndex + this.cardsPerView < this.totalSlides) {
-                    this.currentIndex++;
-                    this.updateCarousel();
-                }
-            }
-            
-            prev() {
-                if (this.currentIndex > 0) {
-                    this.currentIndex--;
-                    this.updateCarousel();
-                }
-            }
-            
-            goToSlide(index) {
-                this.currentIndex = index * this.cardsPerView;
-                if (this.currentIndex + this.cardsPerView > this.totalSlides) {
-                    this.currentIndex = this.totalSlides - this.cardsPerView;
-                }
-                this.updateCarousel();
-            }
-            
-            handleResize() {
-                const newCardsPerView = this.getCardsPerView();
-                if (newCardsPerView !== this.cardsPerView) {
-                    this.cardsPerView = newCardsPerView;
-                    this.currentIndex = 0;
-                    this.dotsContainer.innerHTML = '';
-                    this.createDots();
-                    this.updateCarousel();
-                }
-            }
-        }
-        
-        // Initialize carousel
-        document.addEventListener('DOMContentLoaded', () => {
-            const carouselContainer = document.querySelector('.testimonials-carousel');
-            if (carouselContainer) {
-                new TestimonialCarousel(carouselContainer);
-            }
-        });
-        
-        // Contact Form Submission
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const statusDiv = document.getElementById('form-status');
-            const submitBtn = form.querySelector('.submit-btn');
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            statusDiv.style.display = 'none';
-            
-            // Collect form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toISOString()
-            };
-            
-            try {
-                // Option 1: Send to Formspree (free, no backend needed)
-                // Replace 'YOUR_FORM_ID' with your actual Formspree form ID
-                const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                if (response.ok) {
-                    statusDiv.className = 'form-status success';
-                    statusDiv.innerHTML = '✓ Message sent successfully! We\'ll get back to you soon.';
-                    form.reset();
-                } else {
-                    throw new Error('Failed to send');
-                }
-            } catch (error) {
-                // Fallback: Store in localStorage and show WhatsApp contact option
-                const unsentMessages = JSON.parse(localStorage.getItem('unsentMessages') || '[]');
-                unsentMessages.push(formData);
-                localStorage.setItem('unsentMessages', JSON.stringify(unsentMessages));
-                
-                statusDiv.className = 'form-status error';
-                statusDiv.innerHTML = '⚠️ Unable to send message. Please contact us directly on WhatsApp: <a href="https://wa.me/2348012345678" target="_blank" rel="noopener noreferrer">Click here to chat</a>';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                
-                // Auto-hide status after 5 seconds
-                setTimeout(() => {
-                    statusDiv.style.display = 'none';
-                }, 5000);
-            }
-        });
-        
-        // Blog Category Filtering
-        function filterBlogs(category, btn) {
-            const cards = document.querySelectorAll('.blog-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Update active button
-            document.querySelectorAll('.filter-btn').forEach(button => {
-                button.classList.remove('active');
-            });
-            btn.classList.add('active');
-        }
-        
-        // Read More click handler
-        document.querySelectorAll('.read-more').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                // Option: Open modal with full article or navigate to article page
-                console.log('Open article');
-            });
-        });
-    </script>
 </body>
 </html>

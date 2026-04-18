@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHYTE AUTOS - Luxury Car Rentals with Chauffeur in Nigeria</title>
+    <meta name="description" content="Premium luxury car rentals with professional chauffeur in Abuja, Lagos, Kano, Port Harcourt & all major cities in Nigeria. Airport transfers, corporate events, weddings.">
+    <meta name="keywords" content="luxury car rental, chauffeur service, airport transfer, WHYTE AUTOS, car hire Nigeria, Abuja car rental, Lagos car service">
+    <meta name="author" content="WHYTE AUTOS">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #d4a843;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b8922e;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: #d4a843;
+        }
+        
+        /* Navigation Desktop */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #d4a843;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #1a1a1a;
+            min-width: 200px;
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid rgba(212,168,67,0.2);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #fff;
+        }
+        
+        .dropdown-content a:hover {
+            background: #d4a843;
+            color: #0a0a0a;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icons a {
+            color: #fff;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #d4a843;
+        }
+        
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: #0a0a0a;
+            padding: 1rem;
+            z-index: 999;
+            border-bottom: 1px solid rgba(212,168,67,0.2);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/2127029/pexels-photo-2127029.jpeg?w=1600');
+            background-size: cover;
+            background-position: center;
+            margin-top: 70px;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        .btn-gold {
+            background: #d4a843;
+            color: #0a0a0a;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-gold:hover {
+            background: #b8922e;
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #d4a843;
+            margin-bottom: 3rem;
+        }
+        
+        /* What We Do */
+        .what-we-do-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .what-we-do-text p {
+            line-height: 1.8;
+            color: #ccc;
+        }
+        
+        .what-we-do-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 12px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4a843;
+            font-size: 3rem;
+        }
+        
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: #111;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212,168,67,0.2);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+        }
+        
+        .feature-card h3 {
+            color: #d4a843;
+            margin-bottom: 1rem;
+        }
+        
+        /* Ride In Style */
+        .ride-style {
+            background: linear-gradient(135deg, #111, #0a0a0a);
+            text-align: center;
+            padding: 4rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+        
+        .ride-style h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ride-style .tagline {
+            color: #d4a843;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Vehicle Grid */
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .vehicle-card {
+            background: #111;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(212,168,67,0.2);
+            transition: all 0.3s;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4a843;
+        }
+        
+        .vehicle-image {
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #d4a843;
+        }
+        
+        .vehicle-info {
+            padding: 1.5rem;
+        }
+        
+        .vehicle-info h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .btn-book {
+            background: transparent;
+            border: 1px solid #d4a843;
+            color: #d4a843;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .btn-book:hover {
+            background: #d4a843;
+            color: #0a0a0a;
+        }
+        
+        /* Category Section */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+        
+        .category-card {
+            background: linear-gradient(135deg, #d4a843, #b8922e);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 250px;
+        }
+        
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-card p {
+            margin-bottom: 1rem;
+        }
+        
+        .section-center {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .section-center p {
+            margin-bottom: 2rem;
+        }
+        
+        .category-card .btn-light {
+            background: #fff;
+            color: #0a0a0a;
+        }
+        
+        /* Amenities */
+        .amenities {
+            background: #111;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .amenities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .amenity {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .amenity i {
+            font-size: 2rem;
+            color: #d4a843;
+        }
+        
+        /* Form Styles */
+        .booking-form {
+            background: #111;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #d4a843;
+        }
+        
+        .form-section-title {
+            margin: 2rem 0 1rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-center-margin {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .form-title {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 0.75rem;
+            border-radius: 8px;
+            color: #fff;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d4a843;
+        }
+        
+        .submit-btn {
+            background: #d4a843;
+            color: #0a0a0a;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #050505;
+            padding: 4rem 0 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            color: #d4a843;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: #d4a843;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+        }
+        
+        .footer-bottom .social-icons {
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .app-icons {
+            margin-top: 1rem;
+        }
+        
+        .app-icons i {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+        
+        .submit-note {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        .submit-note-accent {
+            font-size: 0.8rem;
+            text-align: center;
+            color: #d4a843;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .contact-info p {
+            margin-top: 1rem;
+        }
+        
+        .contact-phone {
+            font-size: 1.5rem;
+            color: #d4a843;
+        }
+        
+        /* Floating Chat */
+        .chat-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            z-index: 1000;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .chat-float:hover {
+            transform: scale(1.05);
+            background: #128C7E;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .what-we-do-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .vehicle-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .vip-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .vip-badge {
+            display: inline-block;
+            background: #d4a843;
+            color: #0a0a0a;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="header-content">
+        <div class="logo">
+            <h1>WHYTE <span>AUTOS</span></h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="#home">HOME</a>
+            <div class="dropdown">
+                <a href="#services">SERVICES ▼</a>
+                <div class="dropdown-content">
+                    <a href="#car-rentals">Car Rentals</a>
+                    <a href="#chauffeur">Chauffeur Service</a>
+                    <a href="#airport">Airport Transfer</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#download">DOWNLOAD THE APP ▼</a>
+                <div class="dropdown-content">
+                    <a href="#customer-app">Customer App</a>
+                    <a href="#driver-app">Driver App</a>
+                    <a href="#merchant-app">Merchant App</a>
+                </div>
+            </div>
+            <a href="#contact">CONTACT</a>
+            <a href="#invest">INVEST</a>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="hamburger" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">HOME</a>
+        <a href="#services">SERVICES</a>
+        <a href="#download">DOWNLOAD THE APP</a>
+        <a href="#contact">CONTACT</a>
+        <a href="#invest">INVEST</a>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1 data-aos="fade-up">Luxury Car Rentals with Chauffeur</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Airport Transfer, Private Car Hire Services in Abuja, Lagos, Kano, PH & All major cities in Nigeria</p>
+        <button class="btn-gold" data-aos="fade-up" data-aos-delay="400" onclick="scrollToBooking()">Book Now</button>
+    </div>
+</section>
+
+<!-- What We Do -->
+<section id="services" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">WHAT WE DO</h2>
+        <div class="what-we-do-grid">
+            <div class="what-we-do-text">
+                <p>WHYTE AUTOS Luxury Car Rentals with Chauffeur gets you to your destination promptly and comfortably. Our experienced staff offers personalized and professional assistance that enhances any celebration or corporate event. You can rely on a clean picture perfect condition vehicle waiting for you for special occasions and corporate ground transportation.</p>
+            </div>
+            <div class="what-we-do-images">
+                <div class="image-placeholder">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <div class="image-placeholder">
+                    <i class="fas fa-road"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section>
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up">
+                <h3><i class="fas fa-plane"></i> Airport Transportation</h3>
+                <p>We provide pick up and drop off and shuttle service to and from all major local airports in surrounding areas in one of our comfortable luxury sedans. We can assist you with airport transfers for stress-free travel and take you to all your desired destinations.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <h3><i class="fas fa-calendar-alt"></i> Flexible Rentals</h3>
+                <p>Get your private transportation service for your special event such as your wedding day, corporate, night out on the town, bachelor/bachelorette party, concert, and more. We also provide high-quality private car service for your business meetings or corporate affairs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ride In Style -->
+<section>
+    <div class="container">
+        <div class="ride-style" data-aos="zoom-in">
+            <h2>RIDE IN STYLE</h2>
+            <p class="tagline">Comfort. Prompt. Professional</p>
+            <p>Included in all transportation services are one (1) uniformed driver, complimentary water, WIFI, charging and complimentary snacks. Driver will be present at the pickup location fifteen (15) minutes before scheduled pickup time.</p>
+        </div>
+    </div>
+</section>
+
+<!-- VIP Badges -->
+<section>
+    <div class="container">
+        <div class="vip-container">
+            <span class="vip-badge">VIP FIRST CLASS</span>
+            <span class="vip-badge">VIP FIRST CLASS</span>
+            <span class="vip-badge">VIP FIRST CLASS</span>
+            <span class="vip-badge">VIP FIRST CLASS</span>
+        </div>
+    </div>
+</section>
+
+<!-- Vehicle Fleet -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Our Luxury Fleet</h2>
+        <div class="vehicle-grid">
+            <!-- Mercedes S-Class -->
+            <div class="vehicle-card" data-aos="fade-up">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Mercedes S-Class Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Mercedes V-Class -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Mercedes V-Class Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Mercedes Sprinter -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="vehicle-image"><i class="fas fa-bus"></i></div>
+                <div class="vehicle-info">
+                    <h3>Mercedes Sprinter Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Mercedes G-Class -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Mercedes G-Class Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Mercedes E-Class -->
+            <div class="vehicle-card" data-aos="fade-up">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Mercedes E-Class Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Lexus LX Series -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Lexus LX Series Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Toyota Land Cruiser -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Toyota Land Cruiser Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Toyota Prado -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Toyota Prado Series Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Range Rover Velar -->
+            <div class="vehicle-card" data-aos="fade-up">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Range Rover Velar Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Range Rover Sports -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Range Rover Sports Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Range Rover Autobiography -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Range Rover Autobiography Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+            <!-- Cadillac Escalade -->
+            <div class="vehicle-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="vehicle-image"><i class="fas fa-car"></i></div>
+                <div class="vehicle-info">
+                    <h3>Cadillac Escalade V-Series Hire</h3>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Looking for more options -->
+<section>
+    <div class="container">
+        <div class="section-center">
+            <p>Looking for more options? Check out our Ultra-Luxury or Budget Friendly Categories</p>
+            <div class="categories">
+                <div class="category-card" data-aos="flip-left">
+                    <h3>Ultra-Luxury Category</h3>
+                    <p>starting at ₦1,500,000</p>
+                    <button class="btn-book btn-light">Explore →</button>
+                </div>
+                <div class="category-card" data-aos="flip-right">
+                    <h3>Budget Friendly Category</h3>
+                    <p>starting at ₦60,000</p>
+                    <button class="btn-book btn-light">Explore →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Amenities & Booking -->
+<section id="contact">
+    <div class="container">
+        <div class="amenities" data-aos="fade-up">
+            <h2 class="section-title">RESERVE YOUR VEHICLE TODAY, ENJOY AWESOME AMENITIES!</h2>
+            <div class="amenities-list">
+                <div class="amenity"><i class="fas fa-wifi"></i><span>Free WIFI</span></div>
+                <div class="amenity"><i class="fas fa-battery-full"></i><span>Phone Charger</span></div>
+                <div class="amenity"><i class="fas fa-umbrella"></i><span>Umbrella</span></div>
+                <div class="amenity"><i class="fas fa-tint"></i><span>Complimentary Water</span></div>
+                <div class="amenity"><i class="fas fa-cookie-bite"></i><span>Snacks</span></div>
+            </div>
+            <p class="text-center-margin">Our team of experienced chauffeurs will provide you with stress-free travel, reliable service for all your needs in ground transportation. We give you upfront pricing, crystal clear communication, and an excellent customer experience every time.</p>
+        </div>
+        
+        <!-- Booking Form -->
+        <div class="booking-form" data-aos="fade-up">
+            <h3 class="form-title">Personal Information</h3>
+            <form id="bookingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" required placeholder="Enter your full name" title="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Email *</label>
+                        <input type="email" required placeholder="Enter your email address" title="Your email address">
+                    </div>
+                    <div class="form-group">
+                        <label>Age *</label>
+                        <input type="number" required placeholder="Enter your age" title="Your age">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" required placeholder="Enter your phone number" title="Your phone number">
+                    </div>
+                </div>
+                
+                <h3 class="form-section-title">Itinerary Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Pickup Date *</label>
+                        <input type="date" required title="Select pickup date">
+                    </div>
+                    <div class="form-group">
+                        <label>Pickup Time *</label>
+                        <select required title="Select pickup time">
+                            <option value="">-- Select Time --</option>
+                            <option>00:00</option><option>01:00</option><option>02:00</option>
+                            <option>03:00</option><option>04:00</option><option>05:00</option>
+                            <option>06:00</option><option>07:00</option><option>08:00</option>
+                            <option>09:00</option><option>10:00</option><option>11:00</option>
+                            <option>12:00</option><option>13:00</option><option>14:00</option>
+                            <option>15:00</option><option>16:00</option><option>17:00</option>
+                            <option>18:00</option><option>19:00</option><option>20:00</option>
+                            <option>21:00</option><option>22:00</option><option>23:00</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type *</label>
+                        <select required title="Select service type">
+                            <option value="">-- Select Service --</option>
+                            <option>Airport Transfer</option>
+                            <option>Wedding Service</option>
+                            <option>Corporate Event</option>
+                            <option>Private Hire</option>
+                            <option>Inter-State Travel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>City *</label>
+                        <select required title="Select city">
+                            <option value="">-- Select City --</option>
+                            <option>Abuja</option>
+                            <option>Lagos</option>
+                            <option>Kano</option>
+                            <option>Port Harcourt</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <h3 class="form-section-title">Vehicle Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Vehicle Type *</label>
+                        <select required title="Select vehicle type">
+                            <option value="">-- Select Vehicle --</option>
+                            <option>Mercedes S-Class</option>
+                            <option>Mercedes V-Class</option>
+                            <option>Mercedes Sprinter</option>
+                            <option>Mercedes G-Class</option>
+                            <option>Lexus LX Series</option>
+                            <option>Toyota Land Cruiser</option>
+                            <option>Range Rover</option>
+                            <option>Cadillac Escalade</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Vehicle Quantity *</label>
+                        <select required title="Select vehicle quantity">
+                            <option value="">-- Select Quantity --</option>
+                            <option>1</option><option>2</option><option>3</option>
+                            <option>4</option><option>5</option><option>6+</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Extra Notes (optional)</label>
+                        <textarea rows="3" placeholder="Any special requests or additional information..."></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">SUBMIT REQUEST</button>
+                <p class="submit-note">Chauffeur will wait 15 minutes free of charge.</p>
+                <p class="submit-note-accent">All fields marked * is required. Kindly avoid duplicate entries once the form is submitted.</p>
+            </form>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <p>Thank you for your interest in WHYTE AUTOS VIP Car Services. Please fill in the quote form to get an instant quote. If you are not sure of the vehicle you are interested in please have a look at our selection of vehicles available.</p>
+            <p>For more information contact:</p>
+            <p class="contact-phone">+234 805 368 2130</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>COMPANY</h4>
+                <a href="#home">HOME</a>
+                <a href="#download">DOWNLOAD THE APP</a>
+                <a href="#services">CAR RENTALS</a>
+                <a href="#">PLANT HIRE</a>
+                <a href="#">LOGISTICS</a>
+                <a href="#">DRIVE WITH US</a>
+                <a href="#invest">INVEST</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT</h4>
+                <p><i class="fas fa-envelope"></i> info@whyteautos.com.ng</p>
+                <p><i class="fas fa-phone"></i> +234 805 368 2130</p>
+                <p><i class="fas fa-map-marker-alt"></i> No 16 Banjul Street, Wuse II, Abuja.</p>
+                <p><i class="fas fa-map-marker-alt"></i> No 34 Ikorodu Road, Yaba Lagos.</p>
+            </div>
+            <div class="footer-col">
+                <h4>DOWNLOAD</h4>
+                <p>WHYTE AUTOS App is now available on Android and iOS Platforms for hassle-free payments. Enjoy free rides on Registration.</p>
+                <div class="app-icons">
+                    <i class="fab fa-google-play"></i>
+                    <i class="fab fa-apple"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Pageviews: 343,845</p>
+            <p>© 2021-2026 WHYTE AUTOS. All rights reserved</p>
+            <p>Privacy Policy | Refund Policy | Terms</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Floating Chat Button -->
+<a href="https://wa.me/2348053682130" class="chat-float" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i> Chat WHYTE AUTOS
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+    
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Smooth scroll to booking
+    function scrollToBooking() {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Form submission
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your request! A representative will contact you shortly.');
+        this.reset();
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+</script>
+</body>
+</html>

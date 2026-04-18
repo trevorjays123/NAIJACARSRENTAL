@@ -1,1466 +1,582 @@
-console.log('NaijaAutos - Nigeria\'s Premier Car Sales & Rentals Platform');
-console.log('© 2026 NaijaAutos. All Rights Reserved.');
+// ===========================
+// WHYTE AUTOS - Complete JavaScript
+// Based on NAIRAXI Functionality
+// ===========================
 
-// SVG Car Image Placeholders - Reliable, fast-loading SVG images
-const carSVGPlaceholder = (color, type) => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23${color};stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23${color}CC;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23bg)' width='400' height='300'/%3E%3Ctext x='50%25' y='45%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle'%3E${type}%3C/text%3E%3Ctext x='50%25' y='60%25' font-family='Arial' font-size='14' fill='white' text-anchor='middle' opacity='0.8'%3ENaijaAutos%3C/text%3E%3Ccircle cx='100' cy='220' r='30' fill='%23333'/%3E%3Ccircle cx='300' cy='220' r='30' fill='%23333'/%3E%3Ccircle cx='100' cy='220' r='15' fill='%23666'/%3E%3Ccircle cx='300' cy='220' r='15' fill='%23666'/%3E%3Crect x='80' y='170' width='240' height='50' rx='10' fill='%23ffffff40'/%3E%3C/svg%3E`;
-
-const carsData = [
-    {
-        id: 1,
-        name: "Toyota Camry SE 2022",
-        brand: "toyota",
-        type: "sedan",
-        category: "sale",
-        price: 18500000,
-        priceDisplay: "₦18,500,000",
-        year: 2022,
-        mileage: "15,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: true,
-        condition: "Foreign Used",
-        color: "Silver",
-        engine: "2.5L 4-Cylinder",
-        image: carSVGPlaceholder('C0C0C0', 'Toyota Camry'),
-        description: "Clean Toyota Camry SE with low mileage. Full option with leather seats, reverse camera, and Bluetooth connectivity."
-    },
-    {
-        id: 2,
-        name: "Mercedes-Benz E300 2021",
-        brand: "mercedes",
-        type: "luxury",
-        category: "sale",
-        price: 45000000,
-        priceDisplay: "₦45,000,000",
-        year: 2021,
-        mileage: "22,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Abuja",
-        featured: true,
-        condition: "Foreign Used",
-        color: "Black",
-        engine: "2.0L Turbo",
-        image: carSVGPlaceholder('1a1a1a', 'Mercedes-Benz'),
-        description: "Luxury Mercedes-Benz E300 with premium package. Panoramic sunroof, ambient lighting, and advanced safety features."
-    },
-    {
-        id: 3,
-        name: "Toyota Highlander 2020",
-        brand: "toyota",
-        type: "suv",
-        category: "sale",
-        price: 28000000,
-        priceDisplay: "₦28,000,000",
-        year: 2020,
-        mileage: "35,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: false,
-        condition: "Foreign Used",
-        color: "White",
-        engine: "3.5L V6",
-        image: carSVGPlaceholder('F5F5F5', 'Toyota Highlander'),
-        description: "Spacious Toyota Highlander XLE with third-row seating. Perfect for families. Well maintained with full service history."
-    },
-    {
-        id: 4,
-        name: "Honda Accord 2023",
-        brand: "honda",
-        type: "sedan",
-        category: "rent",
-        price: 50000,
-        priceDisplay: "₦50,000/day",
-        year: 2023,
-        mileage: "8,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: true,
-        condition: "Brand New",
-        color: "Blue",
-        engine: "1.5L Turbo",
-        image: carSVGPlaceholder('2563EB', 'Honda Accord'),
-        description: "Brand new Honda Accord Sport for rent. Available with or without driver. Perfect for business trips and special occasions."
-    },
-    {
-        id: 5,
-        name: "Lexus RX 350 2021",
-        brand: "lexus",
-        type: "suv",
-        category: "sale",
-        price: 38000000,
-        priceDisplay: "₦38,000,000",
-        year: 2021,
-        mileage: "28,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Port Harcourt",
-        featured: false,
-        condition: "Foreign Used",
-        color: "Grey",
-        engine: "3.5L V6",
-        image: carSVGPlaceholder('808080', 'Lexus RX'),
-        description: "Premium Lexus RX 350 F-Sport with Mark Levinson sound system. Heads-up display and adaptive cruise control."
-    },
-    {
-        id: 6,
-        name: "BMW X5 2022",
-        brand: "bmw",
-        type: "luxury",
-        category: "rent",
-        price: 120000,
-        priceDisplay: "₦120,000/day",
-        year: 2022,
-        mileage: "12,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Abuja",
-        featured: true,
-        condition: "Foreign Used",
-        color: "Black",
-        engine: "3.0L Turbo",
-        image: carSVGPlaceholder('1a1a1a', 'BMW X5'),
-        description: "Luxury BMW X5 xDrive40i available for rent. M-Sport package with premium interior. Driver available on request."
-    },
-    {
-        id: 7,
-        name: "Hyundai Elantra 2021",
-        brand: "hyundai",
-        type: "sedan",
-        category: "sale",
-        price: 12500000,
-        priceDisplay: "₦12,500,000",
-        year: 2021,
-        mileage: "20,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Ibadan",
-        featured: false,
-        condition: "Foreign Used",
-        color: "Red",
-        engine: "2.0L 4-Cylinder",
-        image: carSVGPlaceholder('DC143C', 'Hyundai Elantra'),
-        description: "Stylish Hyundai Elantra with modern design. Apple CarPlay, Android Auto, and wireless charging."
-    },
-    {
-        id: 8,
-        name: "Toyota Land Cruiser 2020",
-        brand: "toyota",
-        type: "suv",
-        category: "sale",
-        price: 65000000,
-        priceDisplay: "₦65,000,000",
-        year: 2020,
-        mileage: "45,000 km",
-        transmission: "Automatic",
-        fuel: "Diesel",
-        location: "Lagos",
-        featured: true,
-        condition: "Foreign Used",
-        color: "White",
-        engine: "4.5L V8 Diesel",
-        image: carSVGPlaceholder('F5F5F5', 'Land Cruiser'),
-        description: "Powerful Toyota Land Cruiser VX with bulletproof option available. Full leather interior and premium sound system."
-    },
-    {
-        id: 9,
-        name: "Toyota Prado 2022",
-        brand: "toyota",
-        type: "suv",
-        category: "rent",
-        price: 45000,
-        priceDisplay: "₦45,000/day",
-        year: 2022,
-        mileage: "10,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: false,
-        condition: "Brand New",
-        color: "Black",
-        engine: "2.7L 4-Cylinder",
-        image: carSVGPlaceholder('1a1a1a', 'Toyota Prado'),
-        description: "Powerful Toyota Prado SUV perfect for off-road adventures and city driving. Reliable with advanced safety features."
-    },
-    {
-        id: 10,
-        name: "Ford Explorer 2021",
-        brand: "ford",
-        type: "suv",
-        category: "sale",
-        price: 32000000,
-        priceDisplay: "₦32,000,000",
-        year: 2021,
-        mileage: "30,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Enugu",
-        featured: false,
-        condition: "Foreign Used",
-        color: "Blue",
-        engine: "2.3L EcoBoost",
-        image: carSVGPlaceholder('2563EB', 'Ford Explorer'),
-        description: "American muscle SUV with powerful EcoBoost engine. Third-row seating and advanced SYNC infotainment system."
-    },
-    {
-        id: 11,
-        name: "Mercedes-Benz S-Class 2023",
-        brand: "mercedes",
-        type: "luxury",
-        category: "rent",
-        price: 200000,
-        priceDisplay: "₦200,000/day",
-        year: 2023,
-        mileage: "5,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Lagos",
-        featured: true,
-        condition: "Brand New",
-        color: "Black",
-        engine: "3.0L Inline-6 Turbo",
-        image: carSVGPlaceholder('1a1a1a', 'Mercedes S-Class'),
-        description: "Ultimate luxury sedan for VIP transport. Chauffeur service available. Executive rear seating with massage function."
-    },
-    {
-        id: 12,
-        name: "Toyota Corolla 2022",
-        brand: "toyota",
-        type: "sedan",
-        category: "sale",
-        price: 14000000,
-        priceDisplay: "₦14,000,000",
-        year: 2022,
-        mileage: "18,000 km",
-        transmission: "Automatic",
-        fuel: "Petrol",
-        location: "Kano",
-        featured: false,
-        condition: "Foreign Used",
-        color: "Grey",
-        engine: "1.8L 4-Cylinder",
-        image: carSVGPlaceholder('808080', 'Toyota Corolla'),
-        description: "Reliable Toyota Corolla LE with excellent fuel economy. Toyota Safety Sense included. Perfect daily driver."
-    }
-];
-
-// ===== DOM Elements =====
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-const fleetGrid = document.getElementById('fleetGrid') || document.getElementById('carsGrid');
-const carsGrid = fleetGrid;
-const filterBtns = document.querySelectorAll('.filter-btn, .fleet-tab');
-const loadMoreBtn = document.getElementById('loadMoreBtn');
-const searchForm = document.getElementById('searchForm');
-const contactForm = document.getElementById('contactForm');
-const newsletterForm = document.getElementById('newsletterForm');
-const loginForm = document.getElementById('loginForm');
-const registerForm = document.getElementById('registerForm');
-
-// ===== State Variables =====
-let displayedCars = 6;
-let currentFilter = 'all';
-let filteredCars = [...carsData];
-
-// ===== Initialize =====
-// Initialize lazy loading for images
-document.addEventListener('DOMContentLoaded', () => {
-    initLazyLoading();
-    renderCars();
-    initializeEventListeners();
-    initializeScrollEffects();
-    initScrollAnimations();
-    initFAQ();
+document.addEventListener('DOMContentLoaded', function() {
+    initMobileMenu();
+    initSearchBar();
+    initDropdowns();
+    initFormValidation();
+    initSmoothScroll();
+    initTimeDropdown();
+    initVehicleDropdown();
+    setMinDate();
 });
 
-// ===== Scroll-triggered Animations =====
-function initScrollAnimations() {
-    // Add animation classes to cards
-    const carCards = document.querySelectorAll('.car-card');
-    carCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-    });
-    
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-    });
-    
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    testimonialCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.15}s`;
-    });
-    
-    const statItems = document.querySelectorAll('.stat-item');
-    statItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.15}s`;
-    });
-    
-    const featureItems = document.querySelectorAll('.feature-item');
-    featureItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.1}s`;
-    });
-    
-    // Intersection Observer for scroll animations
-    const animatedElements = document.querySelectorAll('.car-card, .service-card, .testimonial-card, .stat-item, .feature-item');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    animatedElements.forEach(el => observer.observe(el));
-}
+// ===========================
+// MOBILE MENU
+// ===========================
+function initMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mainNav = document.getElementById('mainNav');
 
-// ===== Event Listeners =====
-function initializeEventListeners() {
-    // Mobile Navigation
-    hamburger.addEventListener('click', toggleMobileNav);
+    if (!hamburger || !mobileMenu) return;
 
-    // Filter Buttons
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => handleFilter(btn));
+    hamburger.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        mainNav.classList.toggle('active');
     });
 
-    // Load More Button
-    loadMoreBtn.addEventListener('click', loadMoreCars);
-
-    // Search Form
-    searchForm.addEventListener('submit', handleSearch);
-
-    // Contact Form
-    contactForm.addEventListener('submit', handleContactSubmit);
-
-    // Newsletter Form
-    newsletterForm.addEventListener('submit', handleNewsletterSubmit);
-
-    // Login Form
-    loginForm.addEventListener('submit', handleLoginSubmit);
-
-    // Register Form
-    registerForm.addEventListener('submit', handleRegisterSubmit);
-
-    // Close modals on outside click
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal(modal.id);
-            }
-        });
-    });
-
-    // Navigation links - close mobile menu on click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+    // Close when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
             hamburger.classList.remove('active');
+            mainNav.classList.remove('active');
         });
     });
 
-    // Active nav link on scroll
-    window.addEventListener('scroll', updateActiveNavLink);
-}
-
-// ===== Mobile Navigation =====
-function toggleMobileNav() {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-}
-
-// ===== FAQ Toggle =====
-function initFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-            item.classList.toggle('active');
-        });
+    // Close when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+            mobileMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('active');
+        }
     });
 }
 
-// ===== Render Cars =====
-function renderCars() {
-    const carsToShow = filteredCars.slice(0, displayedCars);
+// ===========================
+// SEARCH BAR
+// ===========================
+function initSearchBar() {
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchBar = document.getElementById('searchBar');
 
-    carsGrid.innerHTML = carsToShow.map((car, index) => `
-        <div class="fleet-card car-card" style="animation-delay: ${index * 0.1}s" data-category="${car.category}" data-type="${car.type}">
-            <div class="fleet-image car-image img-loading">
-                <img data-src="${car.image}" src="${car.image}" alt="${car.name}" class="lazy-load loaded" onerror="this.src='temp_image_1769120549642.webp'" onload="this.classList.add('loaded'); this.parentElement.classList.remove('img-loading'); this.parentElement.classList.add('img-loaded');">
-                <span class="fleet-category car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}">
-                    ${car.type.toUpperCase()}
-                </span>
-                ${car.featured ? '<span class="badge-featured">Featured</span>' : ''}
-            </div>
-            <div class="fleet-details car-details">
-                <h3 class="car-title">${car.name}</h3>
-                ${car.category === 'rent' ? `
-                <div class="fleet-pricing">
-                    <div class="price-item">
-                        <span class="price-label">Daily Rate</span>
-                        <span class="price-value">${car.dailyRateDisplay || car.priceDisplay}</span>
-                    </div>
-                    <div class="price-item">
-                        <span class="price-label">Airport Rate</span>
-                        <span class="price-value">${car.airportRateDisplay || 'Contact Us'}</span>
-                    </div>
-                </div>
-                ` : ''}
-                <div class="car-specs">
-                    <span><i class="fas fa-calendar"></i> ${car.year}</span>
-                    <span><i class="fas fa-tachometer-alt"></i> ${car.mileage}</span>
-                    <span><i class="fas fa-cog"></i> ${car.transmission}</span>
-                    <span><i class="fas fa-gas-pump"></i> ${car.fuel}</span>
-                </div>
-                <div class="car-location">
-                    <i class="fas fa-map-marker-alt"></i> ${car.location}, Nigeria
-                </div>
-                <div class="car-footer">
-                    <div class="car-price">
-                        ${car.priceDisplay}
-                    </div>
-                    <div class="car-actions">
-                        <button onclick="addToFavorites(${car.id})" title="Add to Favorites">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button onclick="viewCarDetails(${car.id})" title="View Details">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    if (!searchToggle || !searchBar) return;
 
-    // Update load more button visibility
-    if (displayedCars >= filteredCars.length) {
-        loadMoreBtn.style.display = 'none';
-    } else {
-        loadMoreBtn.style.display = 'inline-flex';
-    }
-}
-
-// ===== Filter Cars =====
-function handleFilter(btn) {
-    // Update active button
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    currentFilter = btn.dataset.filter;
-    displayedCars = 6;
-
-    // Filter cars based on selection
-    if (currentFilter === 'all') {
-        filteredCars = [...carsData];
-    } else if (currentFilter === 'sale' || currentFilter === 'rent') {
-        filteredCars = carsData.filter(car => car.category === currentFilter);
-    } else {
-        filteredCars = carsData.filter(car => car.type === currentFilter);
-    }
-
-    renderCars();
-}
-
-// ===== Load More Cars =====
-function loadMoreCars() {
-    displayedCars += 3;
-    renderCars();
-}
-
-// ===== Search Functionality =====
-function handleSearch(e) {
-    e.preventDefault();
-
-    const serviceType = document.getElementById('serviceType').value;
-    const carBrand = document.getElementById('carBrand').value;
-    const location = document.getElementById('location').value;
-    const priceRange = document.getElementById('priceRange').value;
-
-    filteredCars = carsData.filter(car => {
-        let matches = true;
-
-        if (serviceType) {
-            matches = matches && car.category === serviceType;
+    searchToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        searchBar.classList.toggle('active');
+        const input = searchBar.querySelector('input');
+        if (searchBar.classList.contains('active') && input) {
+            setTimeout(() => input.focus(), 300);
         }
+    });
 
-        if (carBrand) {
-            matches = matches && car.brand === carBrand;
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            searchBar.classList.remove('active');
         }
+    });
 
-        if (location) {
-            matches = matches && car.location.toLowerCase() === location.replace('-', ' ');
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchBar.contains(e.target) && !searchToggle.contains(e.target)) {
+            searchBar.classList.remove('active');
         }
+    });
 
-        if (priceRange) {
-            const [min, max] = priceRange.split('-').map(p => parseInt(p.replace('+', '')));
-            if (max) {
-                matches = matches && car.price >= min && car.price <= max;
-            } else {
-                matches = matches && car.price >= min;
+    // Search form submission
+    const searchForm = searchBar.querySelector('form') || searchBar;
+    const searchInput = searchBar.querySelector('input');
+    const searchBtn = searchBar.querySelector('button');
+
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch(this.value);
             }
-        }
-
-        return matches;
-    });
-
-    displayedCars = 6;
-    
-    // Reset filter buttons
-    filterBtns.forEach(btn => btn.classList.remove('active'));
-    filterBtns[0].classList.add('active');
-
-    renderCars();
-    scrollToSection('cars');
-
-    if (filteredCars.length === 0) {
-        carsGrid.innerHTML = `
-            <div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 50px;">
-                <i class="fas fa-search" style="font-size: 60px; color: #ccc; margin-bottom: 20px;"></i>
-                <h3 style="color: #666; margin-bottom: 10px;">No cars found</h3>
-                <p style="color: #999;">Try adjusting your search criteria</p>
-                <button class="btn btn-primary" style="margin-top: 20px;" onclick="resetSearch()">Reset Search</button>
-            </div>
-        `;
-        loadMoreBtn.style.display = 'none';
-    }
-}
-
-// ===== Reset Search =====
-function resetSearch() {
-    document.getElementById('searchForm').reset();
-    filteredCars = [...carsData];
-    displayedCars = 6;
-    renderCars();
-}
-
-// ===== View Car Details =====
-function viewCarDetails(carId) {
-    const car = carsData.find(c => c.id === carId);
-    if (!car) return;
-
-    const modalContent = document.getElementById('carModalContent');
-    modalContent.innerHTML = `
-        <div class="car-modal-image">
-            <img data-src="${car.image}" src="${car.image}" alt="${car.name}" class="lazy-load loaded" onerror="this.src='temp_image_1769120549642.webp'" onload="this.classList.add('loaded'); this.parentElement.classList.remove('img-loading'); this.parentElement.classList.add('img-loaded');">
-        </div>
-        <div class="car-modal-details">
-            <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}" style="display: inline-block; margin-bottom: 15px;">
-                ${car.category === 'sale' ? 'For Sale' : 'For Rent'}
-            </span>
-            <h2>${car.name}</h2>
-            <div class="car-modal-price">${car.priceDisplay}</div>
-            <div class="car-modal-specs">
-                <div class="spec-item"><i class="fas fa-calendar"></i> Year: ${car.year}</div>
-                <div class="spec-item"><i class="fas fa-tachometer-alt"></i> Mileage: ${car.mileage}</div>
-                <div class="spec-item"><i class="fas fa-cog"></i> ${car.transmission}</div>
-                <div class="spec-item"><i class="fas fa-gas-pump"></i> ${car.fuel}</div>
-                <div class="spec-item"><i class="fas fa-palette"></i> Color: ${car.color}</div>
-                <div class="spec-item"><i class="fas fa-engine"></i> ${car.engine}</div>
-                <div class="spec-item"><i class="fas fa-check-circle"></i> ${car.condition}</div>
-                <div class="spec-item"><i class="fas fa-map-marker-alt"></i> ${car.location}</div>
-            </div>
-            <p style="color: #666; margin-bottom: 25px; line-height: 1.7;">${car.description}</p>
-            <div class="car-modal-actions">
-                <a href="https://wa.me/2348012345678?text=Hi, I'm interested in the ${encodeURIComponent(car.name)} listed at ${encodeURIComponent(car.priceDisplay)}"
-                   class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="tel:+2348012345678" class="btn btn-outline">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-            </div>
-        </div>
-    `;
-
-    openModal('carModal');
-}
-
-// ===== Add to Favorites =====
-function addToFavorites(carId) {
-    const car = carsData.find(c => c.id === carId);
-    if (!car) return;
-
-    // Get existing favorites from localStorage
-    let favorites = JSON.parse(localStorage.getItem('naijaautos_favorites') || '[]');
-    
-    // Check if already in favorites
-    const index = favorites.indexOf(carId);
-    if (index > -1) {
-        favorites.splice(index, 1);
-        showToast('Removed from favorites', 'success');
-    } else {
-        favorites.push(carId);
-        showToast(`${car.name} added to favorites!`, 'success');
-    }
-
-    localStorage.setItem('naijaautos_favorites', JSON.stringify(favorites));
-}
-
-// ===== Modal Functions =====
-function openModal(modalId) {
-    document.getElementById(modalId).classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function switchModal(fromModal, toModal) {
-    closeModal(fromModal);
-    setTimeout(() => openModal(toModal), 300);
-}
-
-// ===== Form Handlers =====
-function handleContactSubmit(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    
-    // Simulate form submission
-    console.log('Contact form submitted:', data);
-    
-    showToast('Message sent successfully! We\'ll get back to you soon.', 'success');
-    e.target.reset();
-}
-
-function handleNewsletterSubmit(e) {
-    e.preventDefault();
-    
-    const email = e.target.querySelector('input[type="email"]').value;
-    
-    // Simulate subscription
-    console.log('Newsletter subscription:', email);
-    
-    showToast('Successfully subscribed to our newsletter!', 'success');
-    e.target.reset();
-}
-
-function handleLoginSubmit(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-    
-    // Simulate login
-    console.log('Login attempt:', { email, password });
-    
-    showToast('Login successful! Welcome back.', 'success');
-    closeModal('loginModal');
-    e.target.reset();
-}
-
-function handleRegisterSubmit(e) {
-    e.preventDefault();
-    
-    const firstName = document.getElementById('regFirstName').value;
-    const lastName = document.getElementById('regLastName').value;
-    const email = document.getElementById('regEmail').value;
-    const phone = document.getElementById('regPhone').value;
-    const password = document.getElementById('regPassword').value;
-    
-    // Simulate registration
-    console.log('Registration:', { firstName, lastName, email, phone, password });
-    
-    showToast('Account created successfully! Welcome to NaijaAutos.', 'success');
-    closeModal('registerModal');
-    e.target.reset();
-}
-
-// ===== Toast Notification =====
-function showToast(message, type = 'success') {
-    // Remove existing toast
-    const existingToast = document.querySelector('.toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
-
-    // Create new toast
-    const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
-    toast.textContent = message;
-    document.body.appendChild(toast);
-
-    // Show toast
-    setTimeout(() => toast.classList.add('show'), 100);
-
-    // Hide toast after 3 seconds
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
-}
-
-// ===== Scroll Functions =====
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        const sectionTop = section.offsetTop - headerHeight;
-        window.scrollTo({
-            top: sectionTop,
-            behavior: 'smooth'
         });
     }
 }
 
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollPosition = window.scrollY + 100;
+function performSearch(query) {
+    if (query.trim()) {
+        // You can implement actual search functionality here
+        console.log('Searching for:', query);
+        // For now, just scroll to vehicles or show message
+        const vehiclesSection = document.getElementById('vehicles');
+        if (vehiclesSection) {
+            vehiclesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+}
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
+// ===========================
+// DROPDOWN MENUS (Mobile Support)
+// ===========================
+function initDropdowns() {
+    const dropdowns = document.querySelectorAll('.dropdown');
 
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            if (toggle && menu) {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    // Close other dropdowns
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            const otherMenu = other.querySelector('.dropdown-menu');
+                            if (otherMenu) {
+                                otherMenu.style.display = 'none';
+                            }
+                        }
+                    });
+
+                    // Toggle current
+                    if (menu.style.display === 'block') {
+                        menu.style.display = 'none';
+                    } else {
+                        menu.style.display = 'block';
+                        menu.style.position = 'static';
+                        menu.style.opacity = '1';
+                        menu.style.visibility = 'visible';
+                        menu.style.transform = 'translateY(0)';
+                        menu.style.boxShadow = 'none';
+                        menu.style.border = 'none';
+                        menu.style.borderRadius = '0';
+                        menu.style.padding = '0';
+                    }
+                });
+            }
+        });
+    }
+
+    // Close dropdowns on outside click
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            dropdowns.forEach(dropdown => {
+                const menu = dropdown.querySelector('.dropdown-menu');
+                if (menu && window.innerWidth <= 768) {
+                    menu.style.display = '';
+                    menu.style.position = '';
+                    menu.style.opacity = '';
+                    menu.style.visibility = '';
+                    menu.style.transform = '';
+                    menu.style.boxShadow = '';
+                    menu.style.border = '';
+                    menu.style.borderRadius = '';
+                    menu.style.padding = '';
                 }
             });
         }
     });
 }
 
-// ===== Scroll Effects =====
-function initializeScrollEffects() {
-    // Header shadow on scroll
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+// ===========================
+// TIME DROPDOWN POPULATION
+// ===========================
+function initTimeDropdown() {
+    const timeSelect = document.getElementById('pickupTime');
+    if (!timeSelect) return;
+
+    // Clear existing options except the placeholder
+    timeSelect.innerHTML = '<option value="">Select time</option>';
+
+    for (let hour = 0; hour < 24; hour++) {
+        for (let minute = 0; minute < 60; minute += 30) {
+            const time = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+            const period = hour < 12 ? 'AM' : 'PM';
+            const displayHour = hour % 12 || 12;
+            const displayTime = `${displayHour}:${String(minute).padStart(2, '0')} ${period}`;
+
+            const option = document.createElement('option');
+            option.value = time;
+            option.textContent = displayTime;
+            timeSelect.appendChild(option);
         }
+    }
+}
+
+// ===========================
+// VEHICLE DROPDOWN POPULATION
+// ===========================
+function initVehicleDropdown() {
+    const vehicleSelect = document.getElementById('vehicleType');
+    if (!vehicleSelect) return;
+
+    const vehicles = [
+        'Mercedes S-Class',
+        'Mercedes V-Class',
+        'Mercedes Sprinter',
+        'Mercedes G-Class',
+        'Mercedes E-Class',
+        'Lexus LX Series',
+        'Toyota Land Cruiser',
+        'Toyota Prado Series',
+        'Range Rover Velar',
+        'Range Rover Sport',
+        'Range Rover Autobiography',
+        'Cadillac Escalade V-Series'
+    ];
+
+    // Clear existing options
+    vehicleSelect.innerHTML = '<option value="">Select vehicle</option>';
+
+    vehicles.forEach(vehicle => {
+        const option = document.createElement('option');
+        option.value = vehicle.toLowerCase().replace(/\s+/g, '-');
+        option.textContent = `${vehicle} Hire`;
+        vehicleSelect.appendChild(option);
+    });
+}
+
+// ===========================
+// SET MIN DATE TO TODAY
+// ===========================
+function setMinDate() {
+    const dateInput = document.getElementById('pickupDate');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+}
+
+// ===========================
+// FORM VALIDATION
+// ===========================
+function initFormValidation() {
+    const form = document.getElementById('bookingForm');
+    if (!form) return;
+
+    // Real-time validation
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateField(this);
+        });
+
+        input.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+                validateField(this);
+            }
+        });
     });
 
-    // Animate elements on scroll
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let isValid = true;
+        const requiredFields = form.querySelectorAll('[required]');
+
+        requiredFields.forEach(field => {
+            if (!validateField(field)) {
+                isValid = false;
+            }
+        });
+
+        if (isValid) {
+            showNotification('success', 'Your booking request has been submitted successfully! Our team will contact you shortly.');
+            form.reset();
+        } else {
+            showNotification('error', 'Please fill in all required fields correctly.');
+        }
+    });
+}
+
+function validateField(field) {
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+
+    // Remove previous error
+    removeError(field);
+
+    // Required check
+    if (field.hasAttribute('required') && !value) {
+        isValid = false;
+        errorMessage = 'This field is required';
+    }
+
+    // Specific validation
+    if (value && isValid) {
+        switch (field.type) {
+            case 'email':
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid email address';
+                }
+                break;
+
+            case 'tel':
+                const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
+                if (!phoneRegex.test(value)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid phone number';
+                }
+                break;
+
+            case 'number':
+                const num = parseInt(value);
+                if (field.name === 'age' && (num < 18 || num > 100)) {
+                    isValid = false;
+                    errorMessage = 'You must be between 18 and 100 years';
+                }
+                if (field.name === 'quantity' && num < 1) {
+                    isValid = false;
+                    errorMessage = 'Minimum quantity is 1';
+                }
+                break;
+
+            case 'date':
+                const selectedDate = new Date(value);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (selectedDate < today) {
+                    isValid = false;
+                    errorMessage = 'Pickup date cannot be in the past';
+                }
+                break;
+        }
+    }
+
+    if (!isValid) {
+        showError(field, errorMessage);
+    }
+
+    return isValid;
+}
+
+function showError(field, message) {
+    field.classList.add('error');
+    field.style.borderColor = '#e94560';
+
+    const errorElement = document.createElement('span');
+    errorElement.className = 'error-message';
+    errorElement.textContent = message;
+    errorElement.style.cssText = `
+        color: #e94560;
+        font-size: 0.8rem;
+        margin-top: 0.25rem;
+        display: block;
+    `;
+
+    field.parentNode.appendChild(errorElement);
+}
+
+function removeError(field) {
+    field.classList.remove('error');
+    field.style.borderColor = '';
+
+    const parent = field.parentNode;
+    const existingError = parent.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+}
+
+// ===========================
+// NOTIFICATION SYSTEM
+// ===========================
+function showNotification(type, message) {
+    // Remove existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
+            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">&times;</button>
+        </div>
+    `;
+
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        max-width: 400px;
+        padding: 1rem 1.5rem;
+        background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+    `;
+
+    const content = notification.querySelector('.notification-content');
+    content.style.cssText = `
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    `;
+
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.style.cssText = `
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: auto;
+        opacity: 0.8;
+        padding: 0;
+        line-height: 1;
+    `;
+
+    document.body.appendChild(notification);
+
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease forwards';
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Add animation keyframes
+const animationStyles = document.createElement('style');
+animationStyles.textContent = `
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error {
+        border-color: #e94560 !important;
+    }
+    .error-message {
+        color: #e94560;
+        font-size: 0.8rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+`;
+document.head.appendChild(animationStyles);
+
+// ===========================
+// SMOOTH SCROLL
+// ===========================
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+
+            // Skip empty or dropdown toggles
+            if (!href || href === '#' || this.classList.contains('dropdown-toggle')) {
+                return;
+            }
+
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                e.preventDefault();
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ===========================
+// SCROLL ANIMATIONS
+// ===========================
+function initScrollAnimation() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe elements
-    document.querySelectorAll('.service-card, .testimonial-card, .stat-item, .feature-item').forEach(el => {
+    const animatedElements = document.querySelectorAll('.service-card, .vehicle-card, .option-card, .description-text, .stat-box');
+    animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-}
 
-// ===== Format Currency =====
-function formatNaira(amount) {
-    return new Intl.NumberFormat('en-NG', {
-        style: 'currency',
-        currency: 'NGN',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-    }).format(amount);
-}
-
-// ===== Keyboard Navigation =====
-document.addEventListener('keydown', (e) => {
-    // Close modal on Escape key
-    if (e.key === 'Escape') {
-        document.querySelectorAll('.modal.active').forEach(modal => {
-            closeModal(modal.id);
-        });
-    }
-});
-
-function initLazyLoading() {
-    if (!imageObserver) {
-        imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add("loading");
-                    const realSrc = img.dataset.src;
-                    if (realSrc) {
-                        img.src = realSrc;
-                        img.removeAttribute("data-src");
-                    }
-                    img.onload = function() {
-                        img.classList.remove("loading");
-                        img.classList.add("loaded");
-                        if (img.parentElement) {
-                            img.parentElement.classList.remove("img-loading");
-                            img.parentElement.classList.add("img-loaded");
-                        }
-                    };
-                    observer.unobserve(img);
-                }
-            });
-        }, { rootMargin: "50px 0px", threshold: 0.01 });
-    }
-    const images = document.querySelectorAll("img[data-src], img.lazy-load");
-    images.forEach(img => {
-        if (!img.classList.contains("loaded") && img.dataset.src) {
-            imageObserver.observe(img);
+    const animateStyle = document.createElement('style');
+    animateStyle.textContent = `
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
-    });
-}
-
-
-// ===== Phone Number Formatting =====
-// Initialize lazy loading for images
-document.addEventListener('DOMContentLoaded', () => {
-    initLazyLoading();
-    const phoneInputs = document.querySelectorAll('input[type="tel"]');
-    
-    phoneInputs.forEach(input => {
-        input.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-            
-            // Format Nigerian phone number
-            if (value.startsWith('234')) {
-                value = '+' + value;
-            } else if (value.startsWith('0')) {
-                value = '+234' + value.substring(1);
-            }
-            
-            // Limit length
-            if (value.length > 14) {
-                value = value.substring(0, 14);
-            }
-            
-            e.target.value = value;
-        });
-    });
-});
-
-// ===== Counter Animation for Stats =====
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-item h3');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.textContent.replace(/\D/g, ''));
-        const suffix = counter.textContent.replace(/[\d,]/g, '');
-        let current = 0;
-        const increment = target / 50;
-        const duration = 2000;
-        const stepTime = duration / 50;
-
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                counter.textContent = Math.floor(current).toLocaleString() + suffix;
-                setTimeout(updateCounter, stepTime);
-            } else {
-                counter.textContent = target.toLocaleString() + suffix;
-            }
-        };
-
-        // Start animation when element is in view
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                updateCounter();
-                observer.disconnect();
-            }
-        });
-
-        observer.observe(counter);
-    });
-}
-
-// Initialize counter animation
-document.addEventListener('DOMContentLoaded', animateCounters);
-
-// ===== Service Worker Registration (for PWA - future enhancement) =====
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered'))
-        //     .catch(error => console.log('SW registration failed'));
-    });
-}
-
-// ===== Initialize =====
-// Initialize lazy loading for images
-document.addEventListener('DOMContentLoaded', () => {
-    initLazyLoading();
-    renderCars();
-    initializeEventListeners();
-    initializeScrollEffects();
-});
-
-// ===== Event Listeners =====
-function initializeEventListeners() {
-    // Mobile Navigation
-    hamburger.addEventListener('click', toggleMobileNav);
-
-    // Filter Buttons
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => handleFilter(btn));
-    });
-
-    // Load More Button
-    loadMoreBtn.addEventListener('click', loadMoreCars);
-
-    // Search Form
-    searchForm.addEventListener('submit', handleSearch);
-
-    // Contact Form
-    contactForm.addEventListener('submit', handleContactSubmit);
-
-    // Newsletter Form
-    newsletterForm.addEventListener('submit', handleNewsletterSubmit);
-
-    // Login Form
-    loginForm.addEventListener('submit', handleLoginSubmit);
-
-    // Register Form
-    registerForm.addEventListener('submit', handleRegisterSubmit);
-
-    // Close modals on outside click
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal(modal.id);
-            }
-        });
-    });
-
-    // Navigation links - close mobile menu on click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
-    });
-
-    // Active nav link on scroll
-    window.addEventListener('scroll', updateActiveNavLink);
-}
-
-// ===== Mobile Navigation =====
-function toggleMobileNav() {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-}
-
-// ===== Render Cars =====
-function renderCars() {
-    const carsToShow = filteredCars.slice(0, displayedCars);
-
-    carsGrid.innerHTML = carsToShow.map((car, index) => `
-        <div class="car-card" style="animation-delay: ${index * 0.1}s" data-category="${car.category}" data-type="${car.type}">
-            <div class="car-image img-loading">
-                <img data-src="${car.image}" src="${car.image}" alt="${car.name}" class="lazy-load loaded" onerror="this.src='temp_image_1769120549642.webp'" onload="this.classList.add('loaded'); this.parentElement.classList.remove('img-loading'); this.parentElement.classList.add('img-loaded');">
-                <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}">
-                    ${car.category === 'sale' ? 'For Sale' : 'For Rent'}
-                </span>
-                ${car.featured ? '<span class="badge-featured">Featured</span>' : ''}
-            </div>
-            <div class="car-details">
-                <h3 class="car-title">${car.name}</h3>
-                <div class="car-specs">
-                    <span><i class="fas fa-calendar"></i> ${car.year}</span>
-                    <span><i class="fas fa-tachometer-alt"></i> ${car.mileage}</span>
-                    <span><i class="fas fa-cog"></i> ${car.transmission}</span>
-                    <span><i class="fas fa-gas-pump"></i> ${car.fuel}</span>
-                </div>
-                <div class="car-location">
-                    <i class="fas fa-map-marker-alt"></i> ${car.location}, Nigeria
-                </div>
-                <div class="car-footer">
-                    <div class="car-price">
-                        ${car.priceDisplay}
-                        ${car.category === 'rent' ? '' : ''}
-                    </div>
-                    <div class="car-actions">
-                        <button onclick="addToFavorites(${car.id})" title="Add to Favorites">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <button onclick="viewCarDetails(${car.id})" title="View Details">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
-
-    // Update load more button visibility
-    if (displayedCars >= filteredCars.length) {
-        loadMoreBtn.style.display = 'none';
-    } else {
-        loadMoreBtn.style.display = 'inline-flex';
-    }
-}
-
-// ===== Filter Cars =====
-function handleFilter(btn) {
-    // Update active button
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    currentFilter = btn.dataset.filter;
-    displayedCars = 6;
-
-    // Filter cars based on selection
-    if (currentFilter === 'all') {
-        filteredCars = [...carsData];
-    } else if (currentFilter === 'sale' || currentFilter === 'rent') {
-        filteredCars = carsData.filter(car => car.category === currentFilter);
-    } else {
-        filteredCars = carsData.filter(car => car.type === currentFilter);
-    }
-
-    renderCars();
-}
-
-// ===== Load More Cars =====
-function loadMoreCars() {
-    displayedCars += 3;
-    renderCars();
-}
-
-// ===== Search Functionality =====
-function handleSearch(e) {
-    e.preventDefault();
-
-    const serviceType = document.getElementById('serviceType').value;
-    const carBrand = document.getElementById('carBrand').value;
-    const location = document.getElementById('location').value;
-    const priceRange = document.getElementById('priceRange').value;
-
-    filteredCars = carsData.filter(car => {
-        let matches = true;
-
-        if (serviceType) {
-            matches = matches && car.category === serviceType;
-        }
-
-        if (carBrand) {
-            matches = matches && car.brand === carBrand;
-        }
-
-        if (location) {
-            matches = matches && car.location.toLowerCase() === location.replace('-', ' ');
-        }
-
-        if (priceRange) {
-            const [min, max] = priceRange.split('-').map(p => parseInt(p.replace('+', '')));
-            if (max) {
-                matches = matches && car.price >= min && car.price <= max;
-            } else {
-                matches = matches && car.price >= min;
-            }
-        }
-
-        return matches;
-    });
-
-    displayedCars = 6;
-    
-    // Reset filter buttons
-    filterBtns.forEach(btn => btn.classList.remove('active'));
-    filterBtns[0].classList.add('active');
-
-    renderCars();
-    scrollToSection('cars');
-
-    if (filteredCars.length === 0) {
-        carsGrid.innerHTML = `
-            <div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 50px;">
-                <i class="fas fa-search" style="font-size: 60px; color: #ccc; margin-bottom: 20px;"></i>
-                <h3 style="color: #666; margin-bottom: 10px;">No cars found</h3>
-                <p style="color: #999;">Try adjusting your search criteria</p>
-                <button class="btn btn-primary" style="margin-top: 20px;" onclick="resetSearch()">Reset Search</button>
-            </div>
-        `;
-        loadMoreBtn.style.display = 'none';
-    }
-}
-
-// ===== Reset Search =====
-function resetSearch() {
-    document.getElementById('searchForm').reset();
-    filteredCars = [...carsData];
-    displayedCars = 6;
-    renderCars();
-}
-
-// ===== View Car Details =====
-function viewCarDetails(carId) {
-    const car = carsData.find(c => c.id === carId);
-    if (!car) return;
-
-    const modalContent = document.getElementById('carModalContent');
-    modalContent.innerHTML = `
-        <div class="car-modal-image">
-            <img data-src="${car.image}" src="${car.image}" alt="${car.name}" class="lazy-load loaded" onerror="this.src='temp_image_1769120549642.webp'" onload="this.classList.add('loaded'); this.parentElement.classList.remove('img-loading'); this.parentElement.classList.add('img-loaded');">
-        </div>
-        <div class="car-modal-details">
-            <span class="car-badge ${car.category === 'sale' ? 'badge-sale' : 'badge-rent'}" style="display: inline-block; margin-bottom: 15px;">
-                ${car.category === 'sale' ? 'For Sale' : 'For Rent'}
-            </span>
-            <h2>${car.name}</h2>
-            <div class="car-modal-price">${car.priceDisplay}</div>
-            <div class="car-modal-specs">
-                <div class="spec-item"><i class="fas fa-calendar"></i> Year: ${car.year}</div>
-                <div class="spec-item"><i class="fas fa-tachometer-alt"></i> Mileage: ${car.mileage}</div>
-                <div class="spec-item"><i class="fas fa-cog"></i> ${car.transmission}</div>
-                <div class="spec-item"><i class="fas fa-gas-pump"></i> ${car.fuel}</div>
-                <div class="spec-item"><i class="fas fa-palette"></i> Color: ${car.color}</div>
-                <div class="spec-item"><i class="fas fa-engine"></i> ${car.engine}</div>
-                <div class="spec-item"><i class="fas fa-check-circle"></i> ${car.condition}</div>
-                <div class="spec-item"><i class="fas fa-map-marker-alt"></i> ${car.location}</div>
-            </div>
-            <p style="color: #666; margin-bottom: 25px; line-height: 1.7;">${car.description}</p>
-            <div class="car-modal-actions">
-                <a href="https://wa.me/2348012345678?text=Hi, I'm interested in the ${encodeURIComponent(car.name)} listed at ${encodeURIComponent(car.priceDisplay)}"
-                   class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="tel:+2348012345678" class="btn btn-outline">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-            </div>
-        </div>
     `;
-
-    openModal('carModal');
+    document.head.appendChild(animateStyle);
 }
 
-// ===== Add to Favorites =====
-function addToFavorites(carId) {
-    const car = carsData.find(c => c.id === carId);
-    if (!car) return;
+// Initialize scroll animation
+initScrollAnimation();
 
-    // Get existing favorites from localStorage
-    let favorites = JSON.parse(localStorage.getItem('naijaautos_favorites') || '[]');
-    
-    // Check if already in favorites
-    const index = favorites.indexOf(carId);
-    if (index > -1) {
-        favorites.splice(index, 1);
-        showToast('Removed from favorites', 'success');
-    } else {
-        favorites.push(carId);
-        showToast(`${car.name} added to favorites!`, 'success');
-    }
-
-    localStorage.setItem('naijaautos_favorites', JSON.stringify(favorites));
-}
-
-// ===== Modal Functions =====
-function openModal(modalId) {
-    document.getElementById(modalId).classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function switchModal(fromModal, toModal) {
-    closeModal(fromModal);
-    setTimeout(() => openModal(toModal), 300);
-}
-
-// ===== Form Handlers =====
-function handleContactSubmit(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    
-    // Simulate form submission
-    console.log('Contact form submitted:', data);
-    
-    showToast('Message sent successfully! We\'ll get back to you soon.', 'success');
-    e.target.reset();
-}
-
-function handleNewsletterSubmit(e) {
-    e.preventDefault();
-    
-    const email = e.target.querySelector('input[type="email"]').value;
-    
-    // Simulate subscription
-    console.log('Newsletter subscription:', email);
-    
-    showToast('Successfully subscribed to our newsletter!', 'success');
-    e.target.reset();
-}
-
-function handleLoginSubmit(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-    
-    // Simulate login
-    console.log('Login attempt:', { email, password });
-    
-    showToast('Login successful! Welcome back.', 'success');
-    closeModal('loginModal');
-    e.target.reset();
-}
-
-function handleRegisterSubmit(e) {
-    e.preventDefault();
-    
-    const firstName = document.getElementById('regFirstName').value;
-    const lastName = document.getElementById('regLastName').value;
-    const email = document.getElementById('regEmail').value;
-    const phone = document.getElementById('regPhone').value;
-    const password = document.getElementById('regPassword').value;
-    
-    // Simulate registration
-    console.log('Registration:', { firstName, lastName, email, phone, password });
-    
-    showToast('Account created successfully! Welcome to NaijaAutos.', 'success');
-    closeModal('registerModal');
-    e.target.reset();
-}
-
-// ===== Toast Notification =====
-function showToast(message, type = 'success') {
-    // Remove existing toast
-    const existingToast = document.querySelector('.toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
-
-    // Create new toast
-    const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
-    toast.textContent = message;
-    document.body.appendChild(toast);
-
-    // Show toast
-    setTimeout(() => toast.classList.add('show'), 100);
-
-    // Hide toast after 3 seconds
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
-}
-
-// ===== Scroll Functions =====
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        const sectionTop = section.offsetTop - headerHeight;
-        window.scrollTo({
-            top: sectionTop,
-            behavior: 'smooth'
-        });
-    }
-}
-
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollPosition = window.scrollY + 100;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}
-
-// ===== Scroll Effects =====
-function initializeScrollEffects() {
-    // Header shadow on scroll
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-        }
-    });
-
-    // Animate elements on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements
-    document.querySelectorAll('.service-card, .testimonial-card, .stat-item, .feature-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-}
-
-// ===== Format Currency =====
-function formatNaira(amount) {
-    return new Intl.NumberFormat('en-NG', {
-        style: 'currency',
-        currency: 'NGN',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-    }).format(amount);
-}
-
-// ===== Keyboard Navigation =====
-document.addEventListener('keydown', (e) => {
-    // Close modal on Escape key
-    if (e.key === 'Escape') {
-        document.querySelectorAll('.modal.active').forEach(modal => {
-            closeModal(modal.id);
-        });
-    }
-});
-
-function initLazyLoading() {
-    if (!imageObserver) {
-        imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add("loading");
-                    const realSrc = img.dataset.src;
-                    if (realSrc) {
-                        img.src = realSrc;
-                        img.removeAttribute("data-src");
-                    }
-                    img.onload = function() {
-                        img.classList.remove("loading");
-                        img.classList.add("loaded");
-                        if (img.parentElement) {
-                            img.parentElement.classList.remove("img-loading");
-                            img.parentElement.classList.add("img-loaded");
-                        }
-                    };
-                    observer.unobserve(img);
-                }
-            });
-        }, { rootMargin: "50px 0px", threshold: 0.01 });
-    }
-    const images = document.querySelectorAll("img[data-src], img.lazy-load");
-    images.forEach(img => {
-        if (!img.classList.contains("loaded") && img.dataset.src) {
-            imageObserver.observe(img);
-        }
-    });
-}
-
-
-// ===== Phone Number Formatting =====
-// Initialize lazy loading for images
-document.addEventListener('DOMContentLoaded', () => {
-    initLazyLoading();
-    const phoneInputs = document.querySelectorAll('input[type="tel"]');
-    
-    phoneInputs.forEach(input => {
-        input.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-            
-            // Format Nigerian phone number
-            if (value.startsWith('234')) {
-                value = '+' + value;
-            } else if (value.startsWith('0')) {
-                value = '+234' + value.substring(1);
-            }
-            
-            // Limit length
-            if (value.length > 14) {
-                value = value.substring(0, 14);
-            }
-            
-            e.target.value = value;
-        });
-    });
-});
-
-// ===== Counter Animation for Stats =====
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-item h3');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.textContent.replace(/\D/g, ''));
-        const suffix = counter.textContent.replace(/[\d,]/g, '');
-        let current = 0;
-        const increment = target / 50;
-        const duration = 2000;
-        const stepTime = duration / 50;
-
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                counter.textContent = Math.floor(current).toLocaleString() + suffix;
-                setTimeout(updateCounter, stepTime);
-            } else {
-                counter.textContent = target.toLocaleString() + suffix;
-            }
+// ===========================
+// UTILITY FUNCTIONS
+// ===========================
+function debounce(func, wait = 100) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
         };
-
-        // Start animation when element is in view
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                updateCounter();
-                observer.disconnect();
-            }
-        });
-
-        observer.observe(counter);
-    });
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
 
-// Initialize counter animation
-document.addEventListener('DOMContentLoaded', animateCounters);
-
-// ===== Service Worker Registration (for PWA - future enhancement) =====
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered'))
-        //     .catch(error => console.log('SW registration failed'));
-    });
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 }
 
-console.log('NaijaAutos - Nigeria\'s Premier Car Sales & Rentals Platform');
-console.log('© 2026 NaijaAutos. All Rights Reserved.');
+// Header shadow on scroll
+window.addEventListener('scroll', throttle(function() {
+    const header = document.querySelector('.header');
+    if (header) {
+        if (window.pageYOffset > 50) {
+            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        } else {
+            header.style.boxShadow = 'none';
+        }
+    }
+}, 100));
 
-
+// Console branding
+console.log('%c🚗 WHYTE AUTOS - Luxury Car Rentals', 'color: #d4af37; font-size: 20px; font-weight: bold;');
+console.log('%cPremium chauffeur services across Nigeria', 'color: #ffffff; font-size: 14px;');
