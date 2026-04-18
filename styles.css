@@ -386,15 +386,13 @@ ul {
    HERO SECTION
    ======================================== */
 .hero {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), 
-                url('https://images.pexels.com/photos/2127029/pexels-photo-2127029.jpeg?w=1600');
+    background: linear-gradient(rgba(10, 10, 26, 0.75), rgba(10, 10, 26, 0.75)), url('https://images.pexels.com/photos/2127029/pexels-photo-2127029.jpeg?w=1600');
     background-size: cover;
-    background-position: center 35%;
-    background-repeat: no-repeat;
+    background-position: center;
     position: relative;
 }
 
@@ -427,7 +425,6 @@ ul {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero p {
@@ -437,7 +434,6 @@ ul {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 /* ========================================
@@ -1371,17 +1367,13 @@ textarea:focus:not(:focus-visible) {
         display: flex;
     }
 
-     .hero h1 {
-         font-size: 2.5rem;
-     }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 
-     .hero p {
-         font-size: 1.1rem;
-     }
-
-     .hero {
-         background-position: center 30%;
-     }
+    .hero p {
+        font-size: 1.1rem;
+    }
 
     .booking-grid {
         grid-template-columns: 1fr;
@@ -1436,14 +1428,9 @@ textarea:focus:not(:focus-visible) {
         padding: 5rem 1rem 3rem;
     }
 
-     .hero h1 {
-         font-size: 2rem;
-     }
-
-     .hero {
-         background-position: center 25%;
-         min-height: 70vh;
-     }
+    .hero h1 {
+        font-size: 2rem;
+    }
 
     .what-we-do-images {
         grid-template-columns: 1fr;
